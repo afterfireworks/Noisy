@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Amaranth:wght@400;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        // M.AutoInit();
+    </script>
+    <script src="src/index.js"></script>
+</head>
+
+<body>
+
+    <header id="home" class="navbar-fixed valign-wrapper">
+
+        <nav>
+            <div class="container">
+                <a href="index.html" class="brand-logo" class="responsive-img">
+                    <img src="./src/img/home/logo.jpg" alt="Noise" class="responsive-img">
+                </a>
+                <a href="#" class="right sidenav-trigger show-on-medium-and-up" data-target="side-nav">
+                    <i class="material-icons">menu</i>
+                </a>
+            </div>
+        </nav>
+
+        <ul id="side-nav" class="sidenav sidenav-fixed">
+            <li id="side-nav-logo"><img src="./src/img/home/logo.jpg" alt="logo" class="responsive-img"></li>
+            <li>
+                <div class="divider"></div>
+            </li>
+            <li><a class="sidenav-close waves-effect center-align " href="#home">
+                    <h5>Home</h5>
+                </a></li>
+            <li><a class="sidenav-close waves-effect center-align" href="#about">
+                    <h5>About</h5>
+                </a></li>
+            <li><a class="sidenav-close waves-effect center-align" href="#skills">
+                    <h5>Skills</h5>
+                </a></li>
+            <li><a class="sidenav-close waves-effect center-align" href="#project">
+                    <h5>Project</h5>
+                </a></li>
+            <li><a class="sidenav-close waves-effect center-align" href="#coding-link">
+                    <h5>Coding</h5>
+                </a></li>
+            <li>
+                <div class="divider"></div>
+            </li>
+        </ul>
+
+        <div id="oneself" class="container">
+            <div class="row valign-wrapper">
+                <div id="photo" class="col s12 m6">
+                    <img class="responsive-img" src="src/img/home/self.jpg" alt="">
+                </div>
+                <div id="data" class="col s12 m6 valign-wrapper">
+                    <h2>Noise </h2>
+                    <h6><span class="tag">Born</span>1987 / 6 / 20</h6>
+                    <h6><span class="tag">Education</span>國立宜蘭大學</h6>
+                    <h6><span class="tag">Area</span>屏東市</h6>
+                    <h6><span class="tag">Yearn</span>網頁排版｜程式設計</h6>
+                    <h6><span class="tag">Interest</span>音樂相關｜網頁設計</h6>
+                </div>
+            </div>
+        </div>
+    </header>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let sidenav = document.querySelectorAll('.sidenav');
+            let instances = M.Sidenav.init(sidenav, {
+                edge: 'left',
+                preventScrolling: 'true',
+            });
+        });
+    </script>
+
+    <!-- About Me -->
+    <section id="about" class="section section-about grey-text text-darken-2">
+        <div class="container center-align">
+            
+            <h3>About Me</h3>
+
+            <p class="grey-text text-darken-1">沉迷後搖, 享受組團與演奏, 在網頁設計中感到安穩.</p>
+
+            <div class="card row col s12">
+                <div id="snapshot" class="card-content valign-wrapper">
+                    <img class="col l4 s4" src="src/img/aboutme/Tune.jpg" alt="" srcset="">
+                    <img class="col l4 s4" src="src/img/aboutme/BlackSoldierFly.jpg" alt="" srcset="">
+                    <img class="col l4 s4" src="src/img/aboutme/Pcschool.jpg" alt="" srcset="">
+                </div>
+                <div class="card-tabs">
+                    <ul class="tabs tabs-fixed-width">
+                        <li class="tab"><a href="#first" class="active">第一時期</a></li>
+                        <li class="tab"><a href="#second">第二時期</a></li>
+                        <li class="tab"><a href="#third">第三時期</a></li>
+                    </ul>
+                </div>
+                <div class="card-content">
+                    <div id="first">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem vero maxime voluptas
+                        molestias enim dolore nemo odit eos recusandae consequatur molestiae amet omnis, reiciendis
+                        assumenda, ratione sed provident explicabo. Dolor.</div>
+                    <div id="second">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum praesentium
+                        consectetur quod nemo assumenda. Recusandae obcaecati eum itaque ducimus iure delectus fuga
+                        rerum velit repellat commodi ullam atque labore culpa odio a minima perspiciatis incidunt
+                        consequuntur nobis quibusdam rem quae, suscipit in quisquam. Sequi sunt nesciunt animi, officia
+                        itaque quae.</div>
+                    <div id="third">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi nobis eos atque
+                        inventore ea ex tempore illum consequuntur similique harum corrupti fugiat facere cupiditate
+                        doloribus explicabo, aliquam earum numquam recusandae aut eveniet molestiae sed dolorum unde
+                        voluptatem? Eius, beatae recusandae?</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let tabs = document.querySelector('.tabs');
+            let instances = M.Tabs.init(tabs);
+        });
+    </script>
+
+    <!-- skill -->
+    <section id="skills" class="section-skills parallax-container">
+        <div class="overlay">
+            <div class="carousel carousel-slider center-align">
+                <!--Front-End Skills-->
+                <div class="carousel-item white-text" href="#FrontEnd" id="Front-End-carousel-item">
+                    <div class="container">
+                        <h3>Front-End</h3>
+                        <div class="row valign-wrapper">
+                            <div class="carousel-logo col xl2 s2 fsac">
+                                <img src="./src/img/skill/icons8-html-5-96.png" alt="HTML 5 Logo"
+                                    class="responsive-img">
+                                <span class="tooltip-text">HTML5</span>
+                            </div>
+                            <div class="carousel-logo col xl2 s2 fsac">
+                                <img src="./src/img/skill/icons8-css3-96.png" alt="CSS 3 Logo" class="responsive-img">
+                                <span class="tooltip-text">CSS3</span>
+                            </div>
+                            <div class="carousel-logo col xl2 s2 fsac">
+                                <img src="./src/img/skill/icons8-javascript-96.png" alt="CSS 3 Logo"
+                                    class="responsive-img">
+                                <span class="tooltip-text">Javascript</span>
+                            </div>
+                            <div class="carousel-logo col xl2 s2 fsac">
+                                <img src="./src/img/skill/icons8-sass-avatar-96.png" alt="CSS 3 Logo"
+                                    class="responsive-img">
+                                <span class="tooltip-text">Sass</span>
+                            </div>
+                            <!-- <div class="carousel-logo col xl2 s2 fsac">
+                                <img src="./src/img/skill/wait.png" alt="CSS 3 Logo" class="responsive-img">
+                                <span class="tooltip-text">Bootstrap</span>
+                            </div> -->
+                            <div class="carousel-logo col xl2 s2 fsac">
+                                <img src="./src/img/skill/wait.png" alt="CSS 3 Logo" class="responsive-img">
+                                <span class="tooltip-text">Materialize</span>
+                            </div>
+                            <div class="carousel-logo col xl2 s2 fsac">
+                                <img src="./src/img/skill/icons8-react-native-96.png" alt="CSS 3 Logo"
+                                    class="responsive-img">
+                                <span class="tooltip-text">React</span>
+                            </div>
+                            <!-- <div class="carousel-logo col xl2 s2 fsac">
+                                <img src="./src/img/skill/icons8-redux-96.png" alt="CSS 3 Logo" class="responsive-img">
+                                <span class="tooltip-text">Redux</span>
+                            </div> -->
+                            <!--Other Front-End Skills-->
+                        </div>
+                    </div>
+                </div>
+                <!--Back-End Skills-->
+                <!-- <div class="carousel-item white-text" href="#BackEnd" id="Back-End-carousel-item">
+                    <div class="container">
+                        <h3>Back-End</h3>
+                        <div class="row valign-wrapper">
+                            <div class="carousel-logo col s2 fsac">
+                                <img src="./src/img/skill/icons8-html-5-96.png" alt="HTML 5 Logo"  class="responsive-img">
+                                <span class="tooltip-text">HTML5</span>
+                            </div>
+                            <div class="carousel-logo col s2 fsac">
+                                <img src="./src/img/skill/icons8-css3-96.png" alt="CSS 3 Logo"  class="responsive-img">
+                                <span class="tooltip-text">CSS3</span>
+                            </div>
+                            <div class="carousel-logo col s2 fsac">
+                                <img src="./src/img/skill/icons8-sass-avatar-96.png" alt="CSS 3 Logo"  class="responsive-img">
+                                <span class="tooltip-text">Sass</span>
+                            </div>
+                            <div class="carousel-logo col s2 fsac">
+                                <img src="./src/img/skill/icons8-javascript-96.png" alt="CSS 3 Logo"  class="responsive-img">
+                                <span class="tooltip-text">Javascript</span>
+                            </div>
+                            <div class="carousel-logo col s2 fsac">
+                                <img src="./src/img/skill/icons8-react-native-96.png" alt="CSS 3 Logo"  class="responsive-img">
+                                <span class="tooltip-text">React</span>
+                            </div>
+                            Other Back-End Skills
+                        </div>
+                    </div>
+                </div> -->
+                <!--Tools Skills-->
+                <div class="carousel-item white-text" href="#Tools" id="Tools-carousel-item">
+                    <div class="container">
+                        <h3>Tools</h3>
+                        <div class="row valign-wrapper">
+                            <div class="carousel-logo col s2 fsac">
+                                <img src="./src/img/skill/icons8-git-96.png" alt="HTML 5 Logo" class="responsive-img">
+                                <span class="tooltip-text">Git</span>
+                            </div>
+                            <div class="carousel-logo col s2 fsac">
+                                <img src="./src/img/skill/icons8-github-96.png" alt="CSS 3 Logo" class="responsive-img">
+                                <span class="tooltip-text">Github</span>
+                            </div>
+                            <div class="carousel-logo col s2 fsac">
+                                <img src="./src/img/skill/icons8-npm-96.png" alt="CSS 3 Logo" class="responsive-img">
+                                <span class="tooltip-text">NPM</span>
+                            </div>
+                            <div class="carousel-logo col s2 fsac">
+                                <img src="./src/img/skill/wait.png" alt="CSS 3 Logo" class="responsive-img">
+                                <span class="tooltip-text">Yarn</span>
+                            </div>
+                            <div class="carousel-logo col s2 fsac">
+                                <img src="./src/img/skill/wait.png" alt="CSS 3 Logo" class="responsive-img">
+                                <span class="tooltip-text">Parcel</span>
+                            </div>
+                            <div class="carousel-logo col s2 fsac">
+                                <img src="./src/img/skill/wait.png" alt="CSS 3 Logo" class="responsive-img">
+                                <span class="tooltip-text">Webpack</span>
+                            </div>
+                            <!--Other Tools Skills-->
+                        </div>
+                    </div>
+                </div>
+                <!--Other Skills-->
+                <div class="carousel-item white-text" href="#Graphic" id="Graphic-carousel-item">
+                    <div class="container">
+                        <h3>Graphic</h3>
+                        <div class="row valign-wrapper">
+                            <div class="carousel-logo col s2 fsac">
+                                <img src="./src/img/skill/icons8-adobe-photoshop-96.png" alt="HTML 5 Logo"
+                                    class="responsive-img">
+                                <span class="tooltip-text">Photoshop</span>
+                            </div>
+                            <div class="carousel-logo col s2 fsac">
+                                <img src="./src/img/skill/icons8-adobe-illustrator-96.png" alt="CSS 3 Logo"
+                                    class="responsive-img">
+                                <span class="tooltip-text">Illustrator</span>
+                            </div>
+                            <div class="carousel-logo col s2 fsac">
+                                <img src="./src/img/skill/icons8-adobe-xd-96.png" alt="CSS 3 Logo"
+                                    class="responsive-img">
+                                <span class="tooltip-text">XD</span>
+                            </div>
+                            <div class="carousel-logo col s2 fsac">
+                                <img src="./src/img/skill/icons8-adobe-premiere-pro-96.png" alt="CSS 3 Logo"
+                                    class="responsive-img">
+                                <span class="tooltip-text">Premiere Pro</span>
+                            </div>
+                            <div class="carousel-logo col s2 fsac">
+                                <img src="./src/img/skill/icons8-adobe-after-effects-96.png" alt="CSS 3 Logo"
+                                    class="responsive-img">
+                                <span class="tooltip-text">After Effects</span>
+                            </div>
+                            <!--Other Graphic Skills-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="parallax"><img src="src/img/skill/skill-bg.jpg"></div>
+    </section>
+    <Script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let carouselSlider = document.querySelectorAll('.carousel-slider');
+            let instances = M.Carousel.init(carouselSlider, {
+                fullWidth: true,
+                indicators: true,
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            var parallax = document.querySelectorAll('.parallax');
+            var instances = M.Parallax.init(parallax);
+        });
+    </Script>
+
+    <!-- 作品集 -->
+    <section id="project" class=" section section-project grey-text text-darken-2">
+        <div class="container">
+            <h3 class="center">Project</h3>
+            <h6 class="grey-text text-darken-1 center">
+                All list of projects on my <span class="light-blue-text text-accent-4"><a
+                        href="https://github.com/smallpaes?tab=repositories" target="_blank"
+                        id="github-repo-link">GitHubPage</a></span>
+            </h6>
+
+            <div class="row">
+                <!--Projects be displayed here-->
+                <div class="carddisplay col s12 m6">
+                    <div class="card sticky-action hoverable">
+                        <div class="card-image waves-effect waves-light waves-block">
+                            <img class="activator" src="./src/img/project/portfolios.LilituCoffee.jpg"
+                                alt="Lilitu x Coffee Project Cover Photo">
+                            <!-- <div class="overlay"></div> -->
+                            <span class="card-title activator">Lilitu x Coffee</span>
+                        </div>
+                        <div class="card-action">
+                            <p class="activator truncate">Demo & Code
+                            <div>
+                                <a href="https://codesandbox.io/dashboard/home?workspace=686d19e4-b572-4634-b203-b0ac97aad1cd"
+                                    target="_blank">
+                                    <span class="new badge green activator" data-badge-caption="Demo">
+                                    </span>
+                                </a>
+                                <a href="https://github.com/afterfireworks?tab=repositories" target="_blank">
+                                    <span class="new badge grey activator" data-badge-caption="Code">
+                                    </span>
+                                </a>
+                            </div>
+                            </p>
+                        </div>
+                        <div class="card-reveal">
+                            <!-- <div class="overlay"></div> -->
+                            <span class="card-title white-text">
+                                Constitute
+                                <i class="material-icons right">close</i>
+                            </span>
+                            <!-- <ul class="white-text">
+                            <li><i class="fas fa-caret-right"></i>Express Handlebars & Bootstrap</li>
+                        </ul>
+                        <div id="card-reveal-icons">
+                            <a href="https://boiling-beach-19178.herokuapp.com/"
+                                class="right btn-floating btn-small waves-effect waves-light teal" target="_blank"><i
+                                    class="fas fa-home"></i></a>`
+                        </div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="cardinfo col s12 m5">
+                    <h4 class="">Info</h4>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, perspiciatis? Molestias
+                        incidunt, consequuntur assumenda ad corporis odio deserunt provident enim et, modi quod iusto
+                        qui? Ut vero doloremque deleniti temporibus!
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!--coding-->
+    <section id="coding-link" class="section-coding-link parallax-container">
+        <div id="coding-link-content">
+            <div class="container">
+                <div class="row center-align white-text">
+                    <h3>Coding</h3>
+                    <div class="col s8 offset-s2">
+                        <a class="btn waves-effect waves-light light-blue accent-4" target="_blank"
+                            href="https://github.com/afterfireworks?tab=repositories">
+                            <i class="fab fa-github left"></i>GitHub
+                        </a>
+                        <a class="btn waves-effect waves-light red darken-1" target="_blank"
+                            href="https://codesandbox.io/dashboard/home?workspace=686d19e4-b572-4634-b203-b0ac97aad1cd">
+                            <i class="fab fa-medium left"></i>CodeSandBox
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="parallax">
+            <img src="./SRC/img/coding/coding-bg.jpg" alt="designxweb">
+            <div class="overlay"></div>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="page-footer grey darken-4">
+        <div class="container">
+            <div class="row">
+                <div class="col m12 s12 center">
+                    <div class="responsive-img"><img src="src/img/footer/logo.jpg" alt></div>
+                    <h5 class="grey-text text-lighten-4">You can use rows and columns here to organize your footer
+                        content.</h5>
+                </div>
+                <div class="col m12 s12">
+                    <h4 class="white-text center-align">Contact</h4>
+                    <div class="contact-link center">
+                        <a class="responsive-img" href="#!"><img src="src/img/footer/icons8-instagram-white-48.png" alt></a>
+                        <a class="responsive-img" href="#!"><img src="src/img/footer/icons8-line-me-white-48.png" alt></a>
+                        <a class="responsive-img" href="#!"><img src="src/img/footer/icons8-facebook-message-white-48.png" alt></a>
+                        <a class="responsive-img" href="#!"><img src="src/img/footer/icons8-whiteboard-white-48.png" alt></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container center-align">Noise © 2014 Copyright</div>
+        </div>
+    </footer>
+</body>
+
+</html>
