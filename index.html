@@ -4,18 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Amaranth:wght@400;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap"
-        rel="stylesheet">
+    <title>Noisy</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Amaranth:wght@400;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="index.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script>
-        // M.AutoInit();
-    </script>
-    <script src="src/index.js"></script>
+    <link rel="stylesheet" href="index.min.css">
 </head>
 
 <body>
@@ -73,31 +68,19 @@
                 </div>
             </div>
         </div>
+        <a  id="next" href="#about"><i class="large material-icons">expand_more</i></a>
     </header>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            let sidenav = document.querySelectorAll('.sidenav');
-            let instances = M.Sidenav.init(sidenav, {
-                edge: 'left',
-                preventScrolling: 'true',
-            });
-        });
-    </script>
+
 
     <!-- About Me -->
     <section id="about" class="section section-about grey-text text-darken-2">
-        <div class="container center-align">
-            
-            <h3>About Me</h3>
-
-            <p class="grey-text text-darken-1">沉迷後搖, 享受組團與演奏, 在網頁設計中感到安穩.</p>
-
-            <div class="card row col s12">
-                <div id="snapshot" class="card-content valign-wrapper">
-                    <img class="col l4 s4" src="src/img/aboutme/Tune.jpg" alt="" srcset="">
-                    <img class="col l4 s4" src="src/img/aboutme/BlackSoldierFly.jpg" alt="" srcset="">
-                    <img class="col l4 s4" src="src/img/aboutme/Pcschool.jpg" alt="" srcset="">
-                </div>
+        <div class="container row center-align">
+            <h3 class="">About Me</h3>
+            <p class="col s12 hashtags grey-text text-darken-1">
+                <span>#沉迷後搖</span><span>#享受組團與演奏</span><span>#在網頁設計中感到安穩</span></p>
+            <button class="toggle-btn btn-floating btn-large waves-effect waves-light"><i
+                    class="material-icons">add</i></button>
+            <div class="card infocard col s12">
                 <div class="card-tabs">
                     <ul class="tabs tabs-fixed-width">
                         <li class="tab"><a href="#first" class="active">第一時期</a></li>
@@ -106,9 +89,18 @@
                     </ul>
                 </div>
                 <div class="card-content">
-                    <div id="first">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem vero maxime voluptas
-                        molestias enim dolore nemo odit eos recusandae consequatur molestiae amet omnis, reiciendis
-                        assumenda, ratione sed provident explicabo. Dolor.</div>
+                    <div id="first">
+                        <div class="snapshot valign-wrapper">
+                            <img class="responsive-img materialboxed" src="src/img/aboutme/Tune.jpg" alt="">
+                            <img class="responsive-img materialboxed" src="src/img/aboutme/Arranger.jpg" alt="">
+                            <img class="responsive-img materialboxed" src="src/img/aboutme/Traval.JPG" alt="">
+                        </div>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem vero maxime voluptas
+                            molestias enim dolore nemo odit eos recusandae consequatur molestiae amet omnis, reiciendis
+                            assumenda, ratione sed provident explicabo. Dolor.
+                        </p>
+                    </div>
                     <div id="second">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum praesentium
                         consectetur quod nemo assumenda. Recusandae obcaecati eum itaque ducimus iure delectus fuga
                         rerum velit repellat commodi ullam atque labore culpa odio a minima perspiciatis incidunt
@@ -122,12 +114,7 @@
             </div>
         </div>
     </section>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            let tabs = document.querySelector('.tabs');
-            let instances = M.Tabs.init(tabs);
-        });
-    </script>
+
 
     <!-- skill -->
     <section id="skills" class="section-skills parallax-container">
@@ -306,7 +293,7 @@
                 <div class="carddisplay col s12 m6">
                     <div class="card sticky-action hoverable">
                         <div class="card-image waves-effect waves-light waves-block">
-                            <img class="activator" src="./src/img/project/portfolios.LilituCoffee.jpg"
+                            <img class="activator " src="./src/img/project/portfolios.LilituCoffee.jpg"
                                 alt="Lilitu x Coffee Project Cover Photo">
                             <!-- <div class="overlay"></div> -->
                             <span class="card-title activator">Lilitu x Coffee</span>
@@ -383,7 +370,7 @@
     </section>
 
     <!-- footer -->
-    <footer class="page-footer grey darken-4">
+    <footer id="footer" class="page-footer grey darken-4">
         <div class="container">
             <div class="row">
                 <div class="col m12 s12 center">
@@ -394,10 +381,14 @@
                 <div class="col m12 s12">
                     <h4 class="white-text center-align">Contact</h4>
                     <div class="contact-link center">
-                        <a class="responsive-img" href="#!"><img src="src/img/footer/icons8-instagram-white-48.png" alt></a>
-                        <a class="responsive-img" href="#!"><img src="src/img/footer/icons8-line-me-white-48.png" alt></a>
-                        <a class="responsive-img" href="#!"><img src="src/img/footer/icons8-facebook-message-white-48.png" alt></a>
-                        <a class="responsive-img" href="#!"><img src="src/img/footer/icons8-whiteboard-white-48.png" alt></a>
+                        <a class="responsive-img" href="#!"><img src="src/img/footer/icons8-instagram-white-48.png"
+                                alt></a>
+                        <a class="responsive-img" href="#!"><img src="src/img/footer/icons8-line-me-white-48.png"
+                                alt></a>
+                        <a class="responsive-img" href="#!"><img
+                                src="src/img/footer/icons8-facebook-message-white-48.png" alt></a>
+                        <a class="responsive-img" href="#!"><img src="src/img/footer/icons8-whiteboard-white-48.png"
+                                alt></a>
                     </div>
                 </div>
             </div>
@@ -406,6 +397,9 @@
             <div class="container center-align">Noise © 2014 Copyright</div>
         </div>
     </footer>
+
+    <script src="src/MaterializeInit.js"></script>
+    <script src="src/index.js"></script>
 </body>
 
 </html>

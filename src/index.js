@@ -1,7 +1,5 @@
 (function () {
 
-
-
     function animateNav() {
         const nav = document.querySelector('nav');
         const navHeight = nav.offsetHeight;
@@ -14,6 +12,11 @@
     })
 
 
+    const togbtn = document.querySelector('.toggle-btn');
+    const infocard = document.querySelector('.infocard');
+    togbtn.addEventListener('click', function () {
+        infocard.classList.toggle('showall')
+    })
 
 
 
@@ -25,13 +28,4 @@
 
 
 
-
-
-
-
-
-
-
-
-
-})()
+})();

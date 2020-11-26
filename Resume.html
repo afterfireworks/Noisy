@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <title>Resume</title>
+    <link rel="stylesheet" href="src/reset.css">
+    <link rel="stylesheet" href="src/Resume.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Noto+Sans+TC:500,700,900|Roboto+Mono:400,500,700&display=swap&subset=chinese-traditional">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@700&display=swap">
+
+
+</head>
+
+<body>
+    <!-- loading -->
+    <div id="loading">
+        <div class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="loading-word">
+            <p>Loading</p>
+        </div>
+    </div>
+    <style type="text/css">
+        #loading {
+            height: 100%;
+            width: 100%;
+            overflow-y: hidden;
+            position: fixed;
+            z-index: 100;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: url(src/img/Resume/loading-phone.png);
+            background-size: cover;
+            background-position: center bottom;
+            background-repeat: no-repeat;
+        }
+
+        .lds-ring {
+            display: inline-block;
+            position: relative;
+            width: 40px;
+            height: 40px;
+            margin: 5vh 0;
+        }
+
+        .lds-ring div {
+            box-sizing: border-box;
+            display: block;
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            margin: 4px;
+            border: 4px solid #000;
+            border-radius: 50%;
+            animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+            border-color: #000 transparent transparent transparent;
+        }
+
+        .lds-ring div:nth-child(1) {
+            animation-delay: -0.45s;
+        }
+
+        .lds-ring div:nth-child(2) {
+            animation-delay: -0.3s;
+        }
+
+        .lds-ring div:nth-child(3) {
+            animation-delay: -0.15s;
+        }
+
+        @keyframes lds-ring {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media (min-width : 1024px) {
+            #loading {
+                background-image: url(src/img/Resume/loading-web.png);
+                background-size: contain;
+                background-position: left center;
+            }
+        }
+    </style>
+    <!-- loading -->
+
+
+    <!-- file -->
+    <header>
+        <div class="selfpic">
+            <img src="src/img/Resume/Resume/selfimg.jpg" alt="">
+        </div>
+        <div class="txt">
+            <h1>鍾京穆</h1>
+            <p>( Zhong-Jing-Mu )</p>
+            <div class="data">
+                <span>1987/06/20</span>
+                <span>國立宜蘭大學畢業</span>
+                <span>高雄、台南</span>
+                <span>0936790826</span>
+                <span>noisezhong@gmail.com</span>
+            </div>
+            <div class="data">
+                <span>網頁設計人員、助理</span>
+            </div>
+            <div class="data">
+                <span>響應式網頁切版</span>
+                <span>版面設計</span>
+            </div>
+            <div class="data">
+                <p>於 2020 年初接觸網頁設計，意外開啟自己的狂熱興趣，目前持續自學進修中。
+                    <br>希望能給我一個機會踏入網頁設計的世界，謝謝您。
+                </p>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- skill -->
+    <div class="title">
+        <p id="skill">Skill</p>
+    </div>
+    <div class="container skill">
+        <div class="item"><img src="src/img/Resume/Resume/designxweb.jpg" alt="">
+            <div class="txt">
+                <h3 class="ml11">
+                    <span class="text-wrapper">
+                        <span class="line line1"></span>
+                        <span class="letters">網頁設計</span>
+                    </span>
+                </h3>
+             
+                <ul>
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>RWD Layout</li>
+                    <li>Bootstrap</li>
+                    <li>JQuery</li>
+                    <li>JavaScript</li>
+                </ul>
+            </div>
+        </div>
+        <div class="item"><img src="src/img/Resume/Resume/designxgraphic.jpg" alt="">
+            <div class="txt">
+                <h3 class="ml12">平面設計</h3>
+              
+                <ul>
+                    <li>Photoshop</li>
+                    <li>Illustrator </li>
+                </ul>
+            </div>
+        </div>
+        <div class="item"><img src="src/img/Resume/Resume/Arranger.jpg" alt="">
+            <div class="txt">
+                <h3 class="ml5">
+                    <span class="text-wrapper">
+                        <span class="line line1"></span>
+                        <span class="letters letters-left">教學</span>
+                        <span class="letters ampersand">&amp;</span>
+                        <span class="letters letters-right">配樂</span>
+                        <span class="line line2"></span>
+                    </span>
+                </h3>
+               
+                <ul>
+                    <li>Acoustic Guitar</li>
+                    <li>Electric Guitar</li>
+                    <li>Pop</li>
+                    <li>Post Rock</li>
+                    <li>Ambient</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolios x CSS -->
+    <div class="title">
+        <p id="css">Portfolios x CSS</p>
+    </div>
+    <div class="container portfolios">
+        <div class="item">
+            <a href="HTML.Hertian/commodity01.html" target="_blank">
+                <div class="bg-img" style="background-image: url(src/img/Resume/Resume/portfolios.Hertian.jpg);"></div>
+                <div class="mask"></div>
+                <div class="info">
+                    <h3>Hertiancommodity01</h3>
+                    <ul>
+                        <li>RWD</li>
+                        <li>CSS3</li>
+                        <li>JQuery</li>
+                    </ul>
+                </div>
+            </a>
+        </div>
+        <div class="item">
+            <a href="HTML.LilituCoffee/index.html" target="_blank">
+                <div class="bg-img" style="background-image: url(src/img/Resume/Resume/portfolios.LilituCoffe.jpg);"></div>
+                <div class="mask"></div>
+                <div class="info">
+                    <h3>Lilitu Coffee</h3>
+                    <ul>
+                        <li>RWD</li>
+                        <li>CSS3</li>
+                        <li>JQuery</li>
+                    </ul>
+                </div>
+            </a>
+        </div>
+        <div class="item">
+            <a href="HTML.Vusam/index.html" target="_blank">
+                <div class="bg-img" style="background-image: url(src/img/Resume/Resume/portfolios.Vusum.jpg);"></div>
+                <div class="mask"></div>
+                <div class="info">
+                    <h3>Vusam's Dream</h3>
+                    <ul>
+                        <li>RWD</li>
+                        <li>CSS3</li>
+                        <li>JQuery</li>
+                    </ul>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Task x Javascript -->
+    <!-- <div class="title">
+            <p id="javascript">Task x Javascript</p>
+        </div>
+        <div class="container portfolios">
+            <div class="item">
+                <a href="Bootstrap 002.html" target="_blank">
+                    <div class="bg-img" style="background-image: url(https://picsum.photos/300/300?radom=22);"></div>
+                    <div class="mask second"></div>
+                    <div class="info">
+                        <h3>Bootstrap 002</h3>
+                        <ul>
+                            <li>Bootstrap</li>
+                        </ul>
+                    </div>
+                </a>
+            </div>
+            <div class="item">
+                <a href="Bootstrap 001.html" target="_blank">
+                    <div class="bg-img" style="background-image: url(https://picsum.photos/300/300?radom=21);"></div>
+                    <div class="mask second"></div>
+                    <div class="info">
+                        <h3>Bootstrap 001</h3>
+                        <ul>
+                            <li>Bootstrap</li>
+                        </ul>
+                    </div>
+                </a>
+            </div>
+        </div>  -->
+
+    <!-- Task x React -->
+    <div class="title">
+        <p id="react">Task x React</p>
+    </div>
+    <div class="container portfolios">
+        <div class="item">
+            <a href="React.01 The React.js Time/React.01.html" target="_blank">
+                <div class="bg-img" style="background-image: url(src/img/Resume/Resume/React.01.jpg);"></div>
+                <div class="mask second"></div>
+                <div class="info">
+                    <h3>The React.js Time</h3>
+                    <ul>
+                        <li>React</li>
+                        <li>Sass</li>
+                    </ul>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+
+    <!-- footer -->
+    <footer>
+        <p class="design">&copy;2020　All Rights Reserved ｜ <span>「 穆 」</span></p>
+    </footer>
+
+    <script>
+
+        $(document).ready(function () {
+
+            $("#loading").hide();
+            // document.getElementById('#loading').style.display = "none";
+        });
+
+        const events = [
+            { id: '#skill', before: 'Skill', after: '技能' },
+            { id: '#css', before: 'Portfolios x CSS', after: '作品集 x CSS' },
+            { id: '#javascript', before: 'Task x Javascript', after: '課題 x Javascript' },
+            { id: '#react', before: 'Task x React', after: '課題 x React' }
+
+        ];
+
+        events.forEach((item, idx) => {
+
+            $(item.id).mousemove(function (event) {
+                $(item.id).stop(true).fadeOut(300);
+                setTimeout(function () {
+                    $(item.id).text(item.after)
+                }, 350);
+                $(item.id).fadeIn(700);
+            });
+        });
+
+        events.forEach((item, idx) => {
+
+            $(item.id).mouseleave(function (event) {
+                $(item.id).stop(true).fadeOut(300);
+                setTimeout(function () {
+                    $(item.id).text(item.before)
+                }, 350);
+                $(item.id).fadeIn(700);
+            });
+        });
+
+
+
+    </script>
+
+    <!-- Effect 11 -->
+    <script>
+            // Wrap every letter in a span
+            var textWrapper = document.querySelector('.ml11 .letters');
+            textWrapper.innerHTML = textWrapper.textContent.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>");
+
+            anime.timeline({ loop: true })
+                .add({
+                    targets: '.ml11 .line',
+                    scaleY: [0, 1],
+                    opacity: [0.5, 1],
+                    easing: "easeOutExpo",
+                    duration: 700
+                })
+                .add({
+                    targets: '.ml11 .line',
+                    translateX: [0, document.querySelector('.ml11 .letters').getBoundingClientRect().width + 10],
+                    easing: "easeOutExpo",
+                    duration: 700,
+                    delay: 100
+                }).add({
+                    targets: '.ml11 .letter',
+                    opacity: [0, 1],
+                    easing: "easeOutExpo",
+                    duration: 600,
+                    offset: '-=775',
+                    delay: (el, i) => 34 * (i + 1)
+                }).add({
+                    targets: '.ml11',
+                    opacity: 0,
+                    duration: 1000,
+                    easing: "easeOutExpo",
+                    delay: 3000
+                });
+    </script>
+
+    <!-- Effect 12 -->
+    <script>
+            // Wrap every letter in a span
+            var textWrapper = document.querySelector('.ml12');
+            textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+            anime.timeline({ loop: true })
+                .add({
+                    targets: '.ml12 .letter',
+                    translateX: [40, 0],
+                    translateZ: 0,
+                    opacity: [0, 1],
+                    easing: "easeOutExpo",
+                    duration: 1200,
+                    delay: (el, i) => 2000 + 30 * i
+                }).add({
+                    targets: '.ml12 .letter',
+                    translateX: [0, -30],
+                    opacity: [1, 0],
+                    easing: "easeInExpo",
+                    duration: 1100,
+                    delay: (el, i) => 400 + 30 * i
+                });
+    </script>
+
+    <!-- Effect 5 -->
+    <script>
+            anime.timeline({ loop: true })
+                .add({
+                    targets: '.ml5 .line',
+                    opacity: [0.5, 1],
+                    scaleX: [0, 1],
+                    easing: "easeInOutExpo",
+                    duration: 700
+                }).add({
+                    targets: '.ml5 .line',
+                    duration: 600,
+                    easing: "easeOutExpo",
+                    translateY: (el, i) => (-0.8 + 0.8 * 2 * i) + "em"
+                }).add({
+                    targets: '.ml5 .ampersand',
+                    opacity: [0, 1],
+                    scaleY: [0.5, 1],
+                    easing: "easeOutExpo",
+                    duration: 600,
+                    offset: '-=600'
+                }).add({
+                    targets: '.ml5 .letters-left',
+                    opacity: [0, 1],
+                    translateX: ["0.5em", 0],
+                    easing: "easeOutExpo",
+                    duration: 600,
+                    offset: '-=300'
+                }).add({
+                    targets: '.ml5 .letters-right',
+                    opacity: [0, 1],
+                    translateX: ["-0.5em", 0],
+                    easing: "easeOutExpo",
+                    duration: 600,
+                    offset: '-=600'
+                }).add({
+                    targets: '.ml5',
+                    opacity: 0,
+                    duration: 1000,
+                    easing: "easeOutExpo",
+                    delay: 3000
+                });
+    </script>
+</body>
+
+</html>
