@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', function () {
         preventScrolling: 'true',
     });
 
+    var scrollspy = document.querySelectorAll('.scrollspy');
+    var scrollspyinstances = M.ScrollSpy.init(scrollspy);
+
     let tabs = document.querySelector('.tabs');
     let tabsinstances = M.Tabs.init(tabs);
 

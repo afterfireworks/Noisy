@@ -40,7 +40,7 @@ footer {
 
 .cardheight {
     transition: all 1s;
-    height: 1248px!important;
+    height: 1248px;
     @include pc-width {
         min-height: 648px !important;
     }
@@ -51,7 +51,7 @@ footer {
 .showall {
     transition: all 1s;
     visibility: visible !important;
-    min-height: 1200px !important;
+    min-height: 1200px;
 
     @include pc-width {
         min-height: 600px !important;
@@ -71,10 +71,12 @@ html {
     scroll-behavior: smooth;
 
     body {
-        background-color: rgb(188, 193, 197);
+        background-color: rgb(177, 177, 177);
         overflow-x: hidden;
         font-family: 'Amaranth', 'Noto Sans TC', sans-serif;
-
+        @include pc-width {
+            font-size: 16px;
+        }
 
 
     }
@@ -117,17 +119,18 @@ html {
 
     .sidenav {
         overflow: hidden;
+        background-color: transparent;
+        background: hsla(0, 0%, 100%, .1);
         width: 100%;
-
+padding: 30vh 0;
         @include pc-width {
             width: 300px;
             padding: 10vh 0;
         }
 
-        padding: 30vh 0;
+        
 
-        background-color: transparent;
-        background: hsla(0, 0%, 100%, .1);
+        
 
         ::before {
             content: '';
@@ -136,7 +139,7 @@ html {
             right: 0;
             bottom: 0;
             left: 0;
-            background: rgba(0, 0, 0, .05);
+            background: rgba(0, 0, 0, .02);
             filter: blur(20px);
             z-index: -1;
             margin: -30px;
@@ -253,13 +256,21 @@ html {
             span {
                 display: inline-block;
                 padding: .5rem 1rem;
-                margin: .3rem 1rem;
-                box-shadow: 1px 1px 3px 0px black;
+                margin: .3rem .3rem;
+                box-shadow: 1px 1px 1px 0px black;
+                &:before{
+                    content: "# ";
+                    font-size: 1.2rem;
+                }
             }
         }
 
-        .toggle-btn {
+        .btn-floating.toggle-btn {
+            background-color:  rgb(97, 97,97);
             margin: 20px;
+        }
+        .card{
+            background-color: rgba(255, 255, 255, .1);
         }
 
         .infocard {
@@ -267,36 +278,37 @@ html {
 
             .card-tabs {
                 .tabs {
+                    background-color: transparent;
                     .tab {
                         a {
-                            color: #00ACC1;
+                            color: rgba(97, 97, 97, 0.6);
                         }
 
                         a.active {
                             background-color: transparent;
-                            color: #008B9B;
+                            color: rgb(97, 97,97);
                         }
 
                         :hover {
                             background-color: transparent;
-                            color: #008B9B;
+                            color: rgb(97, 97,97);
                         }
                     }
 
                     .indicator {
-                        background-color: #009BAD;
+                        background-color: rgba(97, 97, 97, 0.8);
                     }
                 }
 
-                .tab.disabled {
-                    a {
-                        color: rgba(102, 147, 153, 0.7);
+                // .tab.disabled {
+                //     a {
+                //         color: rgba(102, 147, 153, 0.7);
 
-                        :hover {
-                            color: rgba(102, 147, 153, 0.7);
-                        }
-                    }
-                }
+                //         :hover {
+                //             color: rgba(102, 147, 153, 0.7);
+                //         }
+                //     }
+                // }
             }
 
             .card-content {

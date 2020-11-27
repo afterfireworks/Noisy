@@ -20,7 +20,7 @@
 .cardheight {
   -webkit-transition: all 1s;
   transition: all 1s;
-  height: 1248px !important;
+  height: 1248px;
 }
 
 @media all and (min-width: 992px) {
@@ -33,7 +33,7 @@
   -webkit-transition: all 1s;
   transition: all 1s;
   visibility: visible !important;
-  min-height: 1200px !important;
+  min-height: 1200px;
 }
 
 @media all and (min-width: 992px) {
@@ -53,9 +53,15 @@ html {
 }
 
 html body {
-  background-color: #bcc1c5;
+  background-color: #b1b1b1;
   overflow-x: hidden;
   font-family: 'Amaranth', 'Noto Sans TC', sans-serif;
+}
+
+@media all and (min-width: 992px) {
+  html body {
+    font-size: 16px;
+  }
 }
 
 #home {
@@ -97,10 +103,10 @@ html body {
 
 #home .sidenav {
   overflow: hidden;
-  width: 100%;
-  padding: 30vh 0;
   background-color: transparent;
   background: rgba(255, 255, 255, 0.1);
+  width: 100%;
+  padding: 30vh 0;
 }
 
 @media all and (min-width: 992px) {
@@ -117,7 +123,7 @@ html body {
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(0, 0, 0, 0.02);
   -webkit-filter: blur(20px);
           filter: blur(20px);
   z-index: -1;
@@ -236,43 +242,49 @@ html body {
 #about .container .hashtags span {
   display: inline-block;
   padding: .5rem 1rem;
-  margin: .3rem 1rem;
-  -webkit-box-shadow: 1px 1px 3px 0px black;
-          box-shadow: 1px 1px 3px 0px black;
+  margin: .3rem .3rem;
+  -webkit-box-shadow: 1px 1px 1px 0px black;
+          box-shadow: 1px 1px 1px 0px black;
 }
 
-#about .container .toggle-btn {
+#about .container .hashtags span:before {
+  content: "# ";
+  font-size: 1.2rem;
+}
+
+#about .container .btn-floating.toggle-btn {
+  background-color: #616161;
   margin: 20px;
+}
+
+#about .container .card {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 #about .container .infocard {
   height: 48px;
 }
 
+#about .container .infocard .card-tabs .tabs {
+  background-color: transparent;
+}
+
 #about .container .infocard .card-tabs .tabs .tab a {
-  color: #00ACC1;
+  color: rgba(97, 97, 97, 0.6);
 }
 
 #about .container .infocard .card-tabs .tabs .tab a.active {
   background-color: transparent;
-  color: #008B9B;
+  color: #616161;
 }
 
 #about .container .infocard .card-tabs .tabs .tab :hover {
   background-color: transparent;
-  color: #008B9B;
+  color: #616161;
 }
 
 #about .container .infocard .card-tabs .tabs .indicator {
-  background-color: #009BAD;
-}
-
-#about .container .infocard .card-tabs .tab.disabled a {
-  color: rgba(102, 147, 153, 0.7);
-}
-
-#about .container .infocard .card-tabs .tab.disabled a :hover {
-  color: rgba(102, 147, 153, 0.7);
+  background-color: rgba(97, 97, 97, 0.8);
 }
 
 #about .container .infocard .card-content {
