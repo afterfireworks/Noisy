@@ -1,14 +1,20 @@
 (function () {
-    const body = document.querySelector("body");
-    if (body.requestFullscreen) {
-        body.requestFullscreen();
-    } else if (body.msRequestFullscreen) {
-        body.msRequestFullscreen();
-    } else if (body.mozRequestFullScreen) {
-        body.mozRequestFullScreen();
-    } else if (body.webkitRequestFullscreen) {
-        body.webkitRequestFullscreen();
-    }
+    // const html = document.querySelector("html");
+    // if (html.requestFullscreen) {
+    //     html.requestFullscreen();
+    // } else if (html.msRequestFullscreen) {
+    //     html.msRequestFullscreen();
+    // } else if (html.mozRequestFullScreen) {
+    //     html.mozRequestFullScreen();
+    // } else if (html.webkitRequestFullscreen) {
+    //     html.webkitRequestFullscreen();
+    // }
+    window.addEventListener("load",function() {
+        setTimeout(function(){
+            // This hides the address bar:
+            window.scrollTo(0, 1);
+        }, 0);
+    });
 
     function animateNav() {
         const nav = document.querySelector('nav');
