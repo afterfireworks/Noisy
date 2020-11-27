@@ -1,4 +1,14 @@
 (function () {
+    const body = document.querySelector("body");
+    if (body.requestFullscreen) {
+        body.requestFullscreen();
+    } else if (body.msRequestFullscreen) {
+        body.msRequestFullscreen();
+    } else if (body.mozRequestFullScreen) {
+        body.mozRequestFullScreen();
+    } else if (body.webkitRequestFullscreen) {
+        body.webkitRequestFullscreen();
+    }
 
     function animateNav() {
         const nav = document.querySelector('nav');
