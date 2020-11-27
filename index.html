@@ -9,7 +9,6 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Amaranth:wght@400;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link rel="stylesheet" href="index.min.css">
 </head>
 
@@ -20,7 +19,7 @@
         <nav>
             <div class="container">
                 <a href="index.html" class="brand-logo" class="responsive-img">
-                    <img src="./src/img/home/logo.jpg" alt="Noise" class="responsive-img">
+                    <img src="./src/img/home/logo.png" alt="Noise" class="responsive-img">
                 </a>
                 <a href="#" class="right sidenav-trigger show-on-medium-and-up" data-target="side-nav">
                     <i class="material-icons">menu</i>
@@ -29,11 +28,11 @@
         </nav>
 
         <ul id="side-nav" class="sidenav sidenav-fixed">
-            <li id="side-nav-logo"><img src="./src/img/home/logo.jpg" alt="logo" class="responsive-img"></li>
+            <li id="side-nav-logo" class="responsive-img"><img src="./src/img/home/logo.png" alt="logo" class="responsive-img"></li>
             <li>
                 <div class="divider"></div>
             </li>
-            <li><a class="sidenav-close waves-effect center-align " href="#home">
+            <li><a class="sidenav-close waves-effect center-align" href="#home">
                     <h5>Home</h5>
                 </a></li>
             <li><a class="sidenav-close waves-effect center-align" href="#about">
@@ -55,30 +54,19 @@
 
         <div id="oneself" class="container">
             <div class="row">
-                <div id="photo" class="col l6 s12">
+                <div id="photo" class="col l5 s10 offset-s1">
                     <img class="responsive-img" src="src/img/home/self.jpg" alt="">
                 </div>
-                <div id="data" class="col l6 s12">
-                    <h2>Noise </h2>
-                    <h6><span class="tag">Born</span>1987 / 6 / 20</h6>
-                    <h6><span class="tag">Education</span>國立宜蘭大學</h6>
-                    <h6><span class="tag">Area</span>屏東市</h6>
-                    <h6><span class="tag">Yearn</span>網頁排版｜程式設計</h6>
-                    <h6><span class="tag">Interest</span>音樂相關｜網頁設計</h6>
+                <div id="data" class="col l6 s10 offset-s1">
+                    <h2 class="center-align">Noise</h2>
+                    <p><span class="tag">Born</span>1987 / 6 / 20</p>
+                    <p><span class="tag">Education</span>國立宜蘭大學</p>
+                    <p><span class="tag">Area</span>屏東市</p>
+                    <p><span class="tag">Yearn</span>網頁排版｜程式設計</p>
+                    <p><span class="tag">Interest</span>音樂相關｜網頁設計</p>
                 </div>
             </div>
-            <!-- <div class="row">
-                <div id="data" class="col m6 s12 valign-wrapper">
-                    <h2>Noise </h2>
-                    <h6><span class="tag">Born</span>1987 / 6 / 20</h6>
-                    <h6><span class="tag">Education</span>國立宜蘭大學</h6>
-                    <h6><span class="tag">Area</span>屏東市</h6>
-                    <h6><span class="tag">Yearn</span>網頁排版｜程式設計</h6>
-                    <h6><span class="tag">Interest</span>音樂相關｜網頁設計</h6>
-                </div>
-            </div> -->
         </div>
-        <a id="next" href="#about"><i class="large material-icons">expand_more</i></a>
     </header>
 
 
@@ -86,11 +74,11 @@
     <section id="about" class="section section-about grey-text text-darken-2">
         <div class="container row center-align">
             <h3 class="">About Me</h3>
-            <p class="col s12 hashtags grey-text text-darken-1">
+            <p class="hashtags col s12 grey-text text-darken-1">
                 <span>#沉迷後搖</span><span>#享受組團與演奏</span><span>#在網頁設計中感到安穩</span></p>
             <button class="toggle-btn btn-floating btn-large waves-effect waves-light"><i
                     class="material-icons">add</i></button>
-            <div class="card infocard col s12">
+            <div class="infocard card col s12">
                 <div class="card-tabs">
                     <ul class="tabs tabs-fixed-width">
                         <li class="tab"><a href="#first" class="active">第一時期</a></li>
@@ -100,10 +88,10 @@
                 </div>
                 <div class="card-content">
                     <div id="first">
-                        <div class="snapshot valign-wrapper">
-                            <img class="responsive-img materialboxed" src="src/img/aboutme/Tune.jpg" alt="">
-                            <img class="responsive-img materialboxed" src="src/img/aboutme/Arranger.jpg" alt="">
-                            <img class="responsive-img materialboxed" src="src/img/aboutme/Traval.JPG" alt="">
+                        <div class="row snapshot">
+                            <img class="col s12 m4 responsive-img materialboxed" src="src/img/aboutme/1-1.jpg" alt="">
+                            <img class="col s12 m4 responsive-img materialboxed" src="src/img/aboutme/1-2.jpg"  alt="">
+                            <img class="col s12 m4 responsive-img materialboxed" src="src/img/aboutme/1-3.jpg" alt="">
                         </div>
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem vero maxime voluptas
@@ -111,15 +99,34 @@
                             assumenda, ratione sed provident explicabo. Dolor.
                         </p>
                     </div>
-                    <div id="second">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum praesentium
-                        consectetur quod nemo assumenda. Recusandae obcaecati eum itaque ducimus iure delectus fuga
-                        rerum velit repellat commodi ullam atque labore culpa odio a minima perspiciatis incidunt
-                        consequuntur nobis quibusdam rem quae, suscipit in quisquam. Sequi sunt nesciunt animi, officia
-                        itaque quae.</div>
-                    <div id="third">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi nobis eos atque
-                        inventore ea ex tempore illum consequuntur similique harum corrupti fugiat facere cupiditate
-                        doloribus explicabo, aliquam earum numquam recusandae aut eveniet molestiae sed dolorum unde
-                        voluptatem? Eius, beatae recusandae?</div>
+                    <div id="second">
+                        <div class="row snapshot">
+                            <img class="col s12 m4 responsive-img materialboxed" src="src/img/aboutme/2-1.jpg" alt="">
+                            <img class="col s12 m4 responsive-img materialboxed" src="src/img/aboutme/2-2.jpg"  alt="">
+                            <img class="col s12 m4 responsive-img materialboxed" src="src/img/aboutme/2-3.jpg" alt="">
+                        </div>
+                        <p>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum praesentium
+                            consectetur quod nemo assumenda. Recusandae obcaecati eum itaque ducimus iure delectus fuga
+                            rerum velit repellat commodi ullam atque labore culpa odio a minima perspiciatis incidunt
+                            consequuntur nobis quibusdam rem quae, suscipit in quisquam. Sequi sunt nesciunt animi,
+                            officia
+                            itaque quae.
+                        </p>
+                    </div>
+                    <div id="third">
+                        <div class="row snapshot">
+                            <img class="col s12 m4 responsive-img materialboxed" src="src/img/aboutme/3-1.jpg" alt="">
+                            <img class="col s12 m4 responsive-img materialboxed" src="src/img/aboutme/3-2.jpg"  alt="">
+                            <img class="col s12 m4 responsive-img materialboxed" src="src/img/aboutme/3-3.jpg" alt="">
+                        </div>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi nobis eos atque
+                            inventore ea ex tempore illum consequuntur similique harum corrupti fugiat facere cupiditate
+                            doloribus explicabo, aliquam earum numquam recusandae aut eveniet molestiae sed dolorum unde
+                            voluptatem? Eius, beatae recusandae?
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -245,29 +252,19 @@
                             <div class="carousel-logo col s2 fsac">
                                 <img src="./src/img/skill/icons8-adobe-photoshop-96.png" alt="HTML 5 Logo"
                                     class="responsive-img">
-                                <span class="tooltip-text">Photoshop</span>
+                                <span class="tooltip-text">PS</span>
                             </div>
-                            <div class="carousel-logo col s2 fsac">
+                            <div class="carousel-logo col s2 pull-s4 fsac">
                                 <img src="./src/img/skill/icons8-adobe-illustrator-96.png" alt="CSS 3 Logo"
                                     class="responsive-img">
-                                <span class="tooltip-text">Illustrator</span>
+                                <span class="tooltip-text">AI</span>
                             </div>
-                            <div class="carousel-logo col s2 fsac">
+                            <!-- <div class="carousel-logo col s2 fsac">
                                 <img src="./src/img/skill/icons8-adobe-xd-96.png" alt="CSS 3 Logo"
                                     class="responsive-img">
                                 <span class="tooltip-text">XD</span>
-                            </div>
-                            <div class="carousel-logo col s2 fsac">
-                                <img src="./src/img/skill/icons8-adobe-premiere-pro-96.png" alt="CSS 3 Logo"
-                                    class="responsive-img">
-                                <span class="tooltip-text">Premiere Pro</span>
-                            </div>
-                            <div class="carousel-logo col s2 fsac">
-                                <img src="./src/img/skill/icons8-adobe-after-effects-96.png" alt="CSS 3 Logo"
-                                    class="responsive-img">
-                                <span class="tooltip-text">After Effects</span>
-                            </div>
-                            <!--Other Graphic Skills-->
+                            </div> -->
+                            <!-- Other Graphic Skills -->
                         </div>
                     </div>
                 </div>
@@ -407,7 +404,7 @@
             <div class="container center-align">Noise © 2014 Copyright</div>
         </div>
     </footer>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="src/MaterializeInit.js"></script>
     <script src="src/index.js"></script>
 </body>

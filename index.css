@@ -1,3 +1,11 @@
+@media all and (min-width: 992px) {
+  header,
+  section,
+  footer {
+    padding-left: 300px;
+  }
+}
+
 .fsac {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -9,6 +17,36 @@
           align-items: center;
 }
 
+.cardheight {
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  height: 1248px !important;
+}
+
+@media all and (min-width: 992px) {
+  .cardheight {
+    min-height: 648px !important;
+  }
+}
+
+.showall {
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  visibility: visible !important;
+  min-height: 1200px !important;
+}
+
+@media all and (min-width: 992px) {
+  .showall {
+    min-height: 600px !important;
+  }
+}
+
+.shadow {
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -7px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -7px rgba(0, 0, 0, 0.2);
+}
+
 html {
   overflow-x: hidden;
   scroll-behavior: smooth;
@@ -18,13 +56,6 @@ html body {
   background-color: #bcc1c5;
   overflow-x: hidden;
   font-family: 'Amaranth', 'Noto Sans TC', sans-serif;
-  padding-left: 0px;
-}
-
-@media all and (min-width: 992px) {
-  html body {
-    padding-left: 300px;
-  }
 }
 
 #home {
@@ -33,6 +64,12 @@ html body {
   background-image: url(src/img/home/banner.jpg);
   background-position: center center;
   background-size: cover;
+}
+
+@media all and (min-width: 992px) {
+  #home {
+    padding-left: 300px;
+  }
 }
 
 #home nav {
@@ -55,24 +92,21 @@ html body {
 #home nav .brand-logo {
   width: 60px;
   height: 60px;
-  margin: 2px;
-}
-
-#home .shadow {
-  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -7px rgba(0, 0, 0, 0.2);
-  -webkit-box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -7px rgba(0, 0, 0, 0.2);
+  margin: 5px;
 }
 
 #home .sidenav {
+  overflow: hidden;
   width: 100%;
   padding: 30vh 0;
-  overflow: hidden;
+  background-color: transparent;
   background: rgba(255, 255, 255, 0.1);
 }
 
 @media all and (min-width: 992px) {
   #home .sidenav {
     width: 300px;
+    padding: 10vh 0;
   }
 }
 
@@ -83,7 +117,7 @@ html body {
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.05);
   -webkit-filter: blur(20px);
           filter: blur(20px);
   z-index: -1;
@@ -96,8 +130,16 @@ html body {
 
 @media all and (min-width: 992px) {
   #home .sidenav #side-nav-logo {
-    display: block;
-    margin: 40px 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin: 50px 0;
+  }
+  #home .sidenav #side-nav-logo img {
+    width: 100px;
   }
 }
 
@@ -113,7 +155,7 @@ html body {
   }
 }
 
-#home .sidenav h5 {
+#home .sidenav li a h5 {
   color: snow;
   text-shadow: 1px 1px 1px black;
 }
@@ -122,45 +164,35 @@ html body {
   border-radius: 50%;
 }
 
-@media all and (min-width: 992px) {
-  #home #oneself #photo {
-    padding: 50px;
-  }
-}
-
 #home #oneself #data {
   color: snow;
-  background-color: transparent;
-}
-
-#home #oneself #data h2 {
-  text-align: center;
 }
 
 #home #oneself #data .tag {
+  width: 5rem;
   display: inline-block;
   text-align: center;
-  margin-right: 1rem;
+  margin: 0 1rem;
   border: 1px solid snow;
 }
 
 @media all and (min-width: 992px) {
   #home #oneself #data .tag {
+    font-size: 1.5rem;
     width: 8rem;
   }
 }
 
 @media all and (min-width: 992px) {
+  #home #oneself #data {
+    padding: 50px 50px;
+  }
   #home #oneself #data h2 {
     text-align: left;
   }
 }
 
 #home #next {
-  position: absolute;
-  bottom: 5%;
-  left: 50%;
-  color: rgba(255, 255, 255, 0.9);
   text-shadow: 0px 2px 2px black;
   -webkit-animation: jumping 1.5s infinite;
           animation: jumping 1.5s infinite;
@@ -201,75 +233,85 @@ html body {
   overflow-y: hidden;
 }
 
-#about .hashtags span {
+#about .container .hashtags span {
   display: inline-block;
   padding: .5rem 1rem;
-  margin: 0 1rem;
+  margin: .3rem 1rem;
   -webkit-box-shadow: 1px 1px 3px 0px black;
           box-shadow: 1px 1px 3px 0px black;
 }
 
-#about .toggle-btn {
+#about .container .toggle-btn {
   margin: 20px;
 }
 
-#about .showall {
-  visibility: visible;
-  height: 748px;
-  -webkit-transition: all 1s;
-  transition: all 1s;
+#about .container .infocard {
+  height: 48px;
 }
 
-.infocard {
-  visibility: hidden;
-  height: 0;
-}
-
-.tabs .tab a {
+#about .container .infocard .card-tabs .tabs .tab a {
   color: #00ACC1;
 }
 
-.tabs .tab a:hover,
-.tabs .tab a.active {
+#about .container .infocard .card-tabs .tabs .tab a.active {
   background-color: transparent;
   color: #008B9B;
 }
 
-.tabs .tab.disabled a,
-.tabs .tab.disabled a:hover {
-  color: rgba(102, 147, 153, 0.7);
+#about .container .infocard .card-tabs .tabs .tab :hover {
+  background-color: transparent;
+  color: #008B9B;
 }
 
-.tabs .indicator {
+#about .container .infocard .card-tabs .tabs .indicator {
   background-color: #009BAD;
 }
 
-.card-content {
-  min-height: 700px;
+#about .container .infocard .card-tabs .tab.disabled a {
+  color: rgba(102, 147, 153, 0.7);
 }
 
-.card-content .snapshot {
+#about .container .infocard .card-tabs .tab.disabled a :hover {
+  color: rgba(102, 147, 153, 0.7);
+}
+
+#about .container .infocard .card-content {
+  visibility: hidden;
+  height: 0px;
+}
+
+#about .container .infocard .card-content .snapshot {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 
-.card-content .snapshot img {
-  width: 300PX;
-  height: auto;
-  margin: 30px 10PX;
+#about .container .infocard .card-content p {
+  padding: 20px;
 }
 
 /* skill */
 .section-skills.parallax-container {
-  max-height: 300px;
+  max-height: 200px;
+}
+
+@media all and (min-width: 992px) {
+  .section-skills.parallax-container {
+    max-height: 300px;
+  }
 }
 
 .section-skills .carousel {
-  height: 300px !important;
+  height: 200px !important;
 }
 
-.carousel-logo {
+@media all and (min-width: 992px) {
+  .section-skills .carousel {
+    height: 300px !important;
+  }
+}
+
+.section-skills .carousel .carousel-logo {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -302,6 +344,10 @@ html body {
 /* footer */
 #footer .contact-link a {
   display: inline-block;
-  padding: 20px;
+}
+
+#footer .contact-link a img {
+  margin: 0 10px;
+  width: 50px;
 }
 /*# sourceMappingURL=index.css.map */

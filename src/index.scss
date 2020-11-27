@@ -6,30 +6,63 @@ $phones-media:479px;
 //電腦
 @mixin pc-width() {
     @media all and (min-width: $pc-media) {
-                 @content;
-           }
-      }
+        @content;
+    }
+}
 
-  //平板
-   @mixin pad-width() {
-  @media all and (min-width:$pad-media)  {
-                  @content;
-            }
-  }
+//平板
+@mixin pad-width() {
+    @media all and (min-width:$pad-media) {
+        @content;
+    }
+}
 
-  //手機
-   @mixin phone-width() {
-          @media all and (min-width: $phones-media) {
-                  @content;
-            }
-   }
+//手機
+@mixin phone-width() {
+    @media all and (min-width: $phones-media) {
+        @content;
+    }
+}
 
-
+header,
+section,
+footer {
+    @include pc-width {
+        padding-left: 300px;
+    }
+}
 
 .fsac {
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+.cardheight {
+    transition: all 1s;
+    height: 1248px!important;
+    @include pc-width {
+        min-height: 648px !important;
+    }
+
+    
+}
+
+.showall {
+    transition: all 1s;
+    visibility: visible !important;
+    min-height: 1200px !important;
+
+    @include pc-width {
+        min-height: 600px !important;
+    }
+
+    
+}
+
+.shadow {
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -7px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -7px rgba(0, 0, 0, 0.2);
 }
 
 // Basic
@@ -41,15 +74,9 @@ html {
         background-color: rgb(188, 193, 197);
         overflow-x: hidden;
         font-family: 'Amaranth', 'Noto Sans TC', sans-serif;
-        padding-left: 0px;
-        @include pc-width{
-            padding-left:300px;     
-     }
-    }
 
 
-    #materialbox-overlay {
-        // overflow: hidden;
+
     }
 }
 
@@ -61,11 +88,17 @@ html {
     background-position: center center;
     background-size: cover;
 
+    @include pc-width {
+        padding-left: 300px;
+    }
+
     nav {
         visibility: visible;
-        @include pc-width{
+
+        @include pc-width {
             visibility: hidden;
         }
+
         top: 0;
         left: 0;
         background-color: transparent;
@@ -76,23 +109,24 @@ html {
         .brand-logo {
             width: 60px;
             height: 60px;
-            margin: 2px;
+            margin: 5px;
         }
     }
 
-    .shadow {
-        box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -7px rgba(0, 0, 0, 0.2);
-        -webkit-box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -7px rgba(0, 0, 0, 0.2);
-    }
+
 
     .sidenav {
-        width: 100%;
-        padding: 30vh 0;
-        @include pc-width{
-            width: 300px;
-        }
-        
         overflow: hidden;
+        width: 100%;
+
+        @include pc-width {
+            width: 300px;
+            padding: 10vh 0;
+        }
+
+        padding: 30vh 0;
+
+        background-color: transparent;
         background: hsla(0, 0%, 100%, .1);
 
         ::before {
@@ -102,80 +136,90 @@ html {
             right: 0;
             bottom: 0;
             left: 0;
-            background: rgba(0, 0, 0, 0.1);
+            background: rgba(0, 0, 0, .05);
             filter: blur(20px);
             z-index: -1;
             margin: -30px;
         }
 
+
         #side-nav-logo {
             display: none;
-            @include pc-width{
-                display: block;
-               margin: 40px 0; 
+
+            @include pc-width {
+                display: flex;
+                justify-content: center;
+                margin: 50px 0;
+
+                img {
+                    width: 100px;
+                }
             }
-            
+
         }
 
         .divider {
             width: 80%;
             margin: 10px auto;
-            @include pc-width{
+
+            @include pc-width {
                 width: 60%;
                 margin: 40px auto;
             }
-            
+
         }
 
-        h5 {
-            color: snow;
-            text-shadow: 1px 1px 1px black;
+        li {
+            a {
+                h5 {
+                    color: snow;
+                    text-shadow: 1px 1px 1px black;
+                }
+            }
         }
+
     }
 
     #oneself {
         #photo {
+
+            @include pc-width {}
+
             img {
                 border-radius: 50%;
-                }  
-            @include pc-width{
-                   padding: 50px; 
             }
         }
 
 
         #data {
             color: snow;
-            background-color: transparent;
-
-            h2 {
-                text-align: center;
-            }
 
             .tag {
+                width: 5rem;
                 display: inline-block;
                 text-align: center;
-                margin-right: 1rem;
+                margin: 0 1rem;
                 border: 1px solid snow;
-                @include pc-width{
+
+                @include pc-width {
+                    font-size: 1.5rem;
                     width: 8rem;
                 }
             }
-            @include pc-width{
+
+            @include pc-width {
+                padding: 50px 50px;
+
                 h2 {
                     text-align: left;
                 }
-         }
+            }
 
         }
 
     }
 
     #next {
-        position: absolute;
-        bottom: 5%;
-        left: 50%;
-        color: rgba(255, 255, 255, 0.9);
         text-shadow: 0px 2px 2px black;
         animation: jumping 1.5s infinite;
 
@@ -192,88 +236,123 @@ html {
                 transform: translate(0px, 0px);
             }
         }
+
+        @include pc-width {
+            // transform:scale(5) ;
+        }
     }
 }
-
 
 
 /* About */
 #about {
     overflow-y: hidden;
 
-    .hashtags {
-        span {
-            display: inline-block;
-            padding: .5rem 1rem;
-            margin: 0 1rem;
-            box-shadow: 1px 1px 3px 0px black;
+    .container {
+        .hashtags {
+            span {
+                display: inline-block;
+                padding: .5rem 1rem;
+                margin: .3rem 1rem;
+                box-shadow: 1px 1px 3px 0px black;
+            }
+        }
+
+        .toggle-btn {
+            margin: 20px;
+        }
+
+        .infocard {
+            height: 48px;
+
+            .card-tabs {
+                .tabs {
+                    .tab {
+                        a {
+                            color: #00ACC1;
+                        }
+
+                        a.active {
+                            background-color: transparent;
+                            color: #008B9B;
+                        }
+
+                        :hover {
+                            background-color: transparent;
+                            color: #008B9B;
+                        }
+                    }
+
+                    .indicator {
+                        background-color: #009BAD;
+                    }
+                }
+
+                .tab.disabled {
+                    a {
+                        color: rgba(102, 147, 153, 0.7);
+
+                        :hover {
+                            color: rgba(102, 147, 153, 0.7);
+                        }
+                    }
+                }
+            }
+
+            .card-content {
+
+                visibility: hidden;
+                height: 0px;
+
+
+                .snapshot {
+                    justify-content: center;
+
+                    img {
+
+                        // width: 100%;
+                        // height: auto;
+                        @include pc-width {
+                            // width: 300px;
+                            // margin:30px 10PX;
+                        }
+                    }
+                }
+
+                p {
+                    padding: 20px;
+                }
+            }
         }
     }
-
-    .toggle-btn {
-        margin: 20px;
-    }
-
-    .showall {
-        visibility: visible;
-        height: 748px;
-        transition: all 1s;
-    }
 }
 
-.infocard {
-    visibility: hidden;
-    height: 0;
-}
-
-.tabs .tab a {
-    color: #00ACC1;
-}
-
-.tabs .tab a:hover,
-.tabs .tab a.active {
-    background-color: transparent;
-    color: #008B9B;
-}
-
-.tabs .tab.disabled a,
-.tabs .tab.disabled a:hover {
-    color: rgba(102, 147, 153, 0.7);
-}
-
-.tabs .indicator {
-    background-color: #009BAD;
-}
-
-
-.card-content {
-    min-height: 700px;
-
-
-    .snapshot {
-        justify-content: center;
-
-        img {
-            width: 300PX;
-            height: auto;
-            margin: 30px 10PX;
-        }
-    }
-}
 
 
 /* skill */
 .section-skills.parallax-container {
-    max-height: 300px;
+    max-height: 200px;
+
+    @include pc-width {
+        max-height: 300px;
+    }
 }
 
-.section-skills .carousel {
-    height: 300px !important;
+.section-skills {
+    .carousel {
+        height: 200px !important;
+
+        @include pc-width {
+            height: 300px !important;
+        }
+
+        .carousel-logo {
+            flex-direction: column;
+        }
+
+    }
 }
 
-.carousel-logo {
-    flex-direction: column;
-}
 
 
 /* Project */
@@ -305,6 +384,9 @@ html {
 #footer {
     .contact-link a {
         display: inline-block;
-        padding: 20px;
+        img{
+            margin: 0 10px;
+            width: 50px;
+        }
     }
 }

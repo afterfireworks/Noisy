@@ -14,8 +14,10 @@
 
     const togbtn = document.querySelector('.toggle-btn');
     const infocard = document.querySelector('.infocard');
+    const cardcontent = document.querySelector('.card-content');
     togbtn.addEventListener('click', function () {
-        infocard.classList.toggle('showall')
+        infocard.classList.toggle('cardheight')
+        cardcontent.classList.toggle('showall')
     })
 
 
