@@ -18,26 +18,30 @@
 }
 
 .cardheight {
-  -webkit-transition: all 1s;
-  transition: all 1s;
-  height: 1248px;
+  -webkit-transition: all 2s;
+  transition: all 2s;
+  min-height: 1248px !important;
 }
 
 @media all and (min-width: 992px) {
   .cardheight {
+    -webkit-transition: all 1s;
+    transition: all 1s;
     min-height: 648px !important;
   }
 }
 
 .showall {
-  -webkit-transition: all 1s;
-  transition: all 1s;
+  -webkit-transition: all 2s;
+  transition: all 2s;
   visibility: visible !important;
-  min-height: 1200px;
+  min-height: 1200px !important;
 }
 
 @media all and (min-width: 992px) {
   .showall {
+    -webkit-transition: all 1s;
+    transition: all 1s;
     min-height: 600px !important;
   }
 }
@@ -199,9 +203,33 @@ html body {
 }
 
 #home #next {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   text-shadow: 0px 2px 2px black;
+}
+
+@media all and (min-width: 992px) {
+  #home #next {
+    left: calc(50% + 50px);
+  }
+}
+
+#home #next a img {
+  width: 30px;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
   -webkit-animation: jumping 1.5s infinite;
           animation: jumping 1.5s infinite;
+}
+
+@media all and (min-width: 992px) {
+  #home #next a img {
+    width: 60px;
+  }
 }
 
 @-webkit-keyframes jumping {
@@ -303,6 +331,23 @@ html body {
 }
 
 /* skill */
+#skills .carousel {
+  height: 200px !important;
+}
+
+@media all and (min-width: 992px) {
+  #skills .carousel {
+    height: 300px !important;
+  }
+}
+
+#skills .carousel .carousel-logo {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 .section-skills.parallax-container {
   max-height: 200px;
 }
@@ -313,27 +358,14 @@ html body {
   }
 }
 
-.section-skills .carousel {
-  height: 200px !important;
-}
-
-@media all and (min-width: 992px) {
-  .section-skills .carousel {
-    height: 300px !important;
-  }
-}
-
-.section-skills .carousel .carousel-logo {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
 /* Project */
-.card-reveal {
+#project .card .card-reveal {
   background-image: url(src/img/project/card-reveal-bg.jpg);
   background-size: cover;
+}
+
+#project .cardinfo {
+  padding: 30px 25%;
 }
 
 /* .card-reveal .overlay{
@@ -341,16 +373,12 @@ html body {
     top: 0; bottom: 0; left: 0; right: 0;
     background-color: rgba(0, 0, 0, 0.3);
 } */
-.cardinfo {
-  padding: 30px 25%;
-}
-
-.section-coding-link .btn {
-  width: 10rem;
-}
-
 .section-coding-link.parallax-container {
   max-height: 200px;
+}
+
+.section-coding-link.parallax-container .btn {
+  width: 10rem;
 }
 
 /* footer */

@@ -6,7 +6,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     var scrollspy = document.querySelectorAll('.scrollspy');
-    var scrollspyinstances = M.ScrollSpy.init(scrollspy);
+    var scrollspyinstances = M.ScrollSpy.init(scrollspy,{
+        scrollOffset: "100"
+    });
 
     let tabs = document.querySelector('.tabs');
     let tabsinstances = M.Tabs.init(tabs);
