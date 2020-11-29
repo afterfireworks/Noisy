@@ -15,4 +15,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let materialboxed = document.querySelectorAll('.materialboxed');
     let materialboxedinstances = M.Materialbox.init(materialboxed);
+
+    var fixedbtn = document.querySelectorAll('.fixed-action-btn');
+    var fixedbtninstances = M.FloatingActionButton.init(fixedbtn,{
+        direction: "left",
+    });
 });
