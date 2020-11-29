@@ -19,5 +19,6 @@ document.addEventListener('DOMContentLoaded', function () {
     var fixedbtn = document.querySelectorAll('.fixed-action-btn');
     var fixedbtninstances = M.FloatingActionButton.init(fixedbtn,{
         direction: "left",
+        toolbarEnabled: "false"
     });
 });
