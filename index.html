@@ -30,19 +30,19 @@
             <li>
                 <div class="divider"></div>
             </li>
-            <li><a class="sidenav-close waves-effect center-align" href="index.html#home">
+            <li><a class="sidenav-close waves-effect center-align" href="#home">
                     <h5>Home</h5>
                 </a></li>
-            <li><a class="sidenav-close waves-effect center-align" href="index.html#about">
+            <li><a class="sidenav-close waves-effect center-align" href="#about">
                     <h5>About</h5>
                 </a></li>
-            <li><a class="sidenav-close waves-effect center-align" href="index.html#skills">
+            <li><a class="sidenav-close waves-effect center-align" href="#skills">
                     <h5>Skills</h5>
                 </a></li>
-            <li><a class="sidenav-close waves-effect center-align" href="index.html#project">
+            <li><a class="sidenav-close waves-effect center-align" href="#project">
                     <h5>Project</h5>
                 </a></li>
-            <li><a class="sidenav-close waves-effect center-align" href="index.html#coding-link">
+            <li><a class="sidenav-close waves-effect center-align" href="#coding-link">
                     <h5>Coding</h5>
                 </a></li>
             <li>
@@ -76,7 +76,7 @@
             <h3 class="">About Me</h3>
             <p class="hashtags col s12 grey-text text-darken-1">
                 <span>沉迷後搖</span><span>享受組團與演奏</span><span>在網頁設計中感到安穩</span></p>
-            <button class="toggle-btn btn-floating btn-large waves-effect waves-light"><i
+            <button class="toggle-btn btn-floating btn-large grey darken-1 waves-effect waves-light"><i
                     class="material-icons">add</i></button>
             <div class="infocard card col s12">
                 <div class="card-tabs">
@@ -142,7 +142,7 @@
                     <div class="container">
                         <h3>Front-End</h3>
                         <div class="row valign-wrapper">
-                            <div class="carousel-logo col xl2 s2 fsac">
+                            <div class="carousel-logo col xl2 s2">
                                 <img src="./src/img/skill/icons8-html-5-96.png" alt="HTML 5 Logo"
                                     class="responsive-img">
                                 <span class="tooltip-text">HTML5</span>
@@ -271,19 +271,7 @@
             </div>
             <div class="parallax"><img src="src/img/skill/skill-bg.jpg"></div>
     </section>
-    <Script>
-        document.addEventListener('DOMContentLoaded', function () {
-            let carouselSlider = document.querySelectorAll('.carousel-slider');
-            let instances = M.Carousel.init(carouselSlider, {
-                fullWidth: true,
-                indicators: true,
-            });
-        });
-        document.addEventListener('DOMContentLoaded', function () {
-            var parallax = document.querySelectorAll('.parallax');
-            var instances = M.Parallax.init(parallax);
-        });
-    </Script>
+    
 
     <!-- Project -->
     <section id="project" class=" section section-project grey-text text-darken-2 scrollspy">
@@ -403,15 +391,15 @@
         <div class="footer-copyright">
             <div class="container center-align">Noise © 2020 Copyright</div>
         </div>
-        <div class="fixed-action-btn">
+        <div class="fixed-action-btn toolbar">
             <a class="btn-floating btn-large red">
-              <i class="large material-icons">mode_edit</i>
+              <i class="large material-icons">view_compact</i>
             </a>
             <ul>
-              <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-              <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-              <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-              <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+              <li><a class="red"><i class="material-icons">insert_chart</i></a></li>
+              <li><a class="yellow"><i class="material-icons">format_quote</i></a></li>
+              <li><a class="green"><i class="material-icons">publish</i></a></li>
+              <li><a class="blue"><i class="material-icons">attach_file</i></a></li>
             </ul>
           </div>
     </footer>

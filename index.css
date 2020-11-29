@@ -204,7 +204,7 @@ html body {
 
 #home #next {
   position: absolute;
-  bottom: 5%;
+  bottom: 10%;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -281,7 +281,6 @@ html body {
 }
 
 #about .container .btn-floating.toggle-btn {
-  background-color: #616161;
   margin: 20px;
 }
 

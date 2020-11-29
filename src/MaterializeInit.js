@@ -2,13 +2,11 @@ document.addEventListener('DOMContentLoaded', function () {
     let sidenav = document.querySelectorAll('.sidenav');
     let sidenavinstances = M.Sidenav.init(sidenav, {
         edge: 'left',
-        preventScrolling: 'true',
+        preventScrolling: 'false',
     });
 
-    var scrollspy = document.querySelectorAll('.scrollspy');
-    var scrollspyinstances = M.ScrollSpy.init(scrollspy,{
-        scrollOffset: "100"
-    });
+    let scrollspy = document.querySelectorAll('.scrollspy');
+    let scrollspyinstances = M.ScrollSpy.init(scrollspy);
 
     let tabs = document.querySelector('.tabs');
     let tabsinstances = M.Tabs.init(tabs);
@@ -16,9 +14,18 @@ document.addEventListener('DOMContentLoaded', function () {
     let materialboxed = document.querySelectorAll('.materialboxed');
     let materialboxedinstances = M.Materialbox.init(materialboxed);
 
-    var fixedbtn = document.querySelectorAll('.fixed-action-btn');
-    var fixedbtninstances = M.FloatingActionButton.init(fixedbtn,{
-        direction: "left",
-        toolbarEnabled: "false"
+    let carouselSlider = document.querySelectorAll('.carousel-slider');
+    let carouselSliderinstances = M.Carousel.init(carouselSlider, {
+        fullWidth: true,
+        indicators: true,
+    });
+
+    let parallax = document.querySelectorAll('.parallax');
+    let parallaxinstances = M.Parallax.init(parallax);
+
+    let fixedbtn = document.querySelectorAll('.fixed-action-btn');
+    let fixedbtninstances = M.FloatingActionButton.init(fixedbtn, {
+        // direction: "left",
+        toolbarEnabled: "ture"
     });
 });

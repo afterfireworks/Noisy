@@ -133,11 +133,7 @@ html {
             width: 300px;
             padding: 10vh 0;
         }
-
-
-
-
-
+        
         ::before {
             content: '';
             position: absolute;
@@ -231,7 +227,7 @@ html {
     #next {
 
         position: absolute;
-        bottom: 5%;
+        bottom: 10%;
         left: 50%;
 
         @include pc-width {
@@ -298,7 +294,7 @@ html {
         }
 
         .btn-floating.toggle-btn {
-            background-color: rgb(97, 97, 97);
+            // background-color: rgb(97, 97, 97);
             margin: 20px;
         }
 
