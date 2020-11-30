@@ -381,21 +381,31 @@ html body {
 }
 
 /* footer */
+#footer h5 {
+  margin-bottom: 20px;
+}
+
 #footer .contact-link a {
   display: inline-block;
 }
 
 #footer .contact-link a img {
   margin: 0 10px;
-  width: 50px;
+  width: 30px;
+}
+
+@media all and (min-width: 992px) {
+  #footer .contact-link a img {
+    width: 50px;
+  }
 }
 
 #footer .fixed-action-btn.toolbar {
-  height: 70px;
+  height: 60px;
 }
 
 #footer .fixed-action-btn.toolbar ul li img {
-  max-width: 60px;
+  max-width: 50px;
   -o-object-fit: contain;
      object-fit: contain;
   padding: 5px 0;

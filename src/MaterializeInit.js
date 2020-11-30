@@ -8,6 +8,11 @@ document.addEventListener('DOMContentLoaded', function () {
     let scrollspy = document.querySelectorAll('.scrollspy');
     let scrollspyinstances = M.ScrollSpy.init(scrollspy);
 
+    
+    let pushpin = document.querySelectorAll('.pushpin');
+    let pushpininstances = M.Pushpin.init(pushpin);
+     
+
     let tabs = document.querySelector('.tabs');
     let tabsinstances = M.Tabs.init(tabs);
 

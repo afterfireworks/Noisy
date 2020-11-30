@@ -433,40 +433,28 @@ html {
 
 /* footer */
 #footer {
+    h5{
+            margin-bottom: 20px;
+        }
     .contact-link a {
         display: inline-block;
 
         img {
             margin: 0 10px;
-            width: 50px;
+            width: 30px;
+            @include pc-width{
+                width: 50px;
+            }
         }
+        
     }
 
     .fixed-action-btn.toolbar {
-        height: 70px;
-        // line-height: 1.5;
-        // font-weight: normal;
-        // color: rgba(0, 0, 0, 0.87);
-        // font-size: 14px;
-        // font-family: 'Amaranth', sans-serif;
-        // box-sizing: border-box;
-        // position: fixed;
-        // right: 23px;
-        // margin-bottom: 0;
-        // z-index: 997;
-        // padding: 0;
-        // height: 56px;
-        // transition: transform 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s, background-color 0s linear 0.2s;
-        // text-align: center;
-        // width: 100%;
-        // bottom: 0px;
-        // left: 0px;
-        // overflow: hidden;
-        // background-color: rgb(84, 110, 122);
+        height: 60px;
         ul {
             li {
                 img {
-                    max-width: 60px;
+                    max-width: 50px;
                     object-fit: contain;
                     padding: 5px 0;
                 }
