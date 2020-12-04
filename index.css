@@ -106,7 +106,7 @@ html body {
 
 @media all and (min-width: 992px) {
   #home #oneself #photo {
-    margin-left: 80px;
+    margin-left: 90px;
     padding: 50px;
   }
 }
@@ -288,6 +288,15 @@ html body {
   text-shadow: 1px 1px 1px black;
 }
 
+.sidenav li a.active {
+  padding-left: 50px;
+}
+
+.sidenav li a.active h5 {
+  padding-left: 5px;
+  border-left: 5px solid #e53935;
+}
+
 /* About */
 #about {
   overflow-y: hidden;
@@ -344,7 +353,7 @@ html body {
 }
 
 #about .container .infocard .card-tabs .tabs .indicator {
-  background-color: rgba(97, 97, 97, 0.8);
+  background-color: rgba(50, 50, 50, 0.6);
 }
 
 #about .container .infocard .card-content {
@@ -408,11 +417,11 @@ html body {
   margin-top: 20px;
 }
 
-#coding-link {
+#codinglink {
   max-height: 200px;
 }
 
-#coding-link .btn {
+#codinglink .btn {
   margin-top: 10px;
   width: 10rem;
 }
