@@ -13,7 +13,7 @@
 </head>
 
 <body>
-
+    <!-- header -->
     <header id="home" class="navbar-fixed valign-wrapper scrollspy">
         <div class="slider fullscreen">
             <ul class="slides">
@@ -33,40 +33,16 @@
               </li>
             </ul>
           </div>
-        <nav>
+        <nav class="">
             <div class="container">
                 <a href="index.html" class="brand-logo" class="responsive-img">
-                    <img src="./src/img/home/logo.png" alt="Noise" class="responsive-img">
+                    <img src="src/img/home/logo.png" alt="Noise" class="responsive-img">
                 </a>
-                <a href="#" class="right sidenav-trigger show-on-medium-and-up" data-target="side-nav">
+                <a href="#" class="right sidenav-trigger" data-target="slide-out">
                     <i class="material-icons">menu</i>
                 </a>
             </div>
         </nav>
-        <ul id="side-nav" class="sidenav sidenav-fixed">
-            <li id="side-nav-logo" class="responsive-img"><img src="./src/img/home/logo.png" alt="logo" class="responsive-img"></li>
-            <li>
-                <div class="divider"></div>
-            </li>
-            <li><a class="sidenav-close center-align waves-effect" href="#home">
-                    <h5>Home</h5>
-                </a></li>
-            <li><a class="sidenav-close center-align waves-effect" href="#about">
-                    <h5>About</h5>
-                </a></li>
-            <li><a class="sidenav-close center-align waves-effect" href="#skills">
-                    <h5>Skills</h5>
-                </a></li>
-            <li><a class="sidenav-close center-align waves-effect" href="#project">
-                    <h5>Project</h5>
-                </a></li>
-            <li><a class="sidenav-close center-align waves-effect" href="#coding-link">
-                    <h5>Coding</h5>
-                </a></li>
-            <li>
-                <div class="divider"></div>
-            </li>
-        </ul>
         <div id="oneself" class="container">
             <div class="row">
                 <div id="photo" class="col l5 s10 offset-s1">
@@ -86,6 +62,31 @@
             <a href="#about"><img src="src/img/home/next.png" alt=""></a>
         </div>
     </header>
+    <!-- sidenav -->
+    <ul id="slide-out" class="sidenav sidenav-fixed">
+        <li id="side-nav-logo" class="responsive-img"><img src="src/img/home/logo.png" alt="logo" class="responsive-img"></li>
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li><a class="sidenav-close center-align waves-effect" href="#home">
+                <h5>Home</h5>
+            </a></li>
+        <li><a class="sidenav-close center-align waves-effect" href="#about">
+                <h5>About</h5>
+            </a></li>
+        <li><a class="sidenav-close center-align waves-effect" href="#skills">
+                <h5>Skills</h5>
+            </a></li>
+        <li><a class="sidenav-close center-align waves-effect" href="#project">
+                <h5>Project</h5>
+            </a></li>
+        <li><a class="sidenav-close center-align waves-effect" href="#coding-link">
+                <h5>Coding</h5>
+            </a></li>
+        <li>
+            <div class="divider"></div>
+        </li>
+    </ul>
 
 
     <!-- About Me -->
@@ -358,7 +359,7 @@
         <div id="coding-link-content">
             <div class="container">
                 <div class="row center-align white-text">
-                    <h3>Coding</h3>
+                    <h4>Coding</h4>
                     <div class="col s8 offset-s2">
                         <a class="btn waves-effect waves-light light-blue accent-4 z-depth-3" target="_blank"
                             href="https://github.com/afterfireworks?tab=repositories">

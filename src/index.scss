@@ -90,15 +90,8 @@ html {
 #home {
     width: 100vw;
     height: 100vh;
-    // background-image: url(src/img/home/banner.jpg);
-    // background-position: center center;
-    // background-size: cover;
 
-    @include pc-width {
-        padding-left: 300px;
-    }
-
-    .slider{
+    .slider {
         z-index: -1;
     }
 
@@ -124,80 +117,14 @@ html {
     }
 
 
-
-    .sidenav {
-        overflow: hidden;
-        background-color: transparent;
-        box-shadow: none;
-        background: hsla(0, 0%, 100%, .1);
-        width: 100%;
-        padding: 30vh 0;
-
-        @include pc-width {
-            width: 300px;
-            padding: 10vh 0;
-        }
-
-        ::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            background: rgba(0, 0, 0, .02);
-            filter: blur(20px);
-            z-index: -1;
-            margin: -30px;
-        }
-
-
-        #side-nav-logo {
-            display: none;
-
-            @include pc-width {
-                display: flex;
-                justify-content: center;
-                margin: 50px 0;
-
-                img {
-                    width: 150px;
-                }
-            }
-
-        }
-
-        .divider {
-            width: 80%;
-            margin: 10px auto;
-
-            @include pc-width {
-                // visibility: hidden;
-                width: 60%;
-                margin: 50px auto;
-            }
-
-        }
-
-        li {
-            a {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                h5 {
-                    color: snow;
-                    text-shadow: 1px 1px 1px black;
-                }
-            }
-        }
-
-    }
-
     #oneself {
         #photo {
+            padding: 30px;
 
-            @include pc-width {}
+            @include pc-width {
+                margin-left: 80px;
+                padding: 50px;
+            }
 
             img {
                 border-radius: 50%;
@@ -222,10 +149,11 @@ html {
             }
 
             @include pc-width {
-                padding: 50px 50px;
+                padding: 50px;
 
                 h2 {
                     text-align: left;
+                    margin-top: 0;
                 }
             }
 
@@ -240,7 +168,7 @@ html {
         left: 50%;
 
         @include pc-width {
-            left: calc(50% + 50px);
+            left: calc(50% + 150px);
         }
 
         transform: translateX(-50%);
@@ -281,6 +209,80 @@ html {
 
     }
 }
+
+// sidenav
+.sidenav {
+    overflow: hidden;
+    background-color: transparent;
+    box-shadow: none;
+    // background: hsla(0, 0%, 100%, .1);
+    width: 100%;
+    padding: 30vh 0;
+
+    @include pc-width {
+        width: 300px;
+        padding: 10vh 0;
+    }
+
+    ::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        filter: blur(20px);
+        z-index: -1;
+        margin: -30px;
+        background: rgba(0, 0, 0, .02);
+        @include pc-width{
+            background:transparent;
+        }
+    }
+
+
+    #side-nav-logo {
+        display: none;
+
+        @include pc-width {
+            display: flex;
+            justify-content: center;
+            margin: 50px 0;
+
+            img {
+                width: 150px;
+            }
+        }
+
+    }
+
+    .divider {
+        width: 80%;
+        margin: 10px auto;
+
+        @include pc-width {
+            // visibility: hidden;
+            width: 60%;
+            margin: 50px auto;
+        }
+
+    }
+
+    li {
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            h5 {
+                color: snow;
+                text-shadow: 1px 1px 1px black;
+            }
+        }
+    }
+
+}
+
 
 
 /* About */
@@ -425,8 +427,9 @@ html {
 
     .card-reveal {
         background-position: center bottom;
-        ul{
-            li{
+
+        ul {
+            li {
                 margin-top: 20px;
             }
         }
@@ -437,12 +440,11 @@ html {
 
 
 // coding
-#coding-link {}
-
-.section-coding-link.parallax-container {
+#coding-link {
     max-height: 200px;
 
     .btn {
+        margin-top: 10px;
         width: 10rem;
     }
 }
@@ -470,6 +472,7 @@ html {
 
     .fixed-action-btn.toolbar {
         height: 60px;
+        z-index: 999;
 
         ul {
             li {

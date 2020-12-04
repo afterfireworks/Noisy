@@ -73,12 +73,6 @@ html body {
   height: 100vh;
 }
 
-@media all and (min-width: 992px) {
-  #home {
-    padding-left: 300px;
-  }
-}
-
 #home .slider {
   z-index: -1;
 }
@@ -106,83 +100,15 @@ html body {
   margin: 5px;
 }
 
-#home .sidenav {
-  overflow: hidden;
-  background-color: transparent;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  background: rgba(255, 255, 255, 0.1);
-  width: 100%;
-  padding: 30vh 0;
+#home #oneself #photo {
+  padding: 30px;
 }
 
 @media all and (min-width: 992px) {
-  #home .sidenav {
-    width: 300px;
-    padding: 10vh 0;
+  #home #oneself #photo {
+    margin-left: 80px;
+    padding: 50px;
   }
-}
-
-#home .sidenav ::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.02);
-  -webkit-filter: blur(20px);
-          filter: blur(20px);
-  z-index: -1;
-  margin: -30px;
-}
-
-#home .sidenav #side-nav-logo {
-  display: none;
-}
-
-@media all and (min-width: 992px) {
-  #home .sidenav #side-nav-logo {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    margin: 50px 0;
-  }
-  #home .sidenav #side-nav-logo img {
-    width: 150px;
-  }
-}
-
-#home .sidenav .divider {
-  width: 80%;
-  margin: 10px auto;
-}
-
-@media all and (min-width: 992px) {
-  #home .sidenav .divider {
-    width: 60%;
-    margin: 50px auto;
-  }
-}
-
-#home .sidenav li a {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-#home .sidenav li a h5 {
-  color: snow;
-  text-shadow: 1px 1px 1px black;
 }
 
 #home #oneself #photo img {
@@ -210,10 +136,11 @@ html body {
 
 @media all and (min-width: 992px) {
   #home #oneself #data {
-    padding: 50px 50px;
+    padding: 50px;
   }
   #home #oneself #data h2 {
     text-align: left;
+    margin-top: 0;
   }
 }
 
@@ -228,7 +155,7 @@ html body {
 
 @media all and (min-width: 992px) {
   #home #next {
-    left: calc(50% + 50px);
+    left: calc(50% + 150px);
   }
 }
 
@@ -275,6 +202,90 @@ html body {
     -webkit-transform: translate(0px, 0px);
             transform: translate(0px, 0px);
   }
+}
+
+.sidenav {
+  overflow: hidden;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  width: 100%;
+  padding: 30vh 0;
+}
+
+@media all and (min-width: 992px) {
+  .sidenav {
+    width: 300px;
+    padding: 10vh 0;
+  }
+}
+
+.sidenav ::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-filter: blur(20px);
+          filter: blur(20px);
+  z-index: -1;
+  margin: -30px;
+  background: rgba(0, 0, 0, 0.02);
+}
+
+@media all and (min-width: 992px) {
+  .sidenav ::before {
+    background: transparent;
+  }
+}
+
+.sidenav #side-nav-logo {
+  display: none;
+}
+
+@media all and (min-width: 992px) {
+  .sidenav #side-nav-logo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin: 50px 0;
+  }
+  .sidenav #side-nav-logo img {
+    width: 150px;
+  }
+}
+
+.sidenav .divider {
+  width: 80%;
+  margin: 10px auto;
+}
+
+@media all and (min-width: 992px) {
+  .sidenav .divider {
+    width: 60%;
+    margin: 50px auto;
+  }
+}
+
+.sidenav li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sidenav li a h5 {
+  color: snow;
+  text-shadow: 1px 1px 1px black;
 }
 
 /* About */
@@ -397,11 +408,12 @@ html body {
   margin-top: 20px;
 }
 
-.section-coding-link.parallax-container {
+#coding-link {
   max-height: 200px;
 }
 
-.section-coding-link.parallax-container .btn {
+#coding-link .btn {
+  margin-top: 10px;
   width: 10rem;
 }
 
@@ -427,6 +439,7 @@ html body {
 
 #footer .fixed-action-btn.toolbar {
   height: 60px;
+  z-index: 999;
 }
 
 #footer .fixed-action-btn.toolbar ul li img {
