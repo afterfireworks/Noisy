@@ -71,15 +71,16 @@ html body {
 #home {
   width: 100vw;
   height: 100vh;
-  background-image: url(src/img/home/banner.jpg);
-  background-position: center center;
-  background-size: cover;
 }
 
 @media all and (min-width: 992px) {
   #home {
     padding-left: 300px;
   }
+}
+
+#home .slider {
+  z-index: -1;
 }
 
 #home nav {
@@ -108,6 +109,8 @@ html body {
 #home .sidenav {
   overflow: hidden;
   background-color: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   background: rgba(255, 255, 255, 0.1);
   width: 100%;
   padding: 30vh 0;
@@ -149,7 +152,7 @@ html body {
     margin: 50px 0;
   }
   #home .sidenav #side-nav-logo img {
-    width: 100px;
+    width: 150px;
   }
 }
 
@@ -161,8 +164,20 @@ html body {
 @media all and (min-width: 992px) {
   #home .sidenav .divider {
     width: 60%;
-    margin: 40px auto;
+    margin: 50px auto;
   }
+}
+
+#home .sidenav li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #home .sidenav li a h5 {
@@ -284,6 +299,13 @@ html body {
   margin: 20px;
 }
 
+#about .container .btn-floating.toggle-btn:active {
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+  -webkit-transition: all .01s;
+  transition: all .01s;
+}
+
 #about .container .card {
   background-color: rgba(255, 255, 255, 0.1);
 }
@@ -367,11 +389,14 @@ html body {
   padding: 30px;
 }
 
-/* .card-reveal .overlay{
-    position: relative;
-    top: 0; bottom: 0; left: 0; right: 0;
-    background-color: rgba(0, 0, 0, 0.3);
-} */
+#project .card-reveal {
+  background-position: center bottom;
+}
+
+#project .card-reveal ul li {
+  margin-top: 20px;
+}
+
 .section-coding-link.parallax-container {
   max-height: 200px;
 }

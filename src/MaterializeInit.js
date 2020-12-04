@@ -2,7 +2,13 @@ document.addEventListener('DOMContentLoaded', function () {
     let sidenav = document.querySelectorAll('.sidenav');
     let sidenavinstances = M.Sidenav.init(sidenav, {
         edge: 'left',
-        preventScrolling: 'false',
+        preventScrolling: true,
+    });
+
+    let slider = document.querySelectorAll('.slider');
+    let sliderinstances = M.Slider.init(slider, {
+        indicators:	false,
+        interval: 5000,
     });
 
     let scrollspy = document.querySelectorAll('.scrollspy');
@@ -30,7 +36,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let fixedbtn = document.querySelectorAll('.fixed-action-btn');
     let fixedbtninstances = M.FloatingActionButton.init(fixedbtn, {
-        // direction: "left",
-        toolbarEnabled: "ture"
+        toolbarEnabled: true,
     });
 });

@@ -90,13 +90,16 @@ html {
 #home {
     width: 100vw;
     height: 100vh;
-    // height: -webkit-fill-available;
-    background-image: url(src/img/home/banner.jpg);
-    background-position: center center;
-    background-size: cover;
+    // background-image: url(src/img/home/banner.jpg);
+    // background-position: center center;
+    // background-size: cover;
 
     @include pc-width {
         padding-left: 300px;
+    }
+
+    .slider{
+        z-index: -1;
     }
 
     nav {
@@ -125,6 +128,7 @@ html {
     .sidenav {
         overflow: hidden;
         background-color: transparent;
+        box-shadow: none;
         background: hsla(0, 0%, 100%, .1);
         width: 100%;
         padding: 30vh 0;
@@ -157,7 +161,7 @@ html {
                 margin: 50px 0;
 
                 img {
-                    width: 100px;
+                    width: 150px;
                 }
             }
 
@@ -168,14 +172,19 @@ html {
             margin: 10px auto;
 
             @include pc-width {
+                // visibility: hidden;
                 width: 60%;
-                margin: 40px auto;
+                margin: 50px auto;
             }
 
         }
 
         li {
             a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
                 h5 {
                     color: snow;
                     text-shadow: 1px 1px 1px black;
@@ -294,8 +303,12 @@ html {
         }
 
         .btn-floating.toggle-btn {
-            // background-color: rgb(97, 97, 97);
             margin: 20px;
+
+            &:active {
+                transform: rotate(-180deg);
+                transition: all .01s;
+            }
         }
 
         .card {
@@ -409,14 +422,18 @@ html {
     .cardinfo {
         padding: 30px;
     }
+
+    .card-reveal {
+        background-position: center bottom;
+        ul{
+            li{
+                margin-top: 20px;
+            }
+        }
+    }
 }
 
 
-/* .card-reveal .overlay{
-    position: relative;
-    top: 0; bottom: 0; left: 0; right: 0;
-    background-color: rgba(0, 0, 0, 0.3);
-} */
 
 
 // coding
@@ -433,24 +450,27 @@ html {
 
 /* footer */
 #footer {
-    h5{
-            margin-bottom: 20px;
-        }
+    h5 {
+        margin-bottom: 20px;
+    }
+
     .contact-link a {
         display: inline-block;
 
         img {
             margin: 0 10px;
             width: 30px;
-            @include pc-width{
+
+            @include pc-width {
                 width: 50px;
             }
         }
-        
+
     }
 
     .fixed-action-btn.toolbar {
         height: 60px;
+
         ul {
             li {
                 img {
