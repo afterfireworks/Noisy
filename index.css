@@ -121,11 +121,11 @@ html body {
 }
 
 #home #oneself #data .tag {
-  width: 5rem;
   display: inline-block;
   text-align: center;
   margin: 0 1rem;
   border: 1px solid snow;
+  width: 5rem;
 }
 
 @media all and (min-width: 992px) {
@@ -340,17 +340,18 @@ html body {
 }
 
 #about .container .infocard .card-tabs .tabs .tab a {
-  color: rgba(97, 97, 97, 0.6);
+  color: rgba(80, 80, 80, 0.6);
+  font-weight: 900;
 }
 
 #about .container .infocard .card-tabs .tabs .tab a.active {
   background-color: transparent;
-  color: #616161;
+  color: #505050;
 }
 
 #about .container .infocard .card-tabs .tabs .tab :hover {
   background-color: transparent;
-  color: #616161;
+  color: #505050;
 }
 
 #about .container .infocard .card-tabs .tabs .indicator {
@@ -465,37 +466,58 @@ html body {
   padding: 5px 0;
 }
 
-#extend {
-  margin-top: 5vh;
+#extend-nav {
+  background-color: #b1b1b1;
 }
 
-#extend .card .card-tabs .tabs {
+#extend {
+  width: 100vw;
+  min-height: 100vh;
+  background-image: url(./src/img/extend/BG.jpg);
+  background-attachment: fixed;
+  background-position: center center;
+}
+
+#extend .container {
+  padding-top: 2vh;
+}
+
+#extend .container .card {
+  padding: 0;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+#extend .container .card .card-tabs .tabs {
   background-color: transparent;
 }
 
-#extend .card .card-tabs .tabs .tab a {
+#extend .container .card .card-tabs .tabs .tab a {
   color: rgba(97, 97, 97, 0.6);
 }
 
-#extend .card .card-tabs .tabs .tab a.active {
+#extend .container .card .card-tabs .tabs .tab a.active {
   background-color: transparent;
   color: #616161;
 }
 
-#extend .card .card-tabs .tabs .tab :hover {
+#extend .container .card .card-tabs .tabs .tab :hover {
   background-color: transparent;
   color: #616161;
 }
 
-#extend .card .card-tabs .tabs .indicator {
+#extend .container .card .card-tabs .tabs .indicator {
   background-color: rgba(50, 50, 50, 0.6);
 }
 
-#extend .card .card-tabs .tab.disabled a {
+#extend .container .card .card-tabs .tab.disabled a {
   color: rgba(102, 147, 153, 0.7);
 }
 
-#extend .card .card-tabs .tab.disabled a :hover {
+#extend .container .card .card-tabs .tab.disabled a :hover {
   color: rgba(102, 147, 153, 0.7);
+}
+
+#extend .container .card .card-content .card-action {
+  background-color: transparent;
 }
 /*# sourceMappingURL=index.css.map */

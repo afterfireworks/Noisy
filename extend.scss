@@ -1,0 +1,41 @@
+#extend {
+    margin-top: 3vh;
+    .card {
+        .card-tabs {
+            .tabs {
+                background-color: transparent;
+
+                .tab {
+                    a {
+                        color: rgba(97, 97, 97, 0.6);
+                    }
+
+                    a.active {
+                        background-color: transparent;
+                        color: rgb(97, 97, 97);
+                    }
+
+                    :hover {
+                        background-color: transparent;
+                        color: rgb(97, 97, 97);
+                    }
+                }
+
+                .indicator {
+                    background-color: rgba(50, 50, 50, .6);
+                }
+            }
+
+            .tab.disabled {
+                a {
+                    color: rgba(102, 147, 153, 0.7);
+
+                    :hover {
+                        color: rgba(102, 147, 153, 0.7);
+                    }
+                }
+            }
+        }
+    }
+
+}

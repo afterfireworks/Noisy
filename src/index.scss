@@ -139,11 +139,11 @@ html {
             color: snow;
 
             .tag {
-                width: 5rem;
                 display: inline-block;
                 text-align: center;
                 margin: 0 1rem;
                 border: 1px solid snow;
+                width: 5rem;
 
                 @include pc-width {
                     font-size: 1.5rem;
@@ -340,17 +340,18 @@ html {
 
                     .tab {
                         a {
-                            color: rgba(97, 97, 97, 0.6);
+                            color: rgba(80, 80, 80, 0.6);
+                            font-weight: 900; 
                         }
 
                         a.active {
                             background-color: transparent;
-                            color: rgb(97, 97, 97);
+                            color: rgb(80, 80, 80);
                         }
 
                         :hover {
                             background-color: transparent;
-                            color: rgb(97, 97, 97);
+                            color: rgb(80, 80, 80);
                         }
                     }
 
@@ -505,44 +506,65 @@ html {
     }
 }
 
+
+
+
+// extend
+#extend-nav{
+    background-color: rgb(177, 177, 177);
+}
 #extend {
-    margin-top: 5vh;
-    .card {
-        .card-tabs {
-            .tabs {
-                background-color: transparent;
+    width: 100vw;
+    min-height: 100vh;
+    background-image: url(./src/img/extend/BG.jpg);
+    background-attachment: fixed;
+    background-position: center center;
+    .container {
+        padding-top: 2vh;
 
-                .tab {
-                    a {
-                        color: rgba(97, 97, 97, 0.6);
+        .card {
+            padding: 0;
+            background-color: rgba(255, 255, 255, 0.4);
+            .card-tabs {
+                .tabs {
+                    background-color: transparent;
+
+                    .tab {
+                        a {
+                            color: rgba(97, 97, 97, 0.6);
+                        }
+
+                        a.active {
+                            background-color: transparent;
+                            color: rgb(97, 97, 97);
+                        }
+
+                        :hover {
+                            background-color: transparent;
+                            color: rgb(97, 97, 97);
+                        }
                     }
 
-                    a.active {
-                        background-color: transparent;
-                        color: rgb(97, 97, 97);
-                    }
-
-                    :hover {
-                        background-color: transparent;
-                        color: rgb(97, 97, 97);
+                    .indicator {
+                        background-color: rgba(50, 50, 50, .6);
                     }
                 }
 
-                .indicator {
-                    background-color: rgba(50, 50, 50, .6);
+                .tab.disabled {
+                    a {
+                        color: rgba(102, 147, 153, 0.7);
+
+                        :hover {
+                            color: rgba(102, 147, 153, 0.7);
+                        }
+                    }
                 }
             }
-
-            .tab.disabled {
-                a {
-                    color: rgba(102, 147, 153, 0.7);
-
-                    :hover {
-                        color: rgba(102, 147, 153, 0.7);
-                    }
+            .card-content{
+                .card-action{
+                    background-color: transparent;
                 }
             }
         }
     }
-
 }
