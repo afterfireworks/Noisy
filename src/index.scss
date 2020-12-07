@@ -33,9 +33,9 @@ footer {
 }
 
 .shadow {
-    background-color: rgba(0, 0, 0, .8)!important;
-    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -7px rgba(0, 0, 0, 0.2)!important;
-    -webkit-box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -7px rgba(0, 0, 0, 0.2)!important;
+    background-color: rgba(0, 0, 0, .8) !important;
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -7px rgba(0, 0, 0, 0.2) !important;
+    -webkit-box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -7px rgba(0, 0, 0, 0.2) !important;
 }
 
 
@@ -402,6 +402,12 @@ html {
 
 /* skill */
 #skills {
+    max-height: 200px;
+
+    @include pc-width {
+        max-height: 300px;
+    }
+
     .carousel {
         height: 200px !important;
 
@@ -416,13 +422,6 @@ html {
     }
 }
 
-.section-skills.parallax-container {
-    max-height: 200px;
-
-    @include pc-width {
-        max-height: 300px;
-    }
-}
 
 
 
@@ -445,7 +444,8 @@ html {
         ul {
             li {
                 margin-top: 10px;
-                @include pc-width{
+
+                @include pc-width {
                     margin-top: 20px;
                 }
             }
@@ -503,4 +503,46 @@ html {
 
 
     }
+}
+
+#extend {
+    margin-top: 5vh;
+    .card {
+        .card-tabs {
+            .tabs {
+                background-color: transparent;
+
+                .tab {
+                    a {
+                        color: rgba(97, 97, 97, 0.6);
+                    }
+
+                    a.active {
+                        background-color: transparent;
+                        color: rgb(97, 97, 97);
+                    }
+
+                    :hover {
+                        background-color: transparent;
+                        color: rgb(97, 97, 97);
+                    }
+                }
+
+                .indicator {
+                    background-color: rgba(50, 50, 50, .6);
+                }
+            }
+
+            .tab.disabled {
+                a {
+                    color: rgba(102, 147, 153, 0.7);
+
+                    :hover {
+                        color: rgba(102, 147, 153, 0.7);
+                    }
+                }
+            }
+        }
+    }
+
 }

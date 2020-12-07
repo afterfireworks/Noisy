@@ -373,6 +373,16 @@ html body {
 }
 
 /* skill */
+#skills {
+  max-height: 200px;
+}
+
+@media all and (min-width: 992px) {
+  #skills {
+    max-height: 300px;
+  }
+}
+
 #skills .carousel {
   height: 200px !important;
 }
@@ -388,16 +398,6 @@ html body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-}
-
-.section-skills.parallax-container {
-  max-height: 200px;
-}
-
-@media all and (min-width: 992px) {
-  .section-skills.parallax-container {
-    max-height: 300px;
-  }
 }
 
 /* Project */
@@ -463,5 +463,39 @@ html body {
   -o-object-fit: contain;
      object-fit: contain;
   padding: 5px 0;
+}
+
+#extend {
+  margin-top: 5vh;
+}
+
+#extend .card .card-tabs .tabs {
+  background-color: transparent;
+}
+
+#extend .card .card-tabs .tabs .tab a {
+  color: rgba(97, 97, 97, 0.6);
+}
+
+#extend .card .card-tabs .tabs .tab a.active {
+  background-color: transparent;
+  color: #616161;
+}
+
+#extend .card .card-tabs .tabs .tab :hover {
+  background-color: transparent;
+  color: #616161;
+}
+
+#extend .card .card-tabs .tabs .indicator {
+  background-color: rgba(50, 50, 50, 0.6);
+}
+
+#extend .card .card-tabs .tab.disabled a {
+  color: rgba(102, 147, 153, 0.7);
+}
+
+#extend .card .card-tabs .tab.disabled a :hover {
+  color: rgba(102, 147, 153, 0.7);
 }
 /*# sourceMappingURL=index.css.map */
