@@ -401,6 +401,16 @@ html body {
           flex-direction: column;
 }
 
+#skills .carousel .carousel-logo span {
+  display: none;
+}
+
+@media all and (min-width: 992px) {
+  #skills .carousel .carousel-logo span {
+    display: inline-block;
+  }
+}
+
 /* Project */
 #project .card .card-reveal {
   background-image: url(src/img/project/card-reveal-bg.jpg);

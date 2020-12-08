@@ -20,10 +20,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
-    // let pushpin = document.querySelectorAll('.pushpin');
-    // let pushpininstances = M.Pushpin.init(pushpin, {
-    //     offset: 0,
-    // });
+    let tooltipped = document.querySelectorAll('.tooltipped');
+    let tooltippedinstances = M.Tooltip.init(tooltipped);
 
 
     let tabs = document.querySelector('.tabs');

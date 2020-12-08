@@ -418,6 +418,12 @@ html {
 
         .carousel-logo {
             flex-direction: column;
+            span{
+                display: none;
+                @include pc-width {
+                    display: inline-block;
+                }
+            }
         }
 
     }
