@@ -318,12 +318,12 @@ html {
             }
         }
 
-        .btn-floating.toggle-btn {
+        .toggle-btn {
             margin: 20px;
 
-            &:active {
-                transform: rotate(-180deg);
-                transition: all .01s;
+            &:hover i {
+                transform: rotate(90deg);
+                transition: all .3s linear;
             }
         }
 

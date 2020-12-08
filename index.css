@@ -316,15 +316,15 @@ html body {
   font-size: 1.2rem;
 }
 
-#about .container .btn-floating.toggle-btn {
+#about .container .toggle-btn {
   margin: 20px;
 }
 
-#about .container .btn-floating.toggle-btn:active {
-  -webkit-transform: rotate(-180deg);
-          transform: rotate(-180deg);
-  -webkit-transition: all .01s;
-  transition: all .01s;
+#about .container .toggle-btn:hover i {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -webkit-transition: all .3s linear;
+  transition: all .3s linear;
 }
 
 #about .container .card {
