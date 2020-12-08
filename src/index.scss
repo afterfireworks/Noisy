@@ -561,6 +561,11 @@ html {
                 }
             }
             .card-content{
+                .card-image{
+                    span{
+                        text-shadow: 0px 2px 1px black;
+                    }
+                }
                 .card-action{
                     background-color: transparent;
                 }
