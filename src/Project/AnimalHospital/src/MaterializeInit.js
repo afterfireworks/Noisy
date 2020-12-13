@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let slider = document.querySelectorAll('.slider');
     let sliderinstances = M.Slider.init(slider, {
-        indicators:	false,
-        interval: 5000,
+        indicators:	true,
+        interval: 3000,
     });
 
 
