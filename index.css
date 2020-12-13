@@ -479,7 +479,7 @@ html body {
 }
 
 #footer h5 {
-  margin-bottom: 20px;
+  margin: 30px 0;
 }
 
 #footer .contact-link a {
@@ -488,12 +488,12 @@ html body {
 
 #footer .contact-link a img {
   margin: 0 10px;
-  width: 30px;
+  width: 40px;
 }
 
 @media all and (min-width: 992px) {
   #footer .contact-link a img {
-    width: 50px;
+    width: 60px;
   }
 }
 

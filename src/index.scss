@@ -504,7 +504,7 @@ html {
     padding-top: 5vh;
 
     h5 {
-        margin-bottom: 20px;
+        margin: 30px 0;
     }
 
     .contact-link a {
@@ -512,10 +512,10 @@ html {
 
         img {
             margin: 0 10px;
-            width: 30px;
+            width: 40px;
 
             @include pc-width {
-                width: 50px;
+                width: 60px;
             }
         }
 
