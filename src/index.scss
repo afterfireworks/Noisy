@@ -128,12 +128,13 @@ html {
 
     #oneself {
         #photo {
-            @include pc-width{
+            @include pc-width {
                 height: 500px;
                 display: flex;
                 justify-content: flex-end;
                 align-items: center;
             }
+
             #photo-content {
                 img {
                     border-radius: 50%;
@@ -481,17 +482,27 @@ html {
 
 // coding
 #codinglink {
-    max-height: 200px;
+    max-height: 250px;
 
-    .btn {
-        margin-top: 10px;
-        width: 10rem;
+    #coding-link-content {
+        padding-top: 30px;
+
+        @include pc-width {
+            padding-top: 50px;
+        }
+
+        .btn {
+            margin-top: 10px;
+            width: 10rem;
+        }
     }
 }
 
 
 /* footer */
 #footer {
+    padding-top: 5vh;
+
     h5 {
         margin-bottom: 20px;
     }

@@ -455,15 +455,29 @@ html body {
 }
 
 #codinglink {
-  max-height: 200px;
+  max-height: 250px;
 }
 
-#codinglink .btn {
+#codinglink #coding-link-content {
+  padding-top: 30px;
+}
+
+@media all and (min-width: 992px) {
+  #codinglink #coding-link-content {
+    padding-top: 50px;
+  }
+}
+
+#codinglink #coding-link-content .btn {
   margin-top: 10px;
   width: 10rem;
 }
 
 /* footer */
+#footer {
+  padding-top: 5vh;
+}
+
 #footer h5 {
   margin-bottom: 20px;
 }
