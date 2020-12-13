@@ -32,12 +32,18 @@ header nav {
 }
 
 header nav .nav-wrapper {
-  background-color: #00204f;
+  background-color: whitesmoke;
 }
 
 header nav .nav-wrapper a img {
   height: 50px;
-  padding-top: 10px;
+  vertical-align: middle;
+}
+
+@media all and (min-width: 992px) {
+  header nav .nav-wrapper a img {
+    height: 64px;
+  }
 }
 
 header nav .navbar1 {
@@ -74,6 +80,10 @@ header nav .navbar2 {
         -ms-flex-pack: center;
             justify-content: center;
   }
+}
+
+header .sidenav #side-nav-logo {
+  margin-top: 50px;
 }
 
 main {
