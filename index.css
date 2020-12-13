@@ -101,23 +101,52 @@ html body {
   margin: 5px;
 }
 
-#home #oneself #photo {
-  padding: 30px;
-}
-
 @media all and (min-width: 992px) {
   #home #oneself #photo {
-    margin-left: 90px;
-    padding: 50px;
+    height: 500px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 }
 
-#home #oneself #photo img {
+#home #oneself #photo #photo-content img {
   border-radius: 50%;
+}
+
+@media all and (min-width: 992px) {
+  #home #oneself #photo #photo-content {
+    width: 380px;
+  }
 }
 
 #home #oneself #data {
   color: snow;
+}
+
+@media all and (min-width: 992px) {
+  #home #oneself #data {
+    height: 500px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #home #oneself #data h2 {
+    text-align: center;
+    margin: 0;
+  }
 }
 
 #home #oneself #data .tag {
@@ -132,16 +161,6 @@ html body {
   #home #oneself #data .tag {
     font-size: 1.5rem;
     width: 8rem;
-  }
-}
-
-@media all and (min-width: 992px) {
-  #home #oneself #data {
-    padding: 50px;
-  }
-  #home #oneself #data h2 {
-    text-align: left;
-    margin-top: 0;
   }
 }
 

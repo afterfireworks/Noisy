@@ -72,6 +72,12 @@ footer {
 
 
 // Basic
+// * {
+//     box-sizing: border-box;
+//     -moz-box-sizing: border-box;
+//     -webkit-box-sizing: border-box;
+// }
+
 html {
     overflow-x: hidden;
     scroll-behavior: smooth;
@@ -122,21 +128,38 @@ html {
 
     #oneself {
         #photo {
-            padding: 30px;
-
-            @include pc-width {
-                margin-left: 90px;
-                padding: 50px;
+            @include pc-width{
+                height: 500px;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
             }
+            #photo-content {
+                img {
+                    border-radius: 50%;
+                }
 
-            img {
-                border-radius: 50%;
+                @include pc-width {
+                    width: 380px;
+                }
             }
         }
 
 
         #data {
             color: snow;
+
+            @include pc-width {
+                height: 500px;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+
+                h2 {
+                    text-align: center;
+                    margin: 0;
+                }
+            }
 
             .tag {
                 display: inline-block;
@@ -148,15 +171,6 @@ html {
                 @include pc-width {
                     font-size: 1.5rem;
                     width: 8rem;
-                }
-            }
-
-            @include pc-width {
-                padding: 50px;
-
-                h2 {
-                    text-align: left;
-                    margin-top: 0;
                 }
             }
 
@@ -341,7 +355,7 @@ html {
                     .tab {
                         a {
                             color: rgba(80, 80, 80, 0.6);
-                            font-weight: 900; 
+                            font-weight: 900;
                         }
 
                         a.active {
@@ -418,8 +432,10 @@ html {
 
         .carousel-logo {
             flex-direction: column;
-            span{
+
+            span {
                 display: none;
+
                 @include pc-width {
                     display: inline-block;
                 }
@@ -516,21 +532,24 @@ html {
 
 
 // extend
-#extend-nav{
+#extend-nav {
     background-color: rgb(177, 177, 177);
 }
+
 #extend {
     width: 100vw;
     min-height: 100vh;
     background-image: url(./src/img/extend/BG.jpg);
     background-attachment: fixed;
     background-position: center center;
+
     .container {
         padding-top: 2vh;
 
         .card {
             padding: 0;
             background-color: rgba(255, 255, 255, 0.4);
+
             .card-tabs {
                 .tabs {
                     background-color: transparent;
@@ -566,13 +585,15 @@ html {
                     }
                 }
             }
-            .card-content{
-                .card-image{
-                    span{
+
+            .card-content {
+                .card-image {
+                    span {
                         text-shadow: 0px 2px 1px black;
                     }
                 }
-                .card-action{
+
+                .card-action {
                     background-color: transparent;
                 }
             }
