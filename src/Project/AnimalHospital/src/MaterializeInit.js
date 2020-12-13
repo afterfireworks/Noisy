@@ -2,8 +2,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let sidenav = document.querySelectorAll('.sidenav');
     let sidenavinstances = M.Sidenav.init(sidenav, {
-        edge: 'left',
+        edge: 'right',
         preventScrolling: true,
+    });
+
+
+    let dropdown = document.querySelectorAll('.dropdown-trigger');
+    let dropdowninstances = M.Dropdown.init(dropdown, {
+        // hover: true,
+        coverTrigger: false,
+        constrainWidth: true,
     });
 
 

@@ -10,6 +10,7 @@
         href="https://fonts.googleapis.com/css2?family=Amaranth:wght@400;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="main.min.css">
+
 </head>
 
 <body>
@@ -21,35 +22,35 @@
                     <img src="src/img/header/logo.jpg" alt="柏林動物醫院" class="responsive-img">
                 </a>
             </div>
-            <div class="navbar1 col s12 hide-on-small-only black">
+            <div class="navbar1 col s12 hide-on-small-only grey darken-3">
                 <ul>
-                    <li><a class="sidenav-close center-align waves-effect" href="#home">
+                    <li><a class="center-align dropdown-trigger" data-target="dropdown1" href="#index">
                             <span>醫院介紹</span>
                         </a></li>
-                    <li><a class="sidenav-close center-align waves-effect" href="#about">
+                    <li><a class="center-align dropdown-trigger" data-target="dropdown2" href="#" >
                             <span>診療項目</span>
                         </a></li>
-                    <li><a class="sidenav-close center-align waves-effect" href="#skills">
+                    <li><a class="center-align" href="#">
                             <span>門診時間</span>
                         </a></li>
-                    <li><a class="sidenav-close center-align waves-effect" href="#project">
+                    <li><a class="center-align" href="#">
                             <span>醫療資訊</span>
                         </a></li>
-                    <li><a class="sidenav-close center-align waves-effect" href="#home">
+                    <li><a class="center-align" href="#">
                             <span>醫院介紹</span>
                         </a></li>
-                    <li><a class="sidenav-close center-align waves-effect" href="#about">
+                    <li><a class="center-align" href="#">
                             <span>診療項目</span>
                         </a></li>
-                    <li><a class="sidenav-close center-align waves-effect" href="#skills">
+                    <li><a class="center-align" href="#">
                             <span>門診時間</span>
                         </a></li>
-                    <li><a class="sidenav-close center-align waves-effect" href="#project">
+                    <li><a class="center-align" href="#">
                             <span>醫療資訊</span>
                         </a></li>
                 </ul>
             </div>
-            <div class="navbar2 col s12 grey darken-3">
+            <div class="navbar2 col s12 grey darken-4">
 
                 <a href="index.html" class="breadcrumb"><i class="material-icons">home</i>Index</a>
 
@@ -59,68 +60,113 @@
 
             </div>
         </nav>
+        <!-- dropdown -->
+        <ul id="dropdown1" class="dropdown-content grey darken-3">
+            <li><a class="center-align" href="#!">關於我們</a></li>
+            <li><a class="center-align" href="#!">醫療設備</a></li>
+            <li><a class="center-align" href="#!">醫療團隊</a></li>
+        </ul>
+        <ul id="dropdown2" class="dropdown-content grey darken-3">
+            <li><a class="center-align" href="#!">中獸醫</a></li>
+            <li><a class="center-align" href="#!">犬科</a></li>
+            <li><a class="center-align" href="#!">貓科</a></li>
+            <li><a class="center-align" href="#!">特別動物</a></li>
+            <li><a class="center-align" href="#!">非人物種</a></li>
+        </ul>
+        <!-- sidenav -->
         <ul id="slide-out" class="sidenav">
-            <li><a class="sidenav-close center-align waves-effect" href="#home">
+            <li><a class="sidenav-close center-align waves-effect active" href="#index">
                     <span>醫院介紹</span>
                 </a></li>
-            <li><a class="sidenav-close center-align waves-effect" href="#about">
+            <li><a class="sidenav-close center-align waves-effect" href="#">
                     <span>診療項目</span>
                 </a></li>
-            <li><a class="sidenav-close center-align waves-effect" href="#skills">
+            <li><a class="sidenav-close center-align waves-effect" href="#">
                     <span>門診時間</span>
                 </a></li>
-            <li><a class="sidenav-close center-align waves-effect" href="#project">
+            <li><a class="sidenav-close center-align waves-effect" href="#">
                     <span>醫療資訊</span>
                 </a></li>
-            <li><a class="sidenav-close center-align waves-effect" href="#home">
+            <li><a class="sidenav-close center-align waves-effect" href="#">
                     <span>醫院介紹</span>
                 </a></li>
-            <li><a class="sidenav-close center-align waves-effect" href="#about">
+            <li><a class="sidenav-close center-align waves-effect" href="#">
                     <span>診療項目</span>
                 </a></li>
-            <li><a class="sidenav-close center-align waves-effect" href="#skills">
+            <li><a class="sidenav-close center-align waves-effect" href="#">
                     <span>門診時間</span>
                 </a></li>
-            <li><a class="sidenav-close center-align waves-effect" href="#project">
+            <li><a class="sidenav-close center-align waves-effect" href="#">
                     <span>醫療資訊</span>
                 </a></li>
         </ul>
     </header>
     <main>
         <div class="container">
-
+            <div class="slider">
+                <ul class="slides">
+                    <li>
+                        <img src="src/img/header/banner-1.jpg"> <!-- random image -->
+                        <div class="caption center-align">
+                            <h3>This is our big Tagline!</h3>
+                            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="src/img/header/banner-2.jpg"> <!-- random image -->
+                        <div class="caption left-align">
+                            <h3>Left Aligned Caption</h3>
+                            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="src/img/header/banner-3.jpg"> <!-- random image -->
+                        <div class="caption right-align">
+                            <h3>Right Aligned Caption</h3>
+                            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </main>
-    <footer class="page-footer black">
+    <footer class="page-footer grey darken-4">
         <div class="container">
-          <div class="row">
-            <div class="col l6 s12">
-              <h5 class="white-text">Footer Content</h5>
-              <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Footer Content</h5>
+                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer
+                        content.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="col l4 offset-l2 s12">
-              <h5 class="white-text">Links</h5>
-              <ul>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-              </ul>
-            </div>
-          </div>
         </div>
         <div class="footer-copyright">
-          <div class="container">
-          © 2014 Copyright Text
-          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-          </div>
+            <div class="container">
+                © 2020 Copyright Text
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
         </div>
-      </footer>
-          
+    </footer>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="src/MaterializeInit.js"></script>
     <script src="src/main.js"></script>
+    
+    <script>
+
+        $(".dropdown-trigger").dropdown();
+
+    </script>
 
 </body>
 

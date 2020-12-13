@@ -62,8 +62,14 @@ header {
         }
         .navbar1{
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
             align-items: center;
+
+            ul{
+                li{
+                    width: 150px;
+                }
+            }
 
         }
         .navbar2{
