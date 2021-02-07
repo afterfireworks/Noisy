@@ -415,8 +415,10 @@ VolumeControl.oninput = function () {
 
 
 //  init
-(function () {
+function indexInit(){
     CreareSongBook()
     setImage(music);
     SongName.innerHTML = Music.title;
-})()
+}
+
+indexInit()
