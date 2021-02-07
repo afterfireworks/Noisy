@@ -103,7 +103,7 @@
                  height: 1rem;
                  background: rgb(255, 255, 255);
                  padding: 10px 0;
-                 // transition:.2s;        /* 點選放大時候的漸變時間 */
+                 transition:.5s;   /* 點選放大時候的漸變時間 */
              }
          }
 
@@ -112,7 +112,7 @@
              z-index: 5;
              width: 100vw;
              height: 100vh;
-             background-color: black;
+             background-color: rgba(0, 0, 0, .9);
              color: aliceblue;
              display: flex;
              justify-content: center;
@@ -156,13 +156,15 @@
                  text-align: center;
                  background-color: rgba(0, 0, 0, 0.5);
                  color: blanchedalmond;
+
              }
+
 
              #playerInfo {
                  position: fixed;
                  z-index: 0;
                  height: 100vh;
-                 padding-left: 7vw;
+                 padding: 0 100px 7vw;
                  display: none;
                  flex-direction: column;
                  justify-content: center;
@@ -176,7 +178,6 @@
                  #ctxInfo {
                      width: 500px;
                      margin: 20px 0;
-                     // transform: translateY(-50px);
                      opacity: .5;
 
                      span {
@@ -185,7 +186,6 @@
                      }
                  }
              }
-
 
              #switch {
                  height: 100vh;
@@ -340,15 +340,16 @@
                                  appearance: none;
                                  outline: none;
                                  background-color: rgba(0, 0, 0, 0.2);
-                                 @include mobile{
-                                    width: 300px;
-                                    height: 400px;
-                                    padding: 10px;
-                                }
+
+                                 @include mobile {
+                                     width: 300px;
+                                     height: 400px;
+                                     padding: 10px;
+                                 }
 
                                  // background: url("src/image/arrow.png") no-repeat 97% center;
                                  // background-size: 20px;
-                                 &::selection {
+                                 &:focus {
                                      background-color: none;
                                  }
 
@@ -356,49 +357,52 @@
                                      overflow: hidden;
                                      padding: 15px;
                                      margin: 15px;
-                                     box-shadow: 0px 0px 1px 1px black;
+                                     background-color: rgba(0, 0, 0, 0.2);
+                                     box-shadow: 0px 0px 3px 1px black;
                                      white-space: nowrap;
                                      text-overflow: ellipsis;
 
-                                     @include mobile{
-                                        padding: 7px 15px;
-                                        margin: 10px 7px;
-                                        font-size: 12px;
+                                     @include mobile {
+                                         padding: 7px 15px;
+                                         margin: 10px 7px;
+                                         font-size: 12px;
                                      }
-                                     // &:checked {
-                                     //     background: transparent;
-                                     //     background: black linear-gradient(0deg, black 0%, black 100%);
-                                     //   }
+
+                                     &:checked {
+                                         background: rgb(188, 58, 56) linear-gradient(0deg, rgb(188, 58, 56) 0%, rgb(188, 58, 56) 100%);
+                                       }
                                  }
-
-
                              }
 
                              div {
+                                 opacity: .8;
                                  width: 500px;
-                                 @include mobile{
-                                    width: 300px;
-                                }
                                  display: flex;
                                  justify-content: center;
                                  align-content: center;
                                  background-color: rgb(153, 134, 134);
-                                 border: none;
+
+                                 @include mobile {
+                                     width: 300px;
+                                 }
 
                                  h3 {
                                      margin: 10px auto;
                                      color: whitesmoke;
-                                     @include mobile{
+
+                                     @include mobile {
                                          margin: 5px auto;
                                      }
                                  }
                              }
 
-                             #songSelected,#songBook {
+                             #songSelected,
+                             #songBook {
                                  height: 560px;
-                                 @include mobile{
-                                    height: 375px;
-                                }
+
+                                 @include mobile {
+                                     height: 375px;
+                                 }
                              }
                          }
                      }
@@ -406,10 +410,12 @@
                      .card {
                          width: 500px;
                          height: 600px;
-                         @include mobile{
+
+                         @include mobile {
                              width: 300px;
-                            height: 400px;
-                        }
+                             height: 400px;
+                         }
+
                          transform-style: preserve-3d;
                          transition: 0.5s all ease;
                          // &:hover{
@@ -444,16 +450,17 @@
                      text-align: center;
 
                      label {
+                         height: 80px;
                          visibility: hidden;
-                         padding-bottom: 40px;
+                         padding-bottom: 30px;
 
                          @include mobile {
-                             padding-bottom: 30px;
+                             padding-bottom: 10px;
                          }
 
                          .surroundRange {
                              background: rgb(188, 58, 56);
-                             width: 500px;
+                             width: 400px;
 
                              @include mobile {
                                  width: 250px;
@@ -507,6 +514,7 @@
 
                      .cover {
                          height: 100px;
+
                          @include mobile {
                              height: 30px;
                          }
@@ -526,6 +534,7 @@
                          margin-left: 50px;
                          font-family: 'Noto Sans TC', sans-serif;
                          letter-spacing: .2rem;
+                         text-align: center;
 
                          #songName {
                              width: 350px;
@@ -548,18 +557,20 @@
                      display: flex;
                      justify-content: space-around;
                      align-items: center;
-                     @include mobile{
-                     justify-content: center;
-                     margin: 5px 0;
-                    }
+
+                     @include mobile {
+                         justify-content: center;
+                         margin: 5px 0;
+                     }
 
                      .PlayerBtn {
                          padding: 15px;
                          margin: 15px;
-                         @include mobile{
-                            padding: 0 10px;
-                            margin: 0;
-                        }
+
+                         @include mobile {
+                             padding: 0 10px;
+                             margin: 0;
+                         }
                      }
                  }
 
@@ -579,17 +590,19 @@
                          display: flex;
                          flex-wrap: nowrap;
                          margin-right: 50px;
-                         @include mobile{
-                            margin-right: 20px;
-                        }
+
+                         @include mobile {
+                             margin-right: 20px;
+                         }
 
                          i {
                              padding: 10px;
                              margin: 0 5px;
-                             @include mobile{
-                                // padding: 0 ;
-                                margin: 0;
-                            }
+
+                             @include mobile {
+                                 // padding: 0 ;
+                                 margin: 0;
+                             }
                          }
                      }
 
@@ -606,10 +619,11 @@
                                  width: 150px;
                                  background-color: black;
                                  margin-left: 15px;
-                                 @include mobile{
-                                    width: 120px;
-                                    margin-left: 5px;
-                                }
+
+                                 @include mobile {
+                                     width: 120px;
+                                     margin-left: 5px;
+                                 }
                              }
 
                              h5 {
@@ -617,10 +631,11 @@
                                  width: 50px;
                                  margin-right: 25px;
                                  text-align: right;
-                                 @include mobile{
+
+                                 @include mobile {
                                      width: 35px;
-                                    margin-right: 10px;
-                                }
+                                     margin-right: 10px;
+                                 }
 
                                  &::after {
                                      content: "%";
@@ -631,6 +646,10 @@
                  }
 
              }
+         }
+
+         .beFlex {
+             display: flex !important;
          }
 
          .vw50 {
@@ -661,6 +680,7 @@
          .active {
              background-color: rgba(255, 255, 255, .3);
          }
-     }
 
+
+     }
  }

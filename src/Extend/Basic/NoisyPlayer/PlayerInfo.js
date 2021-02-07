@@ -1,8 +1,7 @@
 (function (window, undefined) {
 
     document.getElementById('playerInfoSwitch').addEventListener('click', () => {
-        document.getElementById('playerInfo').style.display = "flex";
-
+         document.getElementById('playerInfo').classList.toggle("beFlex")
     })
 
     let audiomap = [ 'currentSrc', 'src','error', 'networkState', 'readyState', 'preload', 'buffered', 'played', 'seekable', 'seeking', 'currentTime', 'startTime', 'duration', 'paused', 'defaultPlaybackRate', 'playbackRate', 'ended', 'autoplay', 'loop', 'controls', 'volume', 'muted'];

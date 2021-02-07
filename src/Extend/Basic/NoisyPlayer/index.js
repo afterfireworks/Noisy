@@ -1,8 +1,12 @@
 const SongArray = [
-    ["WeLostTheSea-AGallantGentleman-LiveatStudios301.mp3", "WeLostTheSea.artist.jfif", "WeLostTheSea.03.jpg", "We Lost The Sea - A Gallant Gentleman - Live at Studios 301"],
-    ["NoPartyForCaoDong-Wayfarer.mp3", "NoPartyForCaoDong.artis.jpg", "NoPartyForCaoDong.no1.jpg", "草東沒有派對 - 山海"],
+    ["WeLostTheSea-AGallantGentleman-LiveatStudios301.mp3", "WeLostTheSea.artist.jfif", "WeLostTheSea.ab03.jpg", "We Lost The Sea - A Gallant Gentleman - Live at Studios 301"],
+    ["Senhuai-WaitingMan.mp3", "Senhuai-.jfif", "Senhuai-WaitingMan.artist.jpg", "詹森淮 - 他總是在那個路口"],
+    ["NoPartyForCaoDong-Wayfarer.mp3", "NoPartyForCaoDong.artis.jpg", "NoPartyForCaoDong.abo1.jpg", "草東沒有派對 - 山海"],
     ["NoPartyForCaoDong-Devotion.mp3", "NoPartyForCaoDong.artis.jpg", "NoPartyForCaoDong.Devotion.jpg", "草東沒有派對 - 還願"],
-    ["Vast&Hazy-IntheDark.mp3", "Vast&Hazy.artist.jpg", "Vast&Hazy.ep01.jpg", "Vast & Hazy - 無差別傷害"]
+    ["Vast&Hazy-IntheDark.mp3", "Vast&Hazy.artist.jpg", "Vast&Hazy.ep02.jpg", "Vast & Hazy - 無差別傷害"],
+    ["Vast&Hazy-Waves.mp3", "Vast&Hazy.artist.jpg", "Vast&Hazy.ep01.jpg", "Vast & Hazy - 與浪之間"],
+    ["Vast&Hazy-TheCityisEatingMeAlive.mp3", "Vast&Hazy.artist.jpg", "Vast&Hazy.ep01.jpg", "Vast & Hazy - 食人夢"],
+    ["Vast&Hazy-ImNotOK.mp3", "Vast&Hazy.artist.jpg", "Vast&Hazy.ab01.jpg", "Vast & Hazy - 求救訊號"]
 ]
 
 function isMobile() {
