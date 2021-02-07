@@ -79,7 +79,6 @@
                  -webkit-appearance: none;
                  position: relative;
                  width: 5px;
-                 height: 5px;
                  height: 1rem;
                  background: rgb(255, 255, 255);
                  padding: 10px 0;
@@ -89,8 +88,7 @@
              &::-moz-range-thumb {
                  position: relative;
                  width: 5px;
-                 height: 5px;
-                 height: 1rem;
+                 height: .5rem;
                  background: rgb(255, 255, 255);
                  padding: 10px 0;
                  // transition:.2s;        /* 點選放大時候的漸變時間 */
@@ -99,7 +97,6 @@
              &::-ms-thumb {
                  position: relative;
                  width: 5px;
-                 height: 5px;
                  height: 1rem;
                  background: rgb(255, 255, 255);
                  padding: 10px 0;
