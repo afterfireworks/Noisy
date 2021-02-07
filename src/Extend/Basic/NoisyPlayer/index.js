@@ -76,6 +76,7 @@ ListSwitch.addEventListener('click', () => {
 
     if (MmarginTop === "-100vh") {
         listContorls.style.marginTop = "0px";
+        listContorls.style.transition = "all .5s"
     } else {
 
         if (isMobile()) {
@@ -94,6 +95,7 @@ CtxSwitch.addEventListener('click', () => {
 
     if (MmarginTop === "0px") {
         listContorls.style.marginTop = "-100vh";
+        listContorls.style.transition = "all .5s"
     } else {
         if (isMobile()) {
             PlayInfo.classList.toggle("notDesktop");

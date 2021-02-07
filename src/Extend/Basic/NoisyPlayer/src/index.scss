@@ -210,7 +210,7 @@
                      width: 100vw;
                      height: 10vh;
                      flex-direction: row;
-                     top: 40px;
+                     bottom: 150px;
                      padding-bottom: 0px;
                  }
 
@@ -242,6 +242,10 @@
                  color: aliceblue;
                  text-align: center;
                  transform: translateY(-25px);
+                 @include mobile{
+                    transform: translateY(0px);
+                    height: calc(100% - 150px)
+                 }
 
                  div {
                      display: flex;
@@ -303,7 +307,9 @@
                  z-index: 1;
                  color: aliceblue;
                  background-color: rgba(0, 0, 0, .5);
-
+                 @include mobile{
+                     height: calc(100vh - 150px);
+                 }
 
                  #listContorls,
                  #ctxContorls {
@@ -318,9 +324,10 @@
                      box-sizing: border-box;
 
                      @include mobile {
-                         padding-bottom: 150px;
-                         margin: 0 auto;
-                         transform: translateY(25px);
+                        padding-top: 34px;
+                        padding-bottom: 150px;
+                        margin: 0 auto;
+                        transform: translateY(-25px);
                      }
                  }
 
