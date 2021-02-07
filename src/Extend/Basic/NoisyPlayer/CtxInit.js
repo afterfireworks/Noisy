@@ -24,7 +24,7 @@ delayFilter.connect(delayTime);
 delayTime.connect(masterVolume);
 // Output
 masterVolume.connect(audioCtx.destination);
-masterVolume.gain.value = 0.05
+masterVolume.gain.value = 1
 
 const Init = document.getElementById("init");
 Init.addEventListener('click', () => {
