@@ -1,0 +1,666 @@
+ @mixin mobile {
+     @media(max-width:375px) {
+         @content;
+     }
+ }
+
+ @mixin pad {
+     @media(max-width:768px) {
+         @content;
+     }
+ }
+
+ html {
+     font-family: "Consolas", sans-serif;
+     user-select: none;
+
+     @include mobile {
+         font-size: 12px;
+     }
+
+     body {
+         margin: 0;
+         overflow: hidden;
+
+         /* width */
+         ::-webkit-scrollbar {
+             width: 7px;
+         }
+
+         /* Track */
+         ::-webkit-scrollbar-track {
+             margin: 10px 0;
+         }
+
+         /* Handle */
+         ::-webkit-scrollbar-thumb {
+             background: rgba(0, 0, 0, 0.5);
+         }
+
+         /* Handle on hover */
+         ::-webkit-scrollbar-thumb:hover {
+             background: rgba(0, 0, 0, 0.7);
+         }
+
+         .material-icons {
+             font-family: 'Material Icons';
+             font-weight: normal;
+             font-style: normal;
+             font-size: 24px;
+             /* Preferred icon size */
+             display: inline-block;
+             line-height: 1;
+             text-transform: none;
+             letter-spacing: normal;
+             word-wrap: normal;
+             white-space: nowrap;
+             direction: ltr;
+
+             /* Support for all WebKit browsers. */
+             -webkit-font-smoothing: antialiased;
+             /* Support for Safari and Chrome. */
+             text-rendering: optimizeLegibility;
+
+             /* Support for Firefox. */
+             -moz-osx-font-smoothing: grayscale;
+
+             /* Support for IE. */
+             font-feature-settings: 'liga';
+         }
+
+         input[type="range"] {
+             -webkit-appearance: none;
+             outline: none;
+             overflow-y: visible;
+             height: 5px;
+             /* 避免點選會有藍線或虛線 */
+
+             &::-webkit-slider-thumb {
+                 -webkit-appearance: none;
+                 position: relative;
+                 width: 5px;
+                 height: 5px;
+                 height: 1rem;
+                 background: rgb(255, 255, 255);
+                 padding: 10px 0;
+                 // transition:.2s;        /* 點選放大時候的漸變時間 */
+             }
+
+             &::-moz-range-thumb {
+                 position: relative;
+                 width: 5px;
+                 height: 5px;
+                 height: 1rem;
+                 background: rgb(255, 255, 255);
+                 padding: 10px 0;
+                 // transition:.2s;        /* 點選放大時候的漸變時間 */
+             }
+
+             &::-ms-thumb {
+                 position: relative;
+                 width: 5px;
+                 height: 5px;
+                 height: 1rem;
+                 background: rgb(255, 255, 255);
+                 padding: 10px 0;
+                 // transition:.2s;        /* 點選放大時候的漸變時間 */
+             }
+         }
+
+         #init {
+             position: fixed;
+             z-index: 5;
+             width: 100vw;
+             height: 100vh;
+             background-color: black;
+             color: aliceblue;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+
+             h1 {
+                 @include mobile {
+                     font-size: 1rem;
+                 }
+             }
+         }
+
+         #banner {
+             width: 100vw;
+             height: 100vh;
+             object-fit: cover;
+             opacity: .75;
+             position: fixed;
+             z-index: -1;
+         }
+
+         #MusicPlayer {
+             width: 100vw;
+             height: 100vh;
+
+             canvas {
+                 position: absolute;
+                 top: 0;
+                 right: 0;
+                 bottom: 0;
+                 left: 0;
+             }
+
+             #playerInfoSwitch {
+                 position: fixed;
+                 width: 100%;
+                 z-index: 2;
+                 top: 0;
+
+                 padding: 10px 0;
+                 text-align: center;
+                 background-color: rgba(0, 0, 0, 0.5);
+                 color: blanchedalmond;
+             }
+
+             #playerInfo {
+                 position: fixed;
+                 z-index: 0;
+                 height: 100vh;
+                 padding-left: 7vw;
+                 display: none;
+                 flex-direction: column;
+                 justify-content: center;
+                 align-items: center;
+                 color: aliceblue;
+                 line-height: 1.5;
+
+
+
+                 #audioInfo,
+                 #ctxInfo {
+                     width: 500px;
+                     margin: 20px 0;
+                     // transform: translateY(-50px);
+                     opacity: .5;
+
+                     span {
+                         margin-right: 30px;
+                         word-wrap: break-word;
+                     }
+                 }
+             }
+
+
+             #switch {
+                 height: 100vh;
+                 padding-bottom: 100px;
+                 display: flex;
+                 justify-content: center;
+                 flex-direction: column;
+                 background-color: transparent;
+                 position: fixed;
+                 z-index: 2;
+                 right: 0;
+
+                 @include mobile {
+                     width: 100vw;
+                     height: 10vh;
+                     flex-direction: row;
+                     top: 40px;
+                     padding-bottom: 0px;
+                 }
+
+                 img {
+                     width: 50px;
+                     padding: 15px;
+                     margin: 15px;
+                     background-color: rgb(188, 58, 56);
+                     object-fit: cover;
+
+                     @include mobile {
+                         width: 20px;
+                         margin: 10px;
+                     }
+                 }
+             }
+
+             #playInfo {
+                 width: 100vw;
+                 height: 100vh;
+                 left: 0;
+                 top: 0;
+                 position: fixed;
+                 z-index: 1;
+                 display: flex;
+                 justify-content: center;
+                 align-items: center;
+                 background-color: rgba(0, 0, 0, .3);
+                 color: aliceblue;
+                 text-align: center;
+                 transform: translateY(-25px);
+
+                 div {
+                     display: flex;
+                     justify-content: center;
+                     align-items: center;
+                     flex-direction: column;
+                     box-shadow: 0px 0px 5px 5px rgb(0, 0, 0);
+
+                     img {
+                         width: 500px;
+                         height: 500px;
+                         object-fit: cover;
+
+                         @include mobile {
+                             width: 300px;
+                             height: 300px;
+                         }
+                     }
+
+                     label {
+                         width: 500px;
+
+                         @include mobile {
+                             width: 300px;
+                         }
+
+                         background-color: rgb(29, 29, 29);
+                         display: flex;
+                         justify-content: center;
+                         align-items: center;
+
+                         span {
+                             letter-spacing: .2rem;
+                         }
+
+                         #playProgressBar {
+                             background: rgb(66, 66, 66);
+                             width: 300px;
+                             margin: 30px 10px;
+
+                             @include mobile {
+                                 width: 100px;
+                             }
+                         }
+                     }
+
+
+
+                 }
+             }
+
+             #contorlsPanel {
+                 overflow-y: hidden;
+                 width: 0;
+                 height: 100vh;
+                 right: 0;
+                 top: 0;
+                 position: fixed;
+                 z-index: 1;
+                 color: aliceblue;
+                 background-color: rgba(0, 0, 0, .5);
+
+
+                 #listContorls,
+                 #ctxContorls {
+                     width: 50vw;
+                     height: 100vh;
+                     padding-top: 39px;
+                     padding-bottom: 100px;
+                     display: flex;
+                     justify-content: center;
+                     align-items: center;
+                     flex-direction: column;
+                     box-sizing: border-box;
+
+                     @include mobile {
+                         padding-bottom: 150px;
+                         margin: 0 auto;
+                         transform: translateY(25px);
+                     }
+                 }
+
+                 #listContorls {
+                     display: flex;
+                     flex-direction: column;
+                     box-sizing: border-box;
+
+                     #songList {
+                         visibility: hidden;
+                         box-sizing: content-box;
+                         box-shadow: 0px 0px 5px 3px black;
+                         background-color: rgba(173, 121, 121, 0.2);
+                         color: aliceblue;
+
+                         div {
+                             select {
+                                 width: 500px;
+                                 height: 600px;
+                                 overflow-y: scroll;
+                                 color: aliceblue;
+                                 padding: 15px;
+                                 letter-spacing: .05rem;
+                                 border: none;
+                                 appearance: none;
+                                 outline: none;
+                                 background-color: rgba(0, 0, 0, 0.2);
+                                 @include mobile{
+                                    width: 300px;
+                                    height: 400px;
+                                    padding: 10px;
+                                }
+
+                                 // background: url("src/image/arrow.png") no-repeat 97% center;
+                                 // background-size: 20px;
+                                 &::selection {
+                                     background-color: none;
+                                 }
+
+                                 option {
+                                     overflow: hidden;
+                                     padding: 15px;
+                                     margin: 15px;
+                                     box-shadow: 0px 0px 1px 1px black;
+                                     white-space: nowrap;
+                                     text-overflow: ellipsis;
+
+                                     @include mobile{
+                                        padding: 7px 15px;
+                                        margin: 10px 7px;
+                                        font-size: 12px;
+                                     }
+                                     // &:checked {
+                                     //     background: transparent;
+                                     //     background: black linear-gradient(0deg, black 0%, black 100%);
+                                     //   }
+                                 }
+
+
+                             }
+
+                             div {
+                                 width: 500px;
+                                 @include mobile{
+                                    width: 300px;
+                                }
+                                 display: flex;
+                                 justify-content: center;
+                                 align-content: center;
+                                 background-color: rgb(153, 134, 134);
+                                 border: none;
+
+                                 h3 {
+                                     margin: 10px auto;
+                                     color: whitesmoke;
+                                     @include mobile{
+                                         margin: 5px auto;
+                                     }
+                                 }
+                             }
+
+                             #songSelected,#songBook {
+                                 height: 560px;
+                                 @include mobile{
+                                    height: 375px;
+                                }
+                             }
+                         }
+                     }
+
+                     .card {
+                         width: 500px;
+                         height: 600px;
+                         @include mobile{
+                             width: 300px;
+                            height: 400px;
+                        }
+                         transform-style: preserve-3d;
+                         transition: 0.5s all ease;
+                         // &:hover{
+                         //     transform:rotateY(180deg);
+                         //   }
+
+                         .card-front {
+                             position: absolute;
+                             width: 100%;
+                             height: 100%;
+                             /*hide backface*/
+                             backface-visibility: hidden;
+                         }
+
+                         .card-back {
+                             position: absolute;
+                             width: 100%;
+                             height: 100%;
+                             /*hide backface*/
+                             backface-visibility: hidden;
+                             /*flip card-back behind card-front*/
+                             transform: rotateY(180deg);
+                         }
+
+
+                     }
+
+
+                 }
+
+                 #ctxContorls {
+                     text-align: center;
+
+                     label {
+                         visibility: hidden;
+                         padding-bottom: 40px;
+
+                         @include mobile {
+                             padding-bottom: 30px;
+                         }
+
+                         .surroundRange {
+                             background: rgb(188, 58, 56);
+                             width: 500px;
+
+                             @include mobile {
+                                 width: 250px;
+                             }
+                         }
+                     }
+                 }
+
+             }
+
+
+             marquee {
+                 position: fixed;
+                 z-index: 2;
+                 left: 0;
+                 bottom: 100px;
+                 padding: 10px;
+                 background-color: rgb(255, 255, 255);
+             }
+
+             #contorlBar {
+                 width: 100vw;
+                 height: 100px;
+                 position: fixed;
+                 z-index: 2;
+                 left: 0;
+                 bottom: 0;
+                 background-color: rgb(188, 58, 56);
+                 display: flex;
+                 justify-content: space-around;
+                 align-items: center;
+                 box-shadow: 0px -1px 5px 1px rgb(0, 0, 0);
+
+                 @include mobile {
+                     height: 150px;
+                     flex-direction: column;
+                     justify-content: center;
+                 }
+
+                 #songInfo {
+                     width: 33%;
+
+                     @include mobile {
+                         width: 100%;
+                     }
+
+                     display: flex;
+                     justify-content: flex-start;
+                     align-items: center;
+                     flex-direction: row;
+
+                     .cover {
+                         height: 100px;
+                         @include mobile {
+                             height: 30px;
+                         }
+
+                         img {
+                             width: 100px;
+                             height: 100px;
+                             object-fit: cover;
+
+                             @include mobile {
+                                 display: none;
+                             }
+                         }
+                     }
+
+                     .text {
+                         margin-left: 50px;
+                         font-family: 'Noto Sans TC', sans-serif;
+                         letter-spacing: .2rem;
+
+                         #songName {
+                             width: 350px;
+
+                             @include mobile {
+                                 width: 275px;
+                                 margin: 15px 0;
+                             }
+                         }
+                     }
+                 }
+
+                 #PlayerBtns {
+                     width: 34%;
+
+                     @include mobile {
+                         width: 100%;
+                     }
+
+                     display: flex;
+                     justify-content: space-around;
+                     align-items: center;
+                     @include mobile{
+                     justify-content: center;
+                     margin: 5px 0;
+                    }
+
+                     .PlayerBtn {
+                         padding: 15px;
+                         margin: 15px;
+                         @include mobile{
+                            padding: 0 10px;
+                            margin: 0;
+                        }
+                     }
+                 }
+
+                 #playerContorls {
+                     width: 33%;
+
+                     @include mobile {
+                         width: 100%;
+                         padding-bottom: 10px;
+                     }
+
+                     display: flex;
+                     justify-content: flex-end;
+                     align-items: center;
+
+                     #repeatContorls {
+                         display: flex;
+                         flex-wrap: nowrap;
+                         margin-right: 50px;
+                         @include mobile{
+                            margin-right: 20px;
+                        }
+
+                         i {
+                             padding: 10px;
+                             margin: 0 5px;
+                             @include mobile{
+                                // padding: 0 ;
+                                margin: 0;
+                            }
+                         }
+                     }
+
+                     #PlayerVolume {
+                         display: flex;
+                         justify-content: flex-end;
+                         align-items: center;
+
+                         label {
+                             display: flex;
+                             align-items: center;
+
+                             #volumeControl {
+                                 width: 150px;
+                                 background-color: black;
+                                 margin-left: 15px;
+                                 @include mobile{
+                                    width: 120px;
+                                    margin-left: 5px;
+                                }
+                             }
+
+                             h5 {
+                                 display: inline-block;
+                                 width: 50px;
+                                 margin-right: 25px;
+                                 text-align: right;
+                                 @include mobile{
+                                     width: 35px;
+                                    margin-right: 10px;
+                                }
+
+                                 &::after {
+                                     content: "%";
+                                 }
+                             }
+                         }
+                     }
+                 }
+
+             }
+         }
+
+         .vw50 {
+             transition: all 1s;
+             width: 50vw !important;
+
+             div,
+             label {
+                 visibility: visible !important;
+             }
+         }
+
+         .notDesktop {
+             margin-left: -100vw;
+             transition: all 1s;
+         }
+
+         .visiable {
+             transition: all 1s;
+             width: 100vw !important;
+
+             div,
+             label {
+                 visibility: visible !important;
+             }
+         }
+
+         .active {
+             background-color: rgba(255, 255, 255, .3);
+         }
+     }
+
+ }
