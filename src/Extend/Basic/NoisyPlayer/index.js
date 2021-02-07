@@ -414,9 +414,9 @@ VolumeControl.oninput = function () {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-// window.onload init
-window.onload = function () {
+//  init
+(function () {
     CreareSongBook()
     setImage(music);
     SongName.innerHTML = Music.title;
-}
+})()
