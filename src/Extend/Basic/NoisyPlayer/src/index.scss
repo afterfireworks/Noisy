@@ -103,7 +103,8 @@
                  height: 1rem;
                  background: rgb(255, 255, 255);
                  padding: 10px 0;
-                 transition:.5s;   /* 點選放大時候的漸變時間 */
+                 transition: .5s;
+                 /* 點選放大時候的漸變時間 */
              }
          }
 
@@ -164,21 +165,28 @@
                  position: fixed;
                  z-index: 0;
                  height: 100vh;
-                 padding: 0 100px 7vw;
+                 padding: 50px 0 100px 7vw;
                  display: none;
                  flex-direction: column;
                  justify-content: center;
                  align-items: center;
                  color: aliceblue;
                  line-height: 1.5;
+                 transform: translateY(-50px);
 
-
+                 @include mobile {
+                     padding: 0 50px;
+                 }
 
                  #audioInfo,
                  #ctxInfo {
                      width: 500px;
                      margin: 20px 0;
                      opacity: .5;
+
+                     @include mobile {
+                         width: 300px;
+                     }
 
                      span {
                          margin-right: 30px;
@@ -370,7 +378,7 @@
 
                                      &:checked {
                                          background: rgb(188, 58, 56) linear-gradient(0deg, rgb(188, 58, 56) 0%, rgb(188, 58, 56) 100%);
-                                       }
+                                     }
                                  }
                              }
 
