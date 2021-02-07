@@ -242,9 +242,10 @@
                  color: aliceblue;
                  text-align: center;
                  transform: translateY(-25px);
-                 @include mobile{
-                    transform: translateY(0px);
-                    height: calc(100% - 150px)
+
+                 @include mobile {
+                     padding-top: 34px;
+                     padding-bottom: 150px;
                  }
 
                  div {
@@ -307,7 +308,8 @@
                  z-index: 1;
                  color: aliceblue;
                  background-color: rgba(0, 0, 0, .5);
-                 @include mobile{
+
+                 @include mobile {
                      height: calc(100vh - 150px);
                  }
 
@@ -324,10 +326,10 @@
                      box-sizing: border-box;
 
                      @include mobile {
-                        padding-top: 34px;
-                        padding-bottom: 150px;
-                        margin: 0 auto;
-                        transform: translateY(-25px);
+                         padding-top: 34px;
+                         padding-bottom: 150px;
+                         margin: 0 auto;
+                         transform: translateY(-25px);
                      }
                  }
 
