@@ -327,9 +327,8 @@
 
                      @include mobile {
                          padding-top: 34px;
-                         padding-bottom: 150px;
+                         padding-bottom: (15px + 10vh);
                          margin: 0 auto;
-                         transform: translateY(-40px);
                      }
                  }
 
