@@ -365,7 +365,9 @@ html {
                                 }
 
                                 option {
+                                    box-sizing: border-box;
                                     overflow: hidden;
+                                    height: 50px;
                                     padding: 15px;
                                     margin: 15px;
                                     background-color: rgba(0, 0, 0, 0.2);
@@ -374,6 +376,7 @@ html {
                                     text-overflow: ellipsis;
 
                                     @include mobile {
+                                        height: 30px;
                                         padding: 7px 15px;
                                         margin: 10px 7px;
                                         font-size: 12px;
