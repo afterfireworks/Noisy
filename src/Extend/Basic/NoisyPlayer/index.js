@@ -9,14 +9,6 @@ const SongArray = [
     ["Vast&Hazy-ImNotOK.mp3", "Vast&Hazy.artist.jpg", "Vast&Hazy.ab01.jpg", "Vast & Hazy - 求救訊號"]
 ]
 
-function isMobile() {
-
-    try { document.createEvent("TouchEvent"); return true; }
-
-    catch (e) { return false; }
-
-}
-
 const audio = document.querySelector('audio');
 const canvas = document.querySelector('canvas');
 
@@ -52,21 +44,22 @@ const AlbumImg = document.getElementById("albumImg");
 
 // SongBook
 // const SongSelect = document.getElementById('songSelect')
-// function createSongBook() {
+// function addSong() {
 //     let list = "";
 
-//     for (i = 0; i < SongSelected.length; i++) {
-//         list = document.createElement('div');
+//     for (i = 0; i < SongSelect.length; i++) {
+//         list = document.createElement('option');
 //         list.className = 'bePick'
 //         list.innerText = SongSelected.options[i].innerText.trim();
-//         SongSelect.appendChild(list);
+//         SongSelected.appendChild(list);
 //     }
-//     for (i = 1; i <= 10; i++) {
-//         list = document.createElement("div");
-//         list.innerText = "Song " + (SongSelected.length + i);
-//         SongSelect.appendChild(list);
-//     }
+
 // }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function isMobile() {
+    try { document.createEvent("TouchEvent"); return true; }
+    catch (e) { return false; }
+}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -120,7 +113,6 @@ StereoPanControl.oninput = function () {
     StereoPanValue.innerHTML = StereoPanControl.value;
 }
 
-
 const GainControl = document.getElementById("gainControl");
 const GainValue = document.getElementById("gainValue");
 
@@ -136,7 +128,6 @@ FilterControl.oninput = function () {
     delayFilter.frequency.value = FilterControl.value;
     FilterValue.innerHTML = FilterControl.value;
 }
-
 
 const DelayControl = document.getElementById("delayControl");
 const DelayValue = document.getElementById("delayValue");
@@ -155,7 +146,6 @@ DelayControl.oninput = function () {
 // }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
 // Play Time Bar
 PlayProgressBar.addEventListener('input', function () {
     audio.currentTime = this.value;
@@ -168,11 +158,10 @@ PlayProgressBar.addEventListener('input', function () {
 function CreareSongBook() {
     let songbookStr = ""
     for (i = 0; i < SongArray.length; i++) {
-        songbookStr += "<option><span>" + SongArray[i][3] + "</option></span>"
+        songbookStr += `<option><span>${SongArray[i][3]}</option></span>`
     }
     SongBook.innerHTML = songbookStr
 }
-
 
 SongBook.addEventListener('change', () => {
     let idx = SongBook.selectedIndex
@@ -211,16 +200,14 @@ var listArr = []
 var listStr = ""
 
 function addSong(idx) {
-    listArr.push(`<option ondblclick='removeSong()' value='${SongArray[idx][0]}' data-artistimgurl='${SongArray[idx][1]}' data-albumimgurl='${SongArray[idx][2]}'><span>${SongArray[idx][3]}</span></option>`)
+    listArr.push(`<option ondblclick='removeSong()' value='${SongArray[idx][0]}' data-artistimgurl='${SongArray[idx][1]}' data-albumimgurl='${SongArray[idx][2]}'>${SongArray[idx][3]}</option>`)
     ////<option ondblclick='removeSong()' value="" data-artistImgUrl="" data-albumImgUrl=""></option>
-    console.log(listArr)
 }
 
 function removeSong() {
     let idx = SongSelected.selectedIndex;
     SongSelected.options.remove(idx);
     listArr.splice(idx, 1)
-    console.log(listArr)
     arrToStr()
 }
 
@@ -229,6 +216,7 @@ function arrToStr() {
     if (listStr !== "") {
         songSelected.innerHTML = listStr
     }
+    console.log(listStr)
     listStr = ""
 }
 
@@ -245,6 +233,7 @@ function SongChange(index) {
     setImage(SongSelected.options[index]);
     setName(index);
     setTime();
+    setToLeft(0)
 }
 
 const SongList = document.getElementById('songList')
@@ -290,12 +279,18 @@ function setTime() {
     setInterval(() => {
         AudioCurTime = Math.floor(audio.currentTime);
         setTimeShow(AudioCurTime);
+        setToLeft(AudioCurTime)
         PlayProgressBar.value = AudioCurTime;
 
         if (AudioCurTime === AudioFullTime) {
             (RandomSwitch.classList.contains("active")) ? SongRandom() : (RepeatOneSwitch.classList.contains("active")) ? RepeatOne() : (RepeatAllSwitch.classList.contains("active")) ? RepeatAll() : SongJump(1);
         }
     }, 1000)
+}
+
+function setToLeft(T) {
+    progressBG = (T / audio.duration * 100) + "%";
+    PlayProgressBar.style.backgroundImage = "-webkit-linear-gradient(left, rgb(141, 43, 41), rgb(141, 43, 41) " + progressBG + ", rgb(66, 66, 66) 0,rgb(66, 66, 66))";
 }
 
 function setTimeShow(T) {
@@ -354,7 +349,7 @@ function SongJump(n) {
         }
         SongChange(indexChange)
     }
-
+    setToLeft(T)
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -415,7 +410,7 @@ VolumeControl.oninput = function () {
 
 
 //  init
-function indexInit(){
+function indexInit() {
     CreareSongBook()
     setImage(music);
     SongName.innerHTML = Music.title;
