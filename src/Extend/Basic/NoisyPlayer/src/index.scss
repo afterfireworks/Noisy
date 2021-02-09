@@ -344,10 +344,10 @@ html {
                                 color: aliceblue;
                                 padding: 15px;
                                 letter-spacing: .05rem;
-                                border: none;
-                                // appearance: none;
-                                // -webkit-appearance: none;
-                                // -moz-appearance: none;
+                                border: button;
+                                appearance: menulist;
+                                -webkit-appearance: menulist;
+                                -moz-appearance: menulist;
                                 outline: none;
                                 background-color: rgba(0, 0, 0, 0.2);
 
