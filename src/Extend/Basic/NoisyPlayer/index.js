@@ -19,6 +19,7 @@ const CurTime = document.getElementById("curTime")
 const FullTime = document.getElementById("fullTime")
 const SongBook = document.getElementById('songBook');
 const SongSelected = document.getElementById('songSelected');
+const RealSongList = document.getElementById('realSongList');
 
 const CtxSwitch = document.getElementById('ctxSwitch');
 const ListSwitch = document.getElementById('listSwitch');
@@ -158,99 +159,66 @@ PlayProgressBar.addEventListener('input', function () {
 function CreareSongBook() {
     let songbookStr = ""
     for (i = 0; i < SongArray.length; i++) {
-        songbookStr += `<option>${SongArray[i][3]}</option>`
-        // songbookStr += `<li id="${i}" onclick="getIndex()"><span>${SongArray[i][3]}</span></li>`
+        // songbookStr += `<option>${SongArray[i][3]}</option>`
+        songbookStr += `<li id="${i}" "><span>${SongArray[i][3]}</span><span onclick='addSong(this)'> + </span></li>`
     }
     SongBook.innerHTML = songbookStr
 }
 
-function getIndex(e){
-    e = this
-    console.log(this)
-    let Index = this.id
-    return Index
-    console.log(Index)
-}
-// const SSS = document.querySelectorAll('sss')
-
-// SSS.forEach(function (sss){
-//     sss.addEventListener("click", function() {
-//             this.textContent = '更改';
-//          });
-// })
-// for (let i = 0; i < SSS.length; i++) {
-//     SSS[i].addEventListener("click", function() {
-//         this.textContent = '更改';
-//      });
-//  }
 
 SongBook.addEventListener('change', () => {
     let idx = SongBook.selectedIndex
     addSong(idx)
 })
 
-// SongSelect.addEventListener('dblclick', function (e) {
-//     let event = e || window.e;
-//     let target = e.target
-//     let idx
-//     if (target.nodeName.toLowerCase() != 'div') {
-//         let parent = target.parentElement;
-//         idx = Array.prototype.indexOf.call(parent.parentElement.children, parent);
-//         console.log(idx)
-//     } else ('div')
-//     addSong(idx)
-// })
-
-// const Chooses = document.querySelectorAll('.Choose')
-
-// Chooses.forEach(beChoose => {
-//     beChoose.addEventListener('click',function(e){
-//         let t = this; 
-//         let parent = t.parentElement; 
-//         let ancestor = t.parentNode.children;
-//         let i = Chooses.prototype.indexOf(t,ancestor)
-//         console.log(t)
-//         console.log(parent)
-//         console.log(ancestor)
-//         // console.log(i)
-//         // addSong(i)
-//     })
-// });
 
 var listArr = []
 var listStr = ""
+var realListArr = []
+var realListStr = ""
 
-function addSong(idx) {
-    listArr.push(`<option ondblclick='removeSong()' value='${SongArray[idx][0]}' data-artistimgurl='${SongArray[idx][1]}' data-albumimgurl='${SongArray[idx][2]}'>${SongArray[idx][3]}</option>`)
+function addSong(element) {
+    let idx = element.parentElement.id
+    listArr.push(`<li onclick='aaa'><span>${SongArray[idx][3]}</span><span onclick='removeSong(this)'>x</span></li>`)
+    realListArr.push(`<option value='${SongArray[idx][0]}' data-artistimgurl='${SongArray[idx][1]}' data-albumimgurl='${SongArray[idx][2]}'>${SongArray[idx][3]}</option>`)
     ////<option ondblclick='removeSong()' value="" data-artistImgUrl="" data-albumImgUrl=""></option>
 }
 
-function removeSong() {
-    let idx = SongSelected.selectedIndex;
-    SongSelected.options.remove(idx);
+function removeSong(element) {
+    let idx = element.parentElement.id
+    RealSongList.options.remove(idx);
     listArr.splice(idx, 1)
+    console.log(listArr)
+    realListArr.splice(idx, 1)
     arrToStr()
 }
 
 function arrToStr() {
     listStr = listArr.join().replace(",", "")
+    realListStr = realListArr.join().replace(",", "")
+    
     if (listStr !== "") {
-        songSelected.innerHTML = listStr
+        SongSelected.innerHTML = listStr
+    } else SongSelected.innerHTML = ""
+    if (realListStr !== "") {
+        RealSongList.innerHTML = realListStr
     }
+
     listStr = ""
+    realListStr = ""
 }
 
-SongSelected.addEventListener('change', function () {
-    SongChange(SongSelected.selectedIndex)
+RealSongList.addEventListener('change', function () {
+    SongChange(RealSongList.selectedIndex)
 })
 
 function SongChange(index) {
-    Music.src = "src\\music\\" + SongSelected.options[index].value;
-    SongSelected.options[index].selected = true;
+    Music.src = "src\\music\\" + RealSongList.options[index].value;
+    RealSongList.options[index].selected = true;
     btnPlay.innerHTML = "<i class=" + "material-icons" + ">pause</i>";
     audio.load();
     audio.play();
-    setImage(SongSelected.options[index]);
+    setImage(RealSongList.options[index]);
     setName(index);
     setTime();
     setToLeft(0)
@@ -272,7 +240,7 @@ ReturnAndFresh.addEventListener('click', () => {
 
 // Set Song Name & Image
 function setName(index) {
-    Music.title = SongSelected.options[index].innerText;
+    Music.title = RealSongList.options[index].innerText;
     SongName.innerHTML = Music.title;
 }
 
@@ -359,13 +327,13 @@ function SongJump(n) {
     if (RandomSwitch.classList.contains("active")) {
         SongRandom()
     } else {
-        let indexChange = SongSelected.selectedIndex + n;
+        let indexChange = RealSongList.selectedIndex + n;
 
-        if (indexChange === (SongSelected.length)) {
+        if (indexChange === (RealSongList.length)) {
             SongChange(0)
         }
         if (indexChange === -1) {
-            SongChange(SongSelected.length - 1)
+            SongChange(RealSongList.length - 1)
         }
         SongChange(indexChange)
     }
@@ -386,7 +354,7 @@ RandomSwitch.addEventListener('click', function () {
 })
 
 function SongRandom() {
-    let r = Math.round(Math.random() * SongSelected.length)
+    let r = Math.round(Math.random() * RealSongList.length)
     SongChange(r)
     console.log(r)
 }
@@ -409,7 +377,7 @@ RepeatAllSwitch.addEventListener('click', function () {
 })
 
 function RepeatAll() {
-    ((SongSelected.selectedIndex + 1) === SongSelected.length) ? SongChange(0) : SongJump(1)
+    ((RealSongList.selectedIndex + 1) === RealSongList.length) ? SongChange(0) : SongJump(1)
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

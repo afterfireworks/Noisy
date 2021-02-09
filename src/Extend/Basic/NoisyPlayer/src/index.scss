@@ -288,6 +288,10 @@ html {
                             }
                         }
                     }
+
+                    select {
+                        display: none;
+                    }
                 }
             }
 
@@ -337,58 +341,65 @@ html {
                         color: aliceblue;
 
                         div {
-                            select {
+                            ul {
                                 width: 500px;
-                                height: 600px;
+                                height: 560px;
+                                box-sizing: border-box;
+                                display: flex;
+                                flex-direction: column;
                                 overflow-y: scroll;
                                 color: aliceblue;
                                 padding: 15px;
+                                margin: 0;
                                 letter-spacing: .05rem;
-                                border: button;
-                                appearance: none;
-                                -webkit-appearance: none;
-                                -moz-appearance: none;
-                                outline: none;
                                 background-color: rgba(0, 0, 0, 0.2);
 
                                 @include mobile {
                                     width: 300px;
-                                    height: 400px;
+                                    height: 375px;
                                     padding: 10px;
                                 }
 
-                                // background: url("src/image/arrow.png") no-repeat 97% center;
-                                // background-size: 20px;
                                 &:focus {
                                     background-color: none;
                                 }
 
-                                option {
+                                li {
+                                    width: 470px;
+                                    height: 50px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;
                                     box-sizing: border-box;
                                     overflow: hidden;
-                                    height: 50px;
                                     padding: 15px;
                                     margin: 15px;
                                     background-color: rgba(0, 0, 0, 0.2);
                                     box-shadow: 0px 0px 3px 1px black;
-                                    white-space: nowrap;
-                                    text-overflow: ellipsis;
-                                    appearance: none;
-                                    -webkit-appearance: none;
-                                    -moz-appearance: none;
+
 
                                     @include mobile {
                                         height: 30px;
                                         padding: 7px 15px;
                                         margin: 10px 7px;
                                         font-size: 12px;
+
+                                        span {
+                                            white-space: nowrap;
+                                            text-overflow: ellipsis;
+
+                                        }
                                     }
 
                                     &:checked {
                                         background: rgb(188, 58, 56) linear-gradient(0deg, rgb(188, 58, 56) 0%, rgb(188, 58, 56) 100%);
                                     }
+
+
                                 }
+
                             }
+
 
                             div {
                                 opacity: 1;
@@ -411,27 +422,6 @@ html {
                                     }
                                 }
                             }
-
-                            #songSelected,
-                            #songBook {
-                                height: 560px;
-
-                                @include mobile {
-                                    height: 375px;
-                                }
-                            }
-
-                            //  #songSelected option {
-                            //      box-sizing: border-box;
-
-                            //      &::after {
-                            //          content: "x";
-                            //          float: right;
-                            //          display: block;
-                            //          padding: 2px;
-                            //      }
-                            //  }
-
                         }
                     }
 

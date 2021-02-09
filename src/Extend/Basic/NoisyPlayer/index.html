@@ -39,6 +39,7 @@
                         data-artistimgurl="WeLostTheSea.artist.jfif" data-albumimgurl="WeLostTheSea.ab03.jpg"
                         title="We Lost The Sea - A Gallant Gentleman - Live at Studios 301">
                 </audio>
+                <select id="realSongList"></select>
             </div>
         </div>
 
@@ -49,17 +50,16 @@
 
         <div id="contorlsPanel">
             <div id="listContorls">
-                <div id="songList" class=card>
+                <div id="songList" class="card">
                     <div class="card-front">
-                        <select id="songSelected" size=5>
-                            <option disabled>預設歌曲</option>
-                        </select>
+                        <ul id="songSelected">
+                        </ul>
                         <div id="toSongBook">
                             <h3>To Song Book</h3>
                         </div>
                     </div>
                     <div class="card-back">
-                        <select id="songBook" size=5></select>
+                        <ul id="songBook" size=5></ul>
                         <div id="returnAndFresh">
                             <h3>Refresh List</h3>
                         </div>
