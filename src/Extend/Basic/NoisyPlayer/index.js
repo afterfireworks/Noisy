@@ -158,10 +158,31 @@ PlayProgressBar.addEventListener('input', function () {
 function CreareSongBook() {
     let songbookStr = ""
     for (i = 0; i < SongArray.length; i++) {
-        songbookStr += `<option><span>${SongArray[i][3]}</option></span>`
+        songbookStr += `<option>${SongArray[i][3]}</option>`
+        // songbookStr += `<li id="${i}" onclick="getIndex()"><span>${SongArray[i][3]}</span></li>`
     }
     SongBook.innerHTML = songbookStr
 }
+
+function getIndex(e){
+    e = this
+    console.log(this)
+    let Index = this.id
+    return Index
+    console.log(Index)
+}
+// const SSS = document.querySelectorAll('sss')
+
+// SSS.forEach(function (sss){
+//     sss.addEventListener("click", function() {
+//             this.textContent = '更改';
+//          });
+// })
+// for (let i = 0; i < SSS.length; i++) {
+//     SSS[i].addEventListener("click", function() {
+//         this.textContent = '更改';
+//      });
+//  }
 
 SongBook.addEventListener('change', () => {
     let idx = SongBook.selectedIndex
@@ -212,11 +233,10 @@ function removeSong() {
 }
 
 function arrToStr() {
-    listStr = listArr.join()
+    listStr = listArr.join().replace(",", "")
     if (listStr !== "") {
         songSelected.innerHTML = listStr
     }
-    console.log(listStr)
     listStr = ""
 }
 
