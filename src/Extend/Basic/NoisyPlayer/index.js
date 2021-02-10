@@ -55,9 +55,9 @@ var listIndex = 0
 //  init
 function indexInit() {
     CreareSongBook()
-    setImage(music);
     setVolumeToLeft(100)
-    SongName.innerHTML = Music.title;
+    setImage(music)
+    SongName.innerHTML = "Empty";
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -184,25 +184,32 @@ function addSong(element) {
     listArr.push(`<li id='${listIndex}' onclick='selectSong(this)'><span>${SongArray[idx][3]}</span><div onclick='removeSong(this)'><img src='src/image/icon-remove.png'></img></div></li>`)
     realListArr.push(`<option value='${SongArray[idx][0]}' data-artistimgurl='${SongArray[idx][1]}' data-albumimgurl='${SongArray[idx][2]}'>${SongArray[idx][3]}</option>`)
     ////<option ondblclick='removeSong()' value="" data-artistImgUrl="" data-albumImgUrl=""></option>
+    document.getElementById('')
     listIndex++
 }
 
 function removeSong(element) {
+    element.cancelBubble = true;
     let idx = element.parentElement.id
     RealSongList.options.remove(idx);
     listArr.splice(idx, 1)
-    console.log(listArr)
     realListArr.splice(idx, 1)
     arrToStr()
+    if (realListArr.length === 0) {
+        AlbumImg.src = "src\\music\\" + "InitAlbum.jpg"
+        ArtistImg.src = "src\\music\\" + "InitArtist.jpg"
+        Stop()
+    }
 }
 
 function arrToStr() {
     listStr = listArr.join("")
     realListStr = realListArr.join("")
-    
+
     if (listStr !== "") {
         SongSelected.innerHTML = listStr
-    } else {
+    }
+    else {
         SongSelected.innerHTML = "<h2>Empty</h2>"
         listIndex = 0
     }
@@ -285,17 +292,18 @@ DelayControl.oninput = function () {
 
 // play btns
 function PlayPause() {
-    if (audio !== null) {
+    if (realSongList.innerHTML !== "") {
+        let idx = realSongList.selectedIndex
         if (audio.paused) {
             btnPlay.innerHTML = "<i class=" + "material-icons" + ">pause</i>";
             audio.play();
-            setName()
+            setName(idx)
             setTime()
         } else {
             btnPlay.innerHTML = "<i class=" + "material-icons" + ">play_arrow</i>";
-            audio.pause();  
+            audio.pause();
         }
-    } 
+    }
 }
 
 function Stop() {

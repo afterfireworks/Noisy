@@ -30,18 +30,15 @@
             <div>
                 <img id="albumImg" src="" alt="">
                 <label>
-                    <span id="curTime"></span>
+                    <span id="curTime">00:00</span>
                     <input id="playProgressBar" type="range" min="0" max="" step="1" value="0">
-                    <span id="fullTime"></span>
+                    <span id="fullTime">00:00</span>
                 </label>
-                <audio preload="metadata" ondurationchange="setTime()">
-                    <source id="music" src="src/music/WeLostTheSea-AGallantGentleman-LiveatStudios301.mp3"
-                        data-artistimgurl="WeLostTheSea.artist.jfif" data-albumimgurl="WeLostTheSea.ab03.jpg"
-                        title="We Lost The Sea - A Gallant Gentleman - Live at Studios 301">
+                <audio preload="metadata">
+                    <source id="music" src=""
+                        data-artistimgurl="InitArtist.jpg" data-albumimgurl="InitAlbum.jpg" title="">
                 </audio>
-                <select id="realSongList">
-                    <li>We Lost The Sea - A Gallant Gentleman - Live at Studios 301</li>
-                </select>
+                <select id="realSongList"></select>
             </div>
         </div>
 
@@ -55,12 +52,7 @@
                 <div id="songList" class="card">
                     <div class="card-front">
                         <ul id="songSelected">
-                            <li id="0" onclick="selectSong(this)">
-                                <span>We Lost The Sea - A Gallant Gentleman - Live at Studios 301</span>
-                                <div onclick="removeSong(this)">
-                                    <img src="src/image/icon-remove.png">
-                                </div>
-                            </li>
+                            <h2>Empty</h2>
                         </ul>
                         <div id="toSongBook">
                             <h3>To Song Book</h3>
@@ -144,7 +136,7 @@
                 <i class="material-icons">headset_off</i>  -->
                     <label>
                         <input id="volumeControl" type="range" min="0" max="100" step="1" value="100">
-                        <h5 id="volumeValue">50</h5>
+                        <h5 id="volumeValue">100</h5>
                     </label>
                 </div>
             </div>
@@ -161,4 +153,5 @@
     <script src="PlayerInfo.js"></script>
 
 </body>
+
 </html>
