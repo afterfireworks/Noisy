@@ -165,13 +165,6 @@ function CreareSongBook() {
     SongBook.innerHTML = songbookStr
 }
 
-
-SongBook.addEventListener('change', () => {
-    let idx = SongBook.selectedIndex
-    addSong(idx)
-})
-
-
 var listArr = []
 var listStr = ""
 var realListArr = []
