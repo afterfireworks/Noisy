@@ -160,7 +160,7 @@ function CreareSongBook() {
     let songbookStr = ""
     for (i = 0; i < SongArray.length; i++) {
         // songbookStr += `<option>${SongArray[i][3]}</option>`
-        songbookStr += `<li id="${i}" "><span>${SongArray[i][3]}</span><span onclick='addSong(this)'> + </span></li>`
+        songbookStr += `<li id='${i}'><span>${SongArray[i][3]}</span><div onclick='addSong(this)'><img src='src/image/icon-add.png'></img></div></li>`
     }
     SongBook.innerHTML = songbookStr
 }
@@ -176,12 +176,14 @@ var listArr = []
 var listStr = ""
 var realListArr = []
 var realListStr = ""
+var listIndex = 0
 
 function addSong(element) {
     let idx = element.parentElement.id
-    listArr.push(`<li onclick='aaa'><span>${SongArray[idx][3]}</span><span onclick='removeSong(this)'>x</span></li>`)
+    listArr.push(`<li id='${listIndex}' onclick='selectSong(this)'><span>${SongArray[idx][3]}</span><div onclick='removeSong(this)'><img src='src/image/icon-remove.png'></img></div></li>`)
     realListArr.push(`<option value='${SongArray[idx][0]}' data-artistimgurl='${SongArray[idx][1]}' data-albumimgurl='${SongArray[idx][2]}'>${SongArray[idx][3]}</option>`)
     ////<option ondblclick='removeSong()' value="" data-artistImgUrl="" data-albumImgUrl=""></option>
+    listIndex++
 }
 
 function removeSong(element) {
@@ -194,12 +196,15 @@ function removeSong(element) {
 }
 
 function arrToStr() {
-    listStr = listArr.join().replace(",", "")
-    realListStr = realListArr.join().replace(",", "")
+    listStr = listArr.join("")
+    realListStr = realListArr.join("")
     
     if (listStr !== "") {
         SongSelected.innerHTML = listStr
-    } else SongSelected.innerHTML = ""
+    } else {
+        SongSelected.innerHTML = "<h2>Empty</h2>"
+        listIndex = 0
+    }
     if (realListStr !== "") {
         RealSongList.innerHTML = realListStr
     }
@@ -208,18 +213,20 @@ function arrToStr() {
     realListStr = ""
 }
 
-RealSongList.addEventListener('change', function () {
-    SongChange(RealSongList.selectedIndex)
-})
+function selectSong(element) {
+    let idx = element.id
+    console.log(idx)
+    SongChange(idx)
+}
 
-function SongChange(index) {
-    Music.src = "src\\music\\" + RealSongList.options[index].value;
-    RealSongList.options[index].selected = true;
+function SongChange(idx) {
+    Music.src = "src\\music\\" + RealSongList.options[idx].value;
+    RealSongList.options[idx].selected = true;
     btnPlay.innerHTML = "<i class=" + "material-icons" + ">pause</i>";
     audio.load();
     audio.play();
-    setImage(RealSongList.options[index]);
-    setName(index);
+    setImage(RealSongList.options[idx]);
+    setName(idx);
     setTime();
     setToLeft(0)
 }
@@ -239,8 +246,8 @@ ReturnAndFresh.addEventListener('click', () => {
 
 
 // Set Song Name & Image
-function setName(index) {
-    Music.title = RealSongList.options[index].innerText;
+function setName(idx) {
+    Music.title = RealSongList.options[idx].innerText;
     SongName.innerHTML = Music.title;
 }
 
