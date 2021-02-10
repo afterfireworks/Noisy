@@ -17,15 +17,21 @@ const PlayInfo = document.getElementById('playInfo');
 const PlayProgressBar = document.getElementById("playProgressBar")
 const CurTime = document.getElementById("curTime")
 const FullTime = document.getElementById("fullTime")
-const SongBook = document.getElementById('songBook');
-const SongSelected = document.getElementById('songSelected');
-const RealSongList = document.getElementById('realSongList');
 
 const CtxSwitch = document.getElementById('ctxSwitch');
 const ListSwitch = document.getElementById('listSwitch');
 const ContorlsPanel = document.getElementById('contorlsPanel');
-const CtxContorls = document.getElementById('ctxContorls');
 const ListContorls = document.getElementById('listContorls');
+
+const SongList = document.getElementById('songList')
+const SongSelected = document.getElementById('songSelected');
+const ToSongBook = document.getElementById('toSongBook')
+const SongBook = document.getElementById('songBook');
+const ReturnAndFresh = document.getElementById('returnAndFresh')
+const RealSongList = document.getElementById('realSongList');
+
+const CtxContorls = document.getElementById('ctxContorls');
+
 
 const SongName = document.getElementById('songName')
 const BtnPrev = document.getElementById("btnPrev");
@@ -40,29 +46,87 @@ const VolumeValue = document.getElementById("volumeValue");
 const ArtistImg = document.getElementById("artistImg");
 const AlbumImg = document.getElementById("albumImg");
 
+var listArr = []
+var listStr = ""
+var realListArr = []
+var realListStr = ""
+var listIndex = 0
+
+//  init
+function indexInit() {
+    CreareSongBook()
+    setImage(music);
+    setVolumeToLeft(100)
+    SongName.innerHTML = Music.title;
+}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-// SongBook
-// const SongSelect = document.getElementById('songSelect')
-// function addSong() {
-//     let list = "";
-
-//     for (i = 0; i < SongSelect.length; i++) {
-//         list = document.createElement('option');
-//         list.className = 'bePick'
-//         list.innerText = SongSelected.options[i].innerText.trim();
-//         SongSelected.appendChild(list);
-//     }
-
-// }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Is Mobile?
 function isMobile() {
     try { document.createEvent("TouchEvent"); return true; }
     catch (e) { return false; }
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// Play Time Bar
+PlayProgressBar.addEventListener('input', function () {
+    audio.currentTime = this.value;
+    setTime()
+})
+
+function setTime() {
+    let AudioCurTime, AudioFullTime
+
+    audio.onloadedmetadata = function () {
+        AudioCurTime = Math.floor(audio.currentTime)
+        AudioFullTime = Math.floor(audio.duration)
+        PlayProgressBar.max = AudioFullTime
+        CurTime.innerHTML = numToTime(AudioCurTime)
+        FullTime.innerHTML = numToTime(AudioFullTime)
+    }
+
+    setInterval(() => {
+        AudioCurTime = Math.floor(audio.currentTime);
+        setTimeShow(AudioCurTime);
+        setTimeToLeft(AudioCurTime)
+        PlayProgressBar.value = AudioCurTime;
+
+        if (AudioCurTime === AudioFullTime) {
+            (RandomSwitch.classList.contains("active")) ? SongRandom() : (RepeatOneSwitch.classList.contains("active")) ? RepeatOne() : (RepeatAllSwitch.classList.contains("active")) ? RepeatAll() : SongJump(1);
+        }
+    }, 1000)
+}
+
+function setTimeToLeft(T) {
+    let progressBG = (T / audio.duration * 100) + "%";
+    PlayProgressBar.style.backgroundImage = "-webkit-linear-gradient(left, rgb(141, 43, 41), rgb(141, 43, 41) " + progressBG + ", rgb(66, 66, 66) 0,rgb(66, 66, 66))";
+}
+
+function setTimeShow(T) {
+    CurTime.innerHTML = numToTime(T)
+}
+
+function numToTime(T) {
+    let min = Math.floor(T / 60);
+    let sec = T % 60;
+    function addZero(num) {
+        return num < 10 ? "0" + num : String(num)
+    }
+    return addZero(min) + ":" + addZero(sec);
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Set Song Name & Image
+function setName(idx) {
+    Music.title = RealSongList.options[idx].innerText;
+    SongName.innerHTML = Music.title;
+}
+
+function setImage(input) {
+    AlbumImg.src = "src\\music\\" + input.dataset.albumimgurl
+    ArtistImg.src = "src\\music\\" + input.dataset.artistimgurl
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // ContorlsPanel Switch
 ListSwitch.addEventListener('click', () => {
@@ -100,10 +164,82 @@ CtxSwitch.addEventListener('click', () => {
         }
         listContorls.style.marginTop = "-100vh";
     }
-
 })
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//Creare Song Book
+function CreareSongBook() {
+    let songbookStr = ""
+    for (i = 0; i < SongArray.length; i++) {
+        // songbookStr += `<option>${SongArray[i][3]}</option>`
+        songbookStr += `<li id='${i}'><span>${SongArray[i][3]}</span><div onclick='addSong(this)'><img src='src/image/icon-add.png'></img></div></li>`
+    }
+    SongBook.innerHTML = songbookStr
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Song Select & Change
+function addSong(element) {
+    let idx = element.parentElement.id
+    listArr.push(`<li id='${listIndex}' onclick='selectSong(this)'><span>${SongArray[idx][3]}</span><div onclick='removeSong(this)'><img src='src/image/icon-remove.png'></img></div></li>`)
+    realListArr.push(`<option value='${SongArray[idx][0]}' data-artistimgurl='${SongArray[idx][1]}' data-albumimgurl='${SongArray[idx][2]}'>${SongArray[idx][3]}</option>`)
+    ////<option ondblclick='removeSong()' value="" data-artistImgUrl="" data-albumImgUrl=""></option>
+    listIndex++
+}
+
+function removeSong(element) {
+    let idx = element.parentElement.id
+    RealSongList.options.remove(idx);
+    listArr.splice(idx, 1)
+    console.log(listArr)
+    realListArr.splice(idx, 1)
+    arrToStr()
+}
+
+function arrToStr() {
+    listStr = listArr.join("")
+    realListStr = realListArr.join("")
+    
+    if (listStr !== "") {
+        SongSelected.innerHTML = listStr
+    } else {
+        SongSelected.innerHTML = "<h2>Empty</h2>"
+        listIndex = 0
+    }
+    if (realListStr !== "") {
+        RealSongList.innerHTML = realListStr
+    }
+
+    listStr = ""
+    realListStr = ""
+}
+
+function selectSong(element) {
+    let idx = element.id
+    SongChange(idx)
+}
+
+function SongChange(idx) {
+    Music.src = "src\\music\\" + RealSongList.options[idx].value;
+    RealSongList.options[idx].selected = true;
+    btnPlay.innerHTML = "<i class=" + "material-icons" + ">pause</i>";
+    audio.load();
+    audio.play();
+    setImage(RealSongList.options[idx]);
+    setName(idx);
+    setTime();
+    setTimeToLeft(0)
+}
+
+
+ToSongBook.addEventListener('click', () => {
+    SongList.style.transform = "rotateY(180deg)"
+})
+ReturnAndFresh.addEventListener('click', () => {
+    arrToStr()
+    SongList.style.transform = "rotateY(0deg)"
+})
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Ctx Contorl Slider
 const StereoPanControl = document.getElementById("stereoPanControl");
@@ -147,168 +283,19 @@ DelayControl.oninput = function () {
 // }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Play Time Bar
-PlayProgressBar.addEventListener('input', function () {
-    audio.currentTime = this.value;
-    setTime()
-})
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-// Song Select & Change
-function CreareSongBook() {
-    let songbookStr = ""
-    for (i = 0; i < SongArray.length; i++) {
-        // songbookStr += `<option>${SongArray[i][3]}</option>`
-        songbookStr += `<li id='${i}'><span>${SongArray[i][3]}</span><div onclick='addSong(this)'><img src='src/image/icon-add.png'></img></div></li>`
-    }
-    SongBook.innerHTML = songbookStr
-}
-
-var listArr = []
-var listStr = ""
-var realListArr = []
-var realListStr = ""
-var listIndex = 0
-
-function addSong(element) {
-    let idx = element.parentElement.id
-    listArr.push(`<li id='${listIndex}' onclick='selectSong(this)'><span>${SongArray[idx][3]}</span><div onclick='removeSong(this)'><img src='src/image/icon-remove.png'></img></div></li>`)
-    realListArr.push(`<option value='${SongArray[idx][0]}' data-artistimgurl='${SongArray[idx][1]}' data-albumimgurl='${SongArray[idx][2]}'>${SongArray[idx][3]}</option>`)
-    ////<option ondblclick='removeSong()' value="" data-artistImgUrl="" data-albumImgUrl=""></option>
-    listIndex++
-}
-
-function removeSong(element) {
-    let idx = element.parentElement.id
-    RealSongList.options.remove(idx);
-    listArr.splice(idx, 1)
-    console.log(listArr)
-    realListArr.splice(idx, 1)
-    arrToStr()
-}
-
-function arrToStr() {
-    listStr = listArr.join("")
-    realListStr = realListArr.join("")
-    
-    if (listStr !== "") {
-        SongSelected.innerHTML = listStr
-    } else {
-        SongSelected.innerHTML = "<h2>Empty</h2>"
-        listIndex = 0
-    }
-    if (realListStr !== "") {
-        RealSongList.innerHTML = realListStr
-    }
-
-    listStr = ""
-    realListStr = ""
-}
-
-function selectSong(element) {
-    let idx = element.id
-    console.log(idx)
-    SongChange(idx)
-}
-
-function SongChange(idx) {
-    Music.src = "src\\music\\" + RealSongList.options[idx].value;
-    RealSongList.options[idx].selected = true;
-    btnPlay.innerHTML = "<i class=" + "material-icons" + ">pause</i>";
-    audio.load();
-    audio.play();
-    setImage(RealSongList.options[idx]);
-    setName(idx);
-    setTime();
-    setToLeft(0)
-}
-
-const SongList = document.getElementById('songList')
-const ToSongBook = document.getElementById('toSongBook')
-const ReturnAndFresh = document.getElementById('returnAndFresh')
-
-ToSongBook.addEventListener('click', () => {
-    SongList.style.transform = "rotateY(180deg)"
-})
-ReturnAndFresh.addEventListener('click', () => {
-    arrToStr()
-    SongList.style.transform = "rotateY(0deg)"
-})
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-// Set Song Name & Image
-function setName(idx) {
-    Music.title = RealSongList.options[idx].innerText;
-    SongName.innerHTML = Music.title;
-}
-
-function setImage(input) {
-    AlbumImg.src = "src\\music\\" + input.dataset.albumimgurl
-    ArtistImg.src = "src\\music\\" + input.dataset.artistimgurl
-}
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-// Set Time Info
-function setTime() {
-    let AudioCurTime, AudioFullTime
-
-    audio.onloadedmetadata = function () {
-        AudioCurTime = Math.floor(audio.currentTime)
-        AudioFullTime = Math.floor(audio.duration)
-        PlayProgressBar.max = AudioFullTime
-        CurTime.innerHTML = numToTime(AudioCurTime)
-        FullTime.innerHTML = numToTime(AudioFullTime)
-    }
-
-    setInterval(() => {
-        AudioCurTime = Math.floor(audio.currentTime);
-        setTimeShow(AudioCurTime);
-        setToLeft(AudioCurTime)
-        PlayProgressBar.value = AudioCurTime;
-
-        if (AudioCurTime === AudioFullTime) {
-            (RandomSwitch.classList.contains("active")) ? SongRandom() : (RepeatOneSwitch.classList.contains("active")) ? RepeatOne() : (RepeatAllSwitch.classList.contains("active")) ? RepeatAll() : SongJump(1);
-        }
-    }, 1000)
-}
-
-function setToLeft(T) {
-    progressBG = (T / audio.duration * 100) + "%";
-    PlayProgressBar.style.backgroundImage = "-webkit-linear-gradient(left, rgb(141, 43, 41), rgb(141, 43, 41) " + progressBG + ", rgb(66, 66, 66) 0,rgb(66, 66, 66))";
-}
-
-function setTimeShow(T) {
-    CurTime.innerHTML = numToTime(T)
-}
-
-function numToTime(T) {
-    let min = Math.floor(T / 60);
-    let sec = T % 60;
-    function addZero(num) {
-        return num < 10 ? "0" + num : String(num)
-    }
-    return addZero(min) + ":" + addZero(sec);
-}
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 // play btns
 function PlayPause() {
     if (audio !== null) {
         if (audio.paused) {
-            audio.play();
-            setName(0)
-            setTime()
             btnPlay.innerHTML = "<i class=" + "material-icons" + ">pause</i>";
+            audio.play();
+            setName()
+            setTime()
         } else {
-            audio.pause();
             btnPlay.innerHTML = "<i class=" + "material-icons" + ">play_arrow</i>";
+            audio.pause();  
         }
-    }
+    } 
 }
 
 function Stop() {
@@ -337,10 +324,9 @@ function SongJump(n) {
         }
         SongChange(indexChange)
     }
-    setToLeft(T)
+    setTimeToLeft(T)
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 // repeat btns
 const RandomSwitch = document.getElementById('randomSwitch');
@@ -386,22 +372,22 @@ function RepeatAll() {
 function VolumeSwitch() {
     // audio.muted = audio.muted == true ? false : true 
     audio.muted = !audio.muted;
-    MusicVolume.textContent === "volume_up" ? MusicVolume.innerHTML = "volume_off" : MusicVolume.innerHTML = "volume_up"
+    MusicVolume.textContent === "volume_up" ? MusicVolume.innerHTML = "volume_off" : MusicVolume.innerHTML = "volume_up";
 }
 
-VolumeControl.oninput = function () {
-    masterVolume.gain.value = this.value / 100;
-    VolumeValue.innerHTML = this.value;
+VolumeControl.oninput = function setVolume() {
+    let Vol = this.value
+    masterVolume.gain.value = Vol / 100;
+    VolumeValue.innerHTML = Vol;
+    setVolumeToLeft(Vol)
     masterVolume.gain.value === 0 ? MusicVolume.innerHTML = "volume_off" : MusicVolume.innerHTML = "volume_up"
+}
+
+function setVolumeToLeft(Vol) {
+    let volumBG = Vol + "%";
+    VolumeControl.style.backgroundImage = "-webkit-linear-gradient(left, rgb(0, 0, 0), rgb(0, 0, 0) " + volumBG + ", rgb(188, 58, 56) 0,rgb(188, 58, 56))";
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-//  init
-function indexInit() {
-    CreareSongBook()
-    setImage(music);
-    SongName.innerHTML = Music.title;
-}
 
 indexInit()

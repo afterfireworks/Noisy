@@ -511,7 +511,7 @@ html {
                         }
 
                         .surroundRange {
-                            background: rgb(188, 58, 56);
+                            background-color: rgb(188, 58, 56);
                             width: 400px;
 
                             @include mobile {
@@ -679,7 +679,7 @@ html {
 
                             #volumeControl {
                                 width: 150px;
-                                background-color: black;
+                                background-color: rgb(188, 58, 56);
                                 margin-left: 15px;
 
                                 @include mobile {

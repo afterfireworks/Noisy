@@ -39,7 +39,9 @@
                         data-artistimgurl="WeLostTheSea.artist.jfif" data-albumimgurl="WeLostTheSea.ab03.jpg"
                         title="We Lost The Sea - A Gallant Gentleman - Live at Studios 301">
                 </audio>
-                <select id="realSongList"></select>
+                <select id="realSongList">
+                    <li>We Lost The Sea - A Gallant Gentleman - Live at Studios 301</li>
+                </select>
             </div>
         </div>
 
@@ -53,7 +55,12 @@
                 <div id="songList" class="card">
                     <div class="card-front">
                         <ul id="songSelected">
-                            <h2>Empty</h2>
+                            <li id="0" onclick="selectSong(this)">
+                                <span>We Lost The Sea - A Gallant Gentleman - Live at Studios 301</span>
+                                <div onclick="removeSong(this)">
+                                    <img src="src/image/icon-remove.png">
+                                </div>
+                            </li>
                         </ul>
                         <div id="toSongBook">
                             <h3>To Song Book</h3>
@@ -137,7 +144,7 @@
                 <i class="material-icons">headset_off</i>  -->
                     <label>
                         <input id="volumeControl" type="range" min="0" max="100" step="1" value="100">
-                        <h5 id="volumeValue">100</h5>
+                        <h5 id="volumeValue">50</h5>
                     </label>
                 </div>
             </div>
