@@ -121,8 +121,8 @@ function numToTime(T) {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Set Song Name & Image
-function setName(idx) {
-    Music.title = RealSongList.options[idx].innerText;
+function setName(input) {
+    Music.title = input.innerText;
     SongName.innerHTML = Music.title;
 }
 
@@ -203,8 +203,8 @@ function removeSong(element) {
     arrToStr()
     if (realListArr.length === 0) {
         Stop()
-        AlbumImg.src = "src\\music\\" + "InitAlbum.jpg"
-        ArtistImg.src = "src\\music\\" + "InitArtist.png"
+        setImage(music)
+        SongName.innerHTML = "Empty";
     }
 }
 
@@ -250,16 +250,16 @@ function SongChange(idx) {
     audio.load();
     audio.play();
     setImage(RealSongList.options[idx]);
-    setName(idx);
+    setName(RealSongList.options[idx]);
     setTime();
     setTimeToLeft(0)
-    if (isMobile()) {
-        ContorlsPanel.style.width = "0"
-        PlayInfo.style.marginLeft = "0"
-        PlayInfo.style.transition = "all .3s"
-        PlayInfo.classList.remove("notDesktop");
-        ContorlsPanel.classList.remove("visiable")
-    }
+    // if (isMobile()) {
+    //     ContorlsPanel.style.width = "0"
+    //     PlayInfo.style.marginLeft = "0"
+    //     PlayInfo.style.transition = "all .3s"
+    //     PlayInfo.classList.remove("notDesktop");
+    //     ContorlsPanel.classList.remove("visiable")
+    // }
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -272,12 +272,12 @@ StereoPanControl.oninput = function () {
     StereoPanValue.innerHTML = StereoPanControl.value;
 }
 
-const GainControl = document.getElementById("gainControl");
-const GainValue = document.getElementById("gainValue");
+const DelayGainControl = document.getElementById("delayGainControl");
+const DelayGainValue = document.getElementById("delayGainValue");
 
-GainControl.oninput = function () {
-    delayGain.gain.value = GainControl.value / 100;
-    GainValue.innerHTML = GainControl.value;
+DelayGainControl.oninput = function () {
+    delayGain.gain.value = DelayGainControl.value;
+    DelayGainValue.innerHTML = Math.round(DelayGainControl.value * 100);
 }
 
 const FilterControl = document.getElementById("filterControl");
@@ -312,7 +312,6 @@ function PlayPause() {
         if (audio.paused) {
             btnPlay.innerHTML = "<i class=" + "material-icons" + ">pause</i>";
             audio.play();
-            setName(idx)
             setTime()
         } else {
             btnPlay.innerHTML = "<i class=" + "material-icons" + ">play_arrow</i>";

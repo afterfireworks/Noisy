@@ -14,16 +14,22 @@ const masterVolume = audioCtx.createGain();
 
 
 // Master Chain
-source.connect(analyser);
-analyser.connect(stereoPanner);
-stereoPanner.connect(masterVolume);
+source.connect(analyser)
+analyser.connect(stereoPanner)
+stereoPanner.connect(masterVolume)
+masterVolume.connect(audioCtx.destination)
 // Delay Chain
-stereoPanner.connect(delayGain);
-delayGain.connect(delayFilter);
-delayFilter.connect(delayTime);
-delayTime.connect(masterVolume);
-// Output
-masterVolume.connect(audioCtx.destination);
+stereoPanner.connect(delayFilter)
+delayFilter.connect(delayGain)
+delayGain.connect(delayTime)
+delayTime.connect(delayGain)
+delayGain.gain.value /= 2
+delayGain.connect(delayTime)
+delayTime.connect(delayGain)
+delayGain.gain.value /= 4
+delayGain.connect(delayTime)
+delayTime.connect(audioCtx.destination)
+
 // masterVolume.gain.value = 1
 
 const Init = document.getElementById("init");
