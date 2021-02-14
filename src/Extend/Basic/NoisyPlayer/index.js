@@ -256,7 +256,7 @@ function SongChange(idx) {
     if (isMobile()) {
         ContorlsPanel.style.width = "0"
         PlayInfo.style.marginLeft = "0"
-        PlayInfo.style.transition = "all .5s"
+        PlayInfo.style.transition = "all .3s"
         PlayInfo.classList.remove("notDesktop");
         ContorlsPanel.classList.remove("visiable")
     }
