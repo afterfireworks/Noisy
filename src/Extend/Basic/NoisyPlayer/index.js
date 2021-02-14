@@ -253,6 +253,13 @@ function SongChange(idx) {
     setName(idx);
     setTime();
     setTimeToLeft(0)
+    if (isMobile()) {
+        ContorlsPanel.style.width = "0"
+        PlayInfo.style.marginLeft = "0"
+        PlayInfo.style.transition = "all .5s"
+        PlayInfo.classList.remove("notDesktop");
+        ContorlsPanel.classList.remove("visiable")
+    }
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
