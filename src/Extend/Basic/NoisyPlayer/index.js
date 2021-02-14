@@ -1,12 +1,12 @@
 const SongArray = [
-    ["WeLostTheSea-AGallantGentleman-LiveatStudios301.mp3", "WeLostTheSea.artist.jfif", "WeLostTheSea.ab03.jpg", "We Lost The Sea - A Gallant Gentleman - Live at Studios 301"],
-    ["Senhuai-WaitingMan.mp3", "Senhuai-.jfif", "Senhuai-WaitingMan.artist.jpg", "詹森淮 - 他總是在那個路口"],
-    ["NoPartyForCaoDong-Wayfarer.mp3", "NoPartyForCaoDong.artis.jpg", "NoPartyForCaoDong.abo1.jpg", "草東沒有派對 - 山海"],
-    ["NoPartyForCaoDong-Devotion.mp3", "NoPartyForCaoDong.artis.jpg", "NoPartyForCaoDong.Devotion.jpg", "草東沒有派對 - 還願"],
-    ["Vast&Hazy-IntheDark.mp3", "Vast&Hazy.artist.jpg", "Vast&Hazy.ep02.jpg", "Vast & Hazy - 無差別傷害"],
-    ["Vast&Hazy-Waves.mp3", "Vast&Hazy.artist.jpg", "Vast&Hazy.ep01.jpg", "Vast & Hazy - 與浪之間"],
-    ["Vast&Hazy-TheCityisEatingMeAlive.mp3", "Vast&Hazy.artist.jpg", "Vast&Hazy.ep01.jpg", "Vast & Hazy - 食人夢"],
-    ["Vast&Hazy-ImNotOK.mp3", "Vast&Hazy.artist.jpg", "Vast&Hazy.ab01.jpg", "Vast & Hazy - 求救訊號"]
+    ["WeLostTheSea-AGallantGentleman-LiveatStudios301.mp3", "WeLostTheSea.artist.jfif", "banner2.jpg", "WeLostTheSea.ab03.jpg", "We Lost The Sea - A Gallant Gentleman - Live at Studios 301"],
+    ["Senhuai-WaitingMan.mp3", "Senhuai-.jfif", "Senhuai-WaitingMan.artist.jpg", "banner3.jpg", "詹森淮 - 他總是在那個路口"],
+    ["NoPartyForCaoDong-Wayfarer.mp3", "NoPartyForCaoDong.artis.jpg", "NoPartyForCaoDong.abo1.jpg", "banner2.jpg", "草東沒有派對 - 山海"],
+    ["NoPartyForCaoDong-Devotion.mp3", "NoPartyForCaoDong.artis.jpg", "NoPartyForCaoDong.Devotion.jpg", "banner1.jpg", "草東沒有派對 - 還願"],
+    ["Vast&Hazy-IntheDark.mp3", "Vast&Hazy.artist.jpg", "Vast&Hazy.ep02.jpg", "banner1.jpg", "Vast & Hazy - 無差別傷害"],
+    ["Vast&Hazy-Waves.mp3", "Vast&Hazy.artist.jpg", "Vast&Hazy.ep01.jpg", "banner3.jpg", "Vast & Hazy - 與浪之間"],
+    ["Vast&Hazy-TheCityisEatingMeAlive.mp3", "Vast&Hazy.artist.jpg", "Vast&Hazy.ep01.jpg", "banner3.jpg", "Vast & Hazy - 食人夢"],
+    ["Vast&Hazy-ImNotOK.mp3", "Vast&Hazy.artist.jpg", "Vast&Hazy.ab01.jpg", "banner3.jpg", "Vast & Hazy - 求救訊號"]
 ]
 
 const audio = document.querySelector('audio');
@@ -14,6 +14,9 @@ const canvas = document.querySelector('canvas');
 
 const Music = document.getElementById('music');
 const PlayInfo = document.getElementById('playInfo');
+const Banner = document.getElementById("banner");
+const AlbumImg = document.getElementById("albumImg");
+const ArtistImg = document.getElementById("artistImg");
 const PlayProgressBar = document.getElementById("playProgressBar")
 const CurTime = document.getElementById("curTime")
 const FullTime = document.getElementById("fullTime")
@@ -40,11 +43,12 @@ const BtnPlay = document.getElementById("btnPlay");
 const BtnStop = document.getElementById("btnStop");
 const BtnNextTime = document.getElementById("btnNextTime");
 const BtnNext = document.getElementById("btnNext");
+const RandomSwitch = document.getElementById('randomSwitch');
+const RepeatOneSwitch = document.getElementById('repeatOneSwitch');
+const RepeatAllSwitch = document.getElementById('repeatAllSwitch');
 const MusicVolume = document.getElementById("musicVolume");
 const VolumeControl = document.getElementById("volumeControl");
 const VolumeValue = document.getElementById("volumeValue");
-const ArtistImg = document.getElementById("artistImg");
-const AlbumImg = document.getElementById("albumImg");
 
 var listArr = []
 var listStr = ""
@@ -123,6 +127,7 @@ function setName(idx) {
 }
 
 function setImage(input) {
+    Banner.src = "src\\image\\" + input.dataset.bannerimgurl
     AlbumImg.src = "src\\music\\" + input.dataset.albumimgurl
     ArtistImg.src = "src\\music\\" + input.dataset.artistimgurl
 }
@@ -172,17 +177,18 @@ function CreareSongBook() {
     let songbookStr = ""
     for (i = 0; i < SongArray.length; i++) {
         // songbookStr += `<option>${SongArray[i][3]}</option>`
-        songbookStr += `<li id='${i}'><span>${SongArray[i][3]}</span><div onclick='addSong(this)'><img src='src/image/icon-add.png'></img></div></li>`
+        songbookStr += `<li id='${i}'><span>${SongArray[i][4]}</span><div onclick='addSong(this)'><img src='src/image/icon-add.png'></img></div></li>`
     }
     SongBook.innerHTML = songbookStr
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Song Select & Change
+
+// Song Add & Remove
 function addSong(element) {
     let idx = element.parentElement.id
-    listArr.push(`<li onclick='selectSong(this)'><span>${SongArray[idx][3]}</span><div onclick='removeSong(this)'><img src='src/image/icon-remove.png'></img></div></li>`)
-    realListArr.push(`<option value='${SongArray[idx][0]}' data-artistimgurl='${SongArray[idx][1]}' data-albumimgurl='${SongArray[idx][2]}'>${SongArray[idx][3]}</option>`)
+    listArr.push(`<li onclick='selectSong(this)'><span>${SongArray[idx][4]}</span><div onclick='removeSong(this)'><img src='src/image/icon-remove.png'></img></div></li>`)
+    realListArr.push(`<option value='${SongArray[idx][0]}' data-artistimgurl='${SongArray[idx][1]}' data-albumimgurl='${SongArray[idx][2]}' data-bannerimgurl='${SongArray[idx][3]}'>${SongArray[idx][4]}</option>`)
     ////<option ondblclick='removeSong()' value="" data-artistImgUrl="" data-albumImgUrl=""></option>
 }
 
@@ -196,9 +202,9 @@ function removeSong(element) {
     realListArr.splice(idx, 1)
     arrToStr()
     if (realListArr.length === 0) {
-        AlbumImg.src = "src\\music\\" + "InitAlbum.jpg"
-        ArtistImg.src = "src\\music\\" + "InitArtist.jpg"
         Stop()
+        AlbumImg.src = "src\\music\\" + "InitAlbum.jpg"
+        ArtistImg.src = "src\\music\\" + "InitArtist.png"
     }
 }
 
@@ -221,6 +227,17 @@ function arrToStr() {
     realListStr = ""
 }
 
+ToSongBook.addEventListener('click', () => {
+    SongList.style.transform = "rotateY(180deg)"
+})
+ReturnAndFresh.addEventListener('click', () => {
+    arrToStr()
+    SongList.style.transform = "rotateY(0deg)"
+})
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// Song Select & Change
 function selectSong(element) {
     let idx = Array.prototype.indexOf.call(SongSelected.children, element);
     SongChange(idx)
@@ -237,15 +254,6 @@ function SongChange(idx) {
     setTime();
     setTimeToLeft(0)
 }
-
-
-ToSongBook.addEventListener('click', () => {
-    SongList.style.transform = "rotateY(180deg)"
-})
-ReturnAndFresh.addEventListener('click', () => {
-    arrToStr()
-    SongList.style.transform = "rotateY(0deg)"
-})
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Ctx Contorl Slider
@@ -337,10 +345,6 @@ function SongJump(n) {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // repeat btns
-const RandomSwitch = document.getElementById('randomSwitch');
-const RepeatOneSwitch = document.getElementById('repeatOneSwitch');
-const RepeatAllSwitch = document.getElementById('repeatAllSwitch');
-
 RandomSwitch.addEventListener('click', function () {
     this.classList.toggle('active')
     RepeatOneSwitch.classList.remove('active')
