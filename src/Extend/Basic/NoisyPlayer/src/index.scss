@@ -60,6 +60,7 @@ html {
             word-wrap: normal;
             white-space: nowrap;
             direction: ltr;
+            cursor: pointer;
 
             /* Support for all WebKit browsers. */
             -webkit-font-smoothing: antialiased;
@@ -78,6 +79,7 @@ html {
             outline: none;
             overflow-y: visible;
             height: 5px;
+            cursor: pointer;
             /* 避免點選會有藍線或虛線 */
 
             &::-webkit-slider-thumb {
@@ -218,15 +220,17 @@ html {
                 }
 
                 img {
-                    width: 50px;
+                    width: 80px;
+                    height: auto;
                     padding: 15px;
                     margin: 15px;
-                    background-color: rgb(188, 58, 56);
+                    // background-color: rgb(188, 58, 56);
                     object-fit: cover;
+                    cursor: pointer;
 
                     @include mobile {
-                        width: 20px;
-                        margin: 10px;
+                        width: 40px;
+                        margin: 5px;
                     }
                 }
             }
@@ -720,7 +724,7 @@ html {
         }
 
         .vw50 {
-            transition: all 1s;
+            transition: all .5s;
             width: 50vw !important;
 
             div,
@@ -731,11 +735,11 @@ html {
 
         .notDesktop {
             margin-left: -100vw;
-            transition: all 1s;
+            transition: all .5s;
         }
 
         .visiable {
-            transition: all 1s;
+            transition: all .5s;
             width: 100vw !important;
 
             div,
