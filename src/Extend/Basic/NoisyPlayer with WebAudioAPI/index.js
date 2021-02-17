@@ -250,7 +250,7 @@ function selectSong(element) {
 function SongChange(idx) {
     Music.src = "src\\music\\" + RealSongList.options[idx].value;
     RealSongList.options[idx].selected = true;
-    btnPlay.innerHTML = "<i class=" + "material-icons" + ">pause</i>";
+    btnPlay.innerHTML = `<img src="src/image/icons/pause.png" alt="">`
     audio.load();
     audio.play();
     setImage(RealSongList.options[idx]);
