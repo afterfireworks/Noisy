@@ -177,7 +177,7 @@ function CreareSongBook() {
     let songbookStr = ""
     for (i = 0; i < SongArray.length; i++) {
         // songbookStr += `<option>${SongArray[i][3]}</option>`
-        songbookStr += `<li id='${i}'><span>${SongArray[i][4]}</span><div onclick='addSong(this)'><img src='src/image/icon-add.png'></img></div></li>`
+        songbookStr += `<li id='${i}'><span>${SongArray[i][4]}</span><div onclick='addSong(this)'><img src='src/image/icons/icon-add.png'></img></div></li>`
     }
     SongBook.innerHTML = songbookStr
 }
@@ -187,9 +187,10 @@ function CreareSongBook() {
 // Song Add & Remove
 function addSong(element) {
     let idx = element.parentElement.id
-    listArr.push(`<li onclick='selectSong(this)'><span>${SongArray[idx][4]}</span><div onclick='removeSong(this)'><img src='src/image/icon-remove.png'></img></div></li>`)
+    listArr.push(`<li onclick='selectSong(this)'><span>${SongArray[idx][4]}</span><div onclick='removeSong(this)'><img src='src/image/icons/icon-remove.png'></img></div></li>`)
     realListArr.push(`<option value='${SongArray[idx][0]}' data-artistimgurl='${SongArray[idx][1]}' data-albumimgurl='${SongArray[idx][2]}' data-bannerimgurl='${SongArray[idx][3]}'>${SongArray[idx][4]}</option>`)
     ////<option ondblclick='removeSong()' value="" data-artistImgUrl="" data-albumImgUrl=""></option>
+    element.parentElement.classList.add("choose")
 }
 
 function removeSong(element) {
@@ -224,7 +225,7 @@ function arrToStr() {
     }
 
     listStr = ""
-    realListStr = ""
+    realListStr = "" 
 }
 
 ToSongBook.addEventListener('click', () => {
@@ -233,6 +234,9 @@ ToSongBook.addEventListener('click', () => {
 ReturnAndFresh.addEventListener('click', () => {
     arrToStr()
     SongList.style.transform = "rotateY(0deg)"
+    for (i=0; i < SongArray.length; i++){
+        SongBook.children[i].classList.remove("choose")
+    }
 })
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -310,11 +314,13 @@ function PlayPause() {
     if (realSongList.innerHTML !== "") {
         let idx = realSongList.selectedIndex
         if (audio.paused) {
-            btnPlay.innerHTML = "<i class=" + "material-icons" + ">pause</i>";
+            // btnPlay.innerHTML = "<i class=" + "material-icons" + ">pause</i>";
+            btnPlay.innerHTML = `<img src="src/image/icons/pause.png" alt="">`
             audio.play();
             setTime()
         } else {
-            btnPlay.innerHTML = "<i class=" + "material-icons" + ">play_arrow</i>";
+            // btnPlay.innerHTML = "<i class=" + "material-icons" + ">play_arrow</i>``
+            btnPlay.innerHTML = `<img src="src/image/icons/play_arrow.png" alt="">`
             audio.pause();
         }
     }
@@ -324,7 +330,8 @@ function Stop() {
     // audio.pause();
     // audio.currentTime = "0";
     audio.load();
-    btnPlay.innerHTML = "<i class=" + "material-icons" + ">play_arrow</i>";
+    btnPlay.innerHTML = `<img src="src/image/icons/play_arrow.png" alt="">`
+    
 }
 
 function ChangeTime(s) {
@@ -390,7 +397,8 @@ function RepeatAll() {
 function VolumeSwitch() {
     // audio.muted = audio.muted == true ? false : true 
     audio.muted = !audio.muted;
-    MusicVolume.textContent === "volume_up" ? MusicVolume.innerHTML = "volume_off" : MusicVolume.innerHTML = "volume_up";
+    MusicVolume.textContent === "headphones" ? MusicVolume.innerHTML = "headset_off" : MusicVolume.innerHTML = "headphones";
+    // MusicVolume.src === "src/image/icons/headphone.png" ? MusicVolume.src = "src/image/icons/no-headphones.png" : MusicVolume.src = "src/image/icons/headphone.png";
 }
 
 VolumeControl.oninput = function setVolume() {
@@ -398,7 +406,7 @@ VolumeControl.oninput = function setVolume() {
     masterVolume.gain.value = Vol / 100;
     VolumeValue.innerHTML = Vol;
     setVolumeToLeft(Vol)
-    masterVolume.gain.value === 0 ? MusicVolume.innerHTML = "volume_off" : MusicVolume.innerHTML = "volume_up"
+    masterVolume.gain.value === 0 ? MusicVolume.innerHTML = "headset_off" : MusicVolume.innerHTML = "headphones"
 }
 
 function setVolumeToLeft(Vol) {

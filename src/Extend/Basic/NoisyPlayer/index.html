@@ -35,16 +35,16 @@
                     <span id="fullTime"></span>
                 </label>
                 <audio preload="metadata">
-                    <source id="music" src=""
-                        data-artistimgurl="InitArtist.png" data-albumimgurl="InitAlbum.jpg" data-bannerimgurl='banner.jpg' title="Empty">
+                    <source id="music" src="" data-artistimgurl="InitArtist.png" data-albumimgurl="InitAlbum.jpg"
+                        data-bannerimgurl='banner.jpg' title="Empty">
                 </audio>
                 <select id="realSongList"></select>
             </div>
         </div>
 
         <div id="switch">
-            <div id="listSwitch" class="toggleSwitch"><img src="src/image/list.png" alt=""></div>
-            <div id="ctxSwitch" class="toggleSwitch"><img src="src/image/equalizer.png" alt=""></div>
+            <div id="listSwitch" class="toggleSwitch"><img src="src/image/icons/list.png" alt=""></div>
+            <div id="ctxSwitch" class="toggleSwitch"><img src="src/image/icons/equalizer.png" alt=""></div>
         </div>
 
         <div id="contorlsPanel">
@@ -77,7 +77,8 @@
                 <label>
                     <h2>Delay Gain</h2>
                     <span id="delayGainValue">0</span><br>
-                    <input id="delayGainControl" class="surroundRange" type="range" min="0" max="1" step="0.01" value="0">
+                    <input id="delayGainControl" class="surroundRange" type="range" min="0" max="1" step="0.01"
+                        value="0">
                 </label>
 
                 <label>
@@ -113,16 +114,30 @@
                 </div>
             </div>
             <div id="PlayerBtns">
-                <div class="PlayerBtn" id="btnPrev" onclick="SongJump(-1)"><i class="material-icons">skip_previous</i>
+                <div class="PlayerBtn" id="btnPrev" onclick="SongJump(-1)">
+                    <!-- <i class="material-icons">skip_previous</i> -->
+                    <img src="src/image/icons/skip_previous.png" alt="">
                 </div>
-                <div class="PlayerBtn" id="btnPrevTime" onclick="ChangeTime(-10)"><i
-                        class="material-icons">fast_rewind</i></div>
-                <div class="PlayerBtn" id="btnPlay" onclick="PlayPause()"><i class="material-icons">play_arrow</i></div>
-                <div class="PlayerBtn" id="btnStop" onclick="Stop()"><i class="material-icons">stop</i></div>
-                <div class="PlayerBtn" id="btnNextTime" onclick="ChangeTime(10)"><i
-                        class="material-icons">fast_forward</i>
+                <div class="PlayerBtn" id="btnPrevTime" onclick="ChangeTime(-10)">
+                    <!-- <i class="material-icons">fast_rewind</i> -->
+                    <img src="src/image/icons/fast_rewind.png" alt="">
                 </div>
-                <div class="PlayerBtn" id="btnNext" onclick="SongJump(1)"><i class="material-icons">skip_next</i></div>
+                <div class="PlayerBtn" id="btnPlay" onclick="PlayPause()">
+                    <!-- <i class="material-icons">play_arrow</i> -->
+                    <img src="src/image/icons/play_arrow.png" alt="">
+                </div>
+                <div class="PlayerBtn" id="btnStop" onclick="Stop()">
+                    <!-- <i class="material-icons">stop</i> -->
+                    <img src="src/image/icons/stop.png" alt="">
+                </div>
+                <div class="PlayerBtn" id="btnNextTime" onclick="ChangeTime(10)">
+                    <!-- <i class="material-icons">fast_forward</i> -->
+                    <img src="src/image/icons/fast_forward.png" alt="">
+                </div>
+                <div class="PlayerBtn" id="btnNext" onclick="SongJump(1)">
+                    <!-- <i class="material-icons">skip_next</i> -->
+                    <img src="src/image/icons/skip_next.png" alt="">
+                </div>
             </div>
             <div id="playerContorls">
                 <div id="repeatContorls">
@@ -131,9 +146,10 @@
                     <i class="material-icons" id="repeatAllSwitch">repeat</i>
                 </div>
                 <div id="PlayerVolume">
-                    <i id="musicVolume" class="material-icons" onclick="VolumeSwitch()">volume_up</i>
+                    <i id="musicVolume" class="material-icons" onclick="VolumeSwitch()">headphones</i>
+                    <!-- <img id="musicVolume" src="src/image/icons/headphone.png" alt=""> -->
                     <!-- <i class="material-icons">headset</i>
-                <i class="material-icons">headset_off</i>  -->
+                    <i class="material-icons">headset_off</i>  -->
                     <label>
                         <input id="volumeControl" type="range" min="0" max="100" step="1" value="100">
                         <h5 id="volumeValue">100</h5>
