@@ -1,4 +1,4 @@
-(function Draw() {
+function Draw() {
 
     requestAnimationFrame(Draw);
     analyser.fftSize = 2048;
@@ -25,6 +25,6 @@
         canvasCtx.fillRect(posX, canvas.height - barHeight / 2, barWidth, barHeight / 2);
         posX -= barWidth + .5;
     }
-})()
+}
 
-// Draw()
+Draw()
