@@ -40,5 +40,3 @@ Init.addEventListener('click', () => {
         console.log('Playback resumed successfully');
     });
 })
-
-

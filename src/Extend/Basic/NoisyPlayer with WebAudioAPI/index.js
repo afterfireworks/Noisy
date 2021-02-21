@@ -1,5 +1,5 @@
 const SongArray = [
-    ["WeLostTheSea-AGallantGentleman-LiveatStudios301.mp3", "WeLostTheSea.artist.jfif", "banner2.jpg", "WeLostTheSea.ab03.jpg", "We Lost The Sea - A Gallant Gentleman - Live at Studios 301"],
+    ["WeLostTheSea-AGallantGentleman-LiveatStudios301.mp3", "WeLostTheSea.artist.jfif", "WeLostTheSea.ab03.jpg",  "banner2.jpg","We Lost The Sea - A Gallant Gentleman - Live at Studios 301"],
     ["Senhuai-WaitingMan.mp3", "Senhuai-.jfif", "Senhuai-WaitingMan.artist.jpg", "banner3.jpg", "詹森淮 - 他總是在那個路口"],
     ["NoPartyForCaoDong-Wayfarer.mp3", "NoPartyForCaoDong.artis.jpg", "NoPartyForCaoDong.abo1.jpg", "banner2.jpg", "草東沒有派對 - 山海"],
     ["NoPartyForCaoDong-Devotion.mp3", "NoPartyForCaoDong.artis.jpg", "NoPartyForCaoDong.Devotion.jpg", "banner1.jpg", "草東沒有派對 - 還願"],
@@ -98,7 +98,7 @@ function setTime() {
         if (AudioCurTime === AudioFullTime) {
             (RandomSwitch.classList.contains("active")) ? SongRandom() : (RepeatOneSwitch.classList.contains("active")) ? RepeatOne() : (RepeatAllSwitch.classList.contains("active")) ? RepeatAll() : SongJump(1);
         }
-    }, 1000)
+    }, 100)
 }
 
 function setTimeToLeft(T) {
@@ -177,7 +177,7 @@ function CreareSongBook() {
     let songbookStr = ""
     for (i = 0; i < SongArray.length; i++) {
         // songbookStr += `<option>${SongArray[i][3]}</option>`
-        songbookStr += `<li id='${i}'><span>${SongArray[i][4]}</span><div onclick='addSong(this)'><img src='src/image/icon-add.png'></img></div></li>`
+        songbookStr += `<li id='${i}'><span>${SongArray[i][4]}</span><div onclick='addSong(this)'><img src='src/image/icons/icon-add.png'></img></div></li>`
     }
     SongBook.innerHTML = songbookStr
 }
@@ -187,9 +187,10 @@ function CreareSongBook() {
 // Song Add & Remove
 function addSong(element) {
     let idx = element.parentElement.id
-    listArr.push(`<li onclick='selectSong(this)'><span>${SongArray[idx][4]}</span><div onclick='removeSong(this)'><img src='src/image/icon-remove.png'></img></div></li>`)
+    listArr.push(`<li onclick='selectSong(this)'><span>${SongArray[idx][4]}</span><div onclick='removeSong(this)'><img src='src/image/icons/icon-remove.png'></img></div></li>`)
     realListArr.push(`<option value='${SongArray[idx][0]}' data-artistimgurl='${SongArray[idx][1]}' data-albumimgurl='${SongArray[idx][2]}' data-bannerimgurl='${SongArray[idx][3]}'>${SongArray[idx][4]}</option>`)
     ////<option ondblclick='removeSong()' value="" data-artistImgUrl="" data-albumImgUrl=""></option>
+    element.parentElement.classList.add("choose")
 }
 
 function removeSong(element) {
@@ -224,7 +225,7 @@ function arrToStr() {
     }
 
     listStr = ""
-    realListStr = ""
+    realListStr = "" 
 }
 
 ToSongBook.addEventListener('click', () => {
@@ -233,6 +234,9 @@ ToSongBook.addEventListener('click', () => {
 ReturnAndFresh.addEventListener('click', () => {
     arrToStr()
     SongList.style.transform = "rotateY(0deg)"
+    for (i=0; i < SongArray.length; i++){
+        SongBook.children[i].classList.remove("choose")
+    }
 })
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -244,9 +248,10 @@ function selectSong(element) {
 }
 
 function SongChange(idx) {
+    // Music.crossOrigin = 'use-credentials';
     Music.src = "src\\music\\" + RealSongList.options[idx].value;
     RealSongList.options[idx].selected = true;
-    btnPlay.innerHTML = "<i class=" + "material-icons" + ">pause</i>";
+    btnPlay.innerHTML = `<img src="src/image/icons/pause.png" alt="">`
     audio.load();
     audio.play();
     setImage(RealSongList.options[idx]);
@@ -310,11 +315,13 @@ function PlayPause() {
     if (realSongList.innerHTML !== "") {
         let idx = realSongList.selectedIndex
         if (audio.paused) {
-            btnPlay.innerHTML = "<i class=" + "material-icons" + ">pause</i>";
+            // btnPlay.innerHTML = "<i class=" + "material-icons" + ">pause</i>";
+            btnPlay.innerHTML = `<img src="src/image/icons/pause.png" alt="">`
             audio.play();
             setTime()
         } else {
-            btnPlay.innerHTML = "<i class=" + "material-icons" + ">play_arrow</i>";
+            // btnPlay.innerHTML = "<i class=" + "material-icons" + ">play_arrow</i>``
+            btnPlay.innerHTML = `<img src="src/image/icons/play_arrow.png" alt="">`
             audio.pause();
         }
     }
@@ -324,7 +331,8 @@ function Stop() {
     // audio.pause();
     // audio.currentTime = "0";
     audio.load();
-    btnPlay.innerHTML = "<i class=" + "material-icons" + ">play_arrow</i>";
+    btnPlay.innerHTML = `<img src="src/image/icons/play_arrow.png" alt="">`
+    
 }
 
 function ChangeTime(s) {
@@ -390,7 +398,8 @@ function RepeatAll() {
 function VolumeSwitch() {
     // audio.muted = audio.muted == true ? false : true 
     audio.muted = !audio.muted;
-    MusicVolume.textContent === "volume_up" ? MusicVolume.innerHTML = "volume_off" : MusicVolume.innerHTML = "volume_up";
+    MusicVolume.textContent === "headphones" ? MusicVolume.innerHTML = "headset_off" : MusicVolume.innerHTML = "headphones";
+    // MusicVolume.src === "src/image/icons/headphone.png" ? MusicVolume.src = "src/image/icons/no-headphones.png" : MusicVolume.src = "src/image/icons/headphone.png";
 }
 
 VolumeControl.oninput = function setVolume() {
@@ -398,7 +407,7 @@ VolumeControl.oninput = function setVolume() {
     masterVolume.gain.value = Vol / 100;
     VolumeValue.innerHTML = Vol;
     setVolumeToLeft(Vol)
-    masterVolume.gain.value === 0 ? MusicVolume.innerHTML = "volume_off" : MusicVolume.innerHTML = "volume_up"
+    masterVolume.gain.value === 0 ? MusicVolume.innerHTML = "headset_off" : MusicVolume.innerHTML = "headphones"
 }
 
 function setVolumeToLeft(Vol) {

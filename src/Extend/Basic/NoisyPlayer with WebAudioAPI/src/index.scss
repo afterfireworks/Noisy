@@ -11,8 +11,8 @@
 }
 
 html {
-    font-family: "Consolas", sans-serif;
-    user-select: none;
+    font-family: 'Noto Sans TC', sans-serif;
+    // user-select: none;
     -webkit-tap-highlight-color:transparent;
 
     @include mobile {
@@ -60,6 +60,7 @@ html {
             word-wrap: normal;
             white-space: nowrap;
             direction: ltr;
+            cursor: pointer;
 
             /* Support for all WebKit browsers. */
             -webkit-font-smoothing: antialiased;
@@ -78,35 +79,32 @@ html {
             outline: none;
             overflow-y: visible;
             height: 5px;
-            /* 避免點選會有藍線或虛線 */
+            cursor: pointer;
 
             &::-webkit-slider-thumb {
                 -webkit-appearance: none;
                 position: relative;
                 width: 5px;
                 height: 1rem;
-                background: rgb(255, 255, 255);
+                background: aliceblue;
                 padding: 10px 0;
-                // transition:.2s;        /* 點選放大時候的漸變時間 */
             }
 
             &::-moz-range-thumb {
                 position: relative;
                 width: 5px;
                 height: .5rem;
-                background: rgb(255, 255, 255);
+                background: aliceblue;
                 padding: 10px 0;
-                // transition:.2s;        /* 點選放大時候的漸變時間 */
             }
 
             &::-ms-thumb {
                 position: relative;
                 width: 5px;
                 height: 1rem;
-                background: rgb(255, 255, 255);
+                background: aliceblue;
                 padding: 10px 0;
-                transition: .5s;
-                /* 點選放大時候的漸變時間 */
+        
             }
         }
 
@@ -159,7 +157,7 @@ html {
                 text-align: center;
                 background-color: rgba(0, 0, 0, 0.5);
                 color: blanchedalmond;
-
+                cursor: pointer;
             }
 
 
@@ -218,15 +216,17 @@ html {
                 }
 
                 img {
-                    width: 50px;
+                    width: 80px;
+                    height: auto;
                     padding: 15px;
                     margin: 15px;
-                    background-color: rgb(188, 58, 56);
+                    // background-color: rgb(188, 58, 56);
                     object-fit: cover;
+                    cursor: pointer;
 
                     @include mobile {
-                        width: 20px;
-                        margin: 10px;
+                        width: 40px;
+                        margin: 5px;
                     }
                 }
             }
@@ -347,7 +347,7 @@ html {
                         box-shadow: 0px 0px 10px 1px black;
 
                         @include mobile {
-                            box-shadow: 0px 0px 5px 1px black;
+                            box-shadow: 0px 0px 3px 0px black;
                         }
 
 
@@ -365,6 +365,10 @@ html {
                                 padding: 15px 0;
                                 letter-spacing: .05rem;
                                 background-color: rgba(49, 49, 49, 0.466);
+
+                                @include mobile{
+                                    height: 90%;
+                                }
 
                                 h2 {
                                     width: 100%;
@@ -389,7 +393,7 @@ html {
                                     }
 
                                     &:hover {
-                                        background-color: rgba(0, 0, 0, 0.2);
+                                        background-color: rgba(188, 58, 56, 0.3);
                                         transition: all .1s;
 
                                         @include mobile {
@@ -439,16 +443,17 @@ html {
                                 box-shadow: 0px 0px 3px 1px black;
 
                                 @include mobile {
+                                    height: 10%;
                                     width: 300px;
+                                    box-shadow: 0px 0px 2px 0px black;
                                 }
 
-                                h3{
+                                h4{
                                     margin: 0;
-                                    font-size: 1.2rem;
                                 }
 
                                 &:hover {
-                                    background: rgb(188, 58, 56);
+                                    background: rgba(188, 58, 56, 0.7);
                                     transition: all .3s;
                                 }
                             }
@@ -529,15 +534,14 @@ html {
 
             }
 
-
-            marquee {
-                position: fixed;
-                z-index: 2;
-                left: 0;
-                bottom: 100px;
-                padding: 10px;
-                background-color: whitesmoke;
-            }
+            // marquee {
+            //     position: fixed;
+            //     z-index: 2;
+            //     left: 0;
+            //     bottom: 100px;
+            //     padding: 10px;
+            //     background-color: whitesmoke;
+            // }
 
             #contorlBar {
                 width: 100vw;
@@ -556,6 +560,7 @@ html {
                     height: 150px;
                     flex-direction: column;
                     justify-content: center;
+                    box-shadow: 0px -1px 2px 0px rgb(0, 0, 0);
                 }
 
                 #songInfo {
@@ -622,13 +627,19 @@ html {
                     }
 
                     .PlayerBtn {
-                        padding: 15px;
                         margin: 15px;
-
                         @include mobile {
-                            padding: 0 10px;
-                            margin: 0;
+                            margin: 0 10px;
                         }
+
+                        img{
+                            width: 36px;
+                            cursor: pointer;
+
+                            @include mobile {
+                               width: 30px;
+                            }
+                        }   
                     }
                 }
 
@@ -647,36 +658,50 @@ html {
 
 
                     #repeatContorls {
+                        width: 50%;
                         display: flex;
                         flex-wrap: nowrap;
-                        margin-right: 50px;
+                        justify-content: center;
 
                         @include mobile {
                             width: 40%;
-                            justify-content: flex-end;
+                            justify-content: center;
                             margin-right: 0px;
                         }
 
                         i {
-                            padding: 10px;
-                            margin: 0 5px;
+                            padding: 5px;
+                            margin: 0 15px;
+                            font-size: 1.6rem;
 
                             @include mobile {
-                                // padding: 0 ;
-                                margin: 0;
+                                margin: 3px;
                             }
                         }
                     }
 
                     #PlayerVolume {
+                        width: 50%;
                         display: flex;
                         justify-content: flex-end;
                         align-items: center;
-
+                        padding-right: 20px;
                         @include mobile {
                             width: 60%;
                             justify-content: center;
+                            padding-right: 0px;
                         }
+
+                        i{
+                            font-size: 1.6rem;
+                        }
+
+                        img{
+                            width: 25px;
+                            cursor: pointer;
+                        }
+
+                        
 
                         label {
                             display: flex;
@@ -720,7 +745,7 @@ html {
         }
 
         .vw50 {
-            transition: all 1s;
+            transition: all .5s;
             width: 50vw !important;
 
             div,
@@ -731,17 +756,21 @@ html {
 
         .notDesktop {
             margin-left: -100vw;
-            transition: all 1s;
+            transition: all .5s;
         }
 
         .visiable {
-            transition: all 1s;
+            transition: all .5s;
             width: 100vw !important;
 
             div,
             label {
                 visibility: visible !important;
             }
+        }
+
+        .choose{
+            background-color: rgba(188, 58, 56, 0.3);
         }
 
         .active {

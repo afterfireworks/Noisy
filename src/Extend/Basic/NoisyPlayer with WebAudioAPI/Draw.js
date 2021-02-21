@@ -2,6 +2,7 @@ function Draw() {
 
     requestAnimationFrame(Draw);
     analyser.fftSize = 2048;
+
     const bufferLength = analyser.frequencyBinCount;
     const dataArray = new Uint8Array(bufferLength);
     analyser.getByteFrequencyData(dataArray);
