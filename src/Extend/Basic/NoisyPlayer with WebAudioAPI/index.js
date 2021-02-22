@@ -176,7 +176,6 @@ CtxSwitch.addEventListener('click', () => {
 function CreareSongBook() {
     let songbookStr = ""
     for (i = 0; i < SongArray.length; i++) {
-        // songbookStr += `<option>${SongArray[i][3]}</option>`
         songbookStr += `<li id='${i}'><span>${SongArray[i][4]}</span><div onclick='addSong(this)'><img src='src/image/icons/icon-add.png'></img></div></li>`
     }
     SongBook.innerHTML = songbookStr
@@ -189,7 +188,6 @@ function addSong(element) {
     let idx = element.parentElement.id
     listArr.push(`<li onclick='selectSong(this)'><span>${SongArray[idx][4]}</span><div onclick='removeSong(this)'><img src='src/image/icons/icon-remove.png'></img></div></li>`)
     realListArr.push(`<option value='${SongArray[idx][0]}' data-artistimgurl='${SongArray[idx][1]}' data-albumimgurl='${SongArray[idx][2]}' data-bannerimgurl='${SongArray[idx][3]}'>${SongArray[idx][4]}</option>`)
-    ////<option ondblclick='removeSong()' value="" data-artistImgUrl="" data-albumImgUrl=""></option>
     element.parentElement.classList.add("choose")
 }
 
@@ -248,7 +246,6 @@ function selectSong(element) {
 }
 
 function SongChange(idx) {
-    // Music.crossOrigin = 'use-credentials';
     Music.src = "src\\music\\" + RealSongList.options[idx].value;
     RealSongList.options[idx].selected = true;
     btnPlay.innerHTML = `<img src="src/image/icons/pause.png" alt="">`
@@ -258,13 +255,6 @@ function SongChange(idx) {
     setName(RealSongList.options[idx]);
     setTime();
     setTimeToLeft(0)
-    // if (isMobile()) {
-    //     ContorlsPanel.style.width = "0"
-    //     PlayInfo.style.marginLeft = "0"
-    //     PlayInfo.style.transition = "all .3s"
-    //     PlayInfo.classList.remove("notDesktop");
-    //     ContorlsPanel.classList.remove("visiable")
-    // }
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -300,14 +290,6 @@ DelayControl.oninput = function () {
     delayTime.delayTime.value = DelayControl.value;
     DelayValue.innerHTML = DelayControl.value;
 }
-
-// const ReverbControl = document.getElementById("reverbControl");
-// const ReverbValue = document.getElementById("reverbValue");
-
-// ReverbControl.oninput = function () {
-//     reverb.value = ReverbControl.value;
-//     ReverbValue.innerHTML = ReverbControl.value;
-// }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // play btns
