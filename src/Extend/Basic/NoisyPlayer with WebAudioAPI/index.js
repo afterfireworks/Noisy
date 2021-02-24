@@ -9,9 +9,9 @@ const SongArray = [
     ["Vast&Hazy-Waves.mp3", "Vast&Hazy.artist.jpg", "Vast&Hazy.ep01.jpg", "banner3.jpg", "Vast & Hazy - 與浪之間"],
     ["Vast&Hazy-TheCityisEatingMeAlive.mp3", "Vast&Hazy.artist.jpg", "Vast&Hazy.ep01.jpg", "banner3.jpg", "Vast & Hazy - 食人夢"],
     ["Vast&Hazy-ImNotOK.mp3", "Vast&Hazy.artist.jpg", "Vast&Hazy.ab01.jpg", "banner3.jpg", "Vast & Hazy - 求救訊號"],
-    ["Collage-tsòng hōo kui-lōo hué-hu iû-tsāi.mp3", "Collage.artist.jpg", "Collage.01.jpg", "banner2.jpg", "珂拉琪 - 葬予規路火烌猶在"],
-    ["Collage - Bān-tshian Hue-luí Tsû-bió Pi-ai.mp3", "Collage.artist.jpg", "Collage.02.jpg", "banner2.jpg", "珂拉琪 - 萬千花蕊慈母悲哀"],
-    ["Collage - tse kai-sí ê khu-tsip kah ài.mp3", "Collage.artist.jpg", "Collage.03.jpg", "banner2.jpg", "珂拉琪 - 這該死的拘執佮愛"]
+    ["Collage-tsòng hōo kui-lōo hué-hu iû-tsāi.mp3", "Collage.artist.jpg", "Collage.01.jpg", "banner1.jpg", "珂拉琪 - 葬予規路火烌猶在"],
+    ["Collage - Bān-tshian Hue-luí Tsû-bió Pi-ai.mp3", "Collage.artist.jpg", "Collage.02.jpg", "banner1.jpg", "珂拉琪 - 萬千花蕊慈母悲哀"],
+    ["Collage - tse kai-sí ê khu-tsip kah ài.mp3", "Collage.artist.jpg", "Collage.03.jpg", "banner1.jpg", "珂拉琪 - 這該死的拘執佮愛"]
 ]
 
 const audio = document.querySelector('audio');
