@@ -1,6 +1,8 @@
 const SongArray = [
     ["WeLostTheSea-AGallantGentleman-LiveatStudios301.mp3", "WeLostTheSea.artist.jfif", "WeLostTheSea.ab03.jpg",  "banner2.jpg","We Lost The Sea - A Gallant Gentleman - Live at Studios 301"],
-    ["Senhuai-WaitingMan.mp3", "Senhuai-.jfif", "Senhuai-WaitingMan.artist.jpg", "banner3.jpg", "詹森淮 - 他總是在那個路口"],
+    ["DesertsXuan-BingBu.mp3", "DesertsXuan.artist.jpg", "DesertsXuan.ab02.jpg", "banner3.jpg", "張懸 - 並不"],
+    ["EnnoCheng-ThePath.mp3", "EnnoCheng.artist.png", "EnnoCheng.ep.jpg", "banner3.jpg", "鄭宜農 – 人生很難"],
+    ["Senhuai-WaitingMan.mp3", "Senhuai.artist.jfif", "Senhuai-WaitingMan.jpg", "banner3.jpg", "詹森淮 - 他總是在那個路口"],
     ["NoPartyForCaoDong-Wayfarer.mp3", "NoPartyForCaoDong.artis.jpg", "NoPartyForCaoDong.abo1.jpg", "banner2.jpg", "草東沒有派對 - 山海"],
     ["NoPartyForCaoDong-Devotion.mp3", "NoPartyForCaoDong.artis.jpg", "NoPartyForCaoDong.Devotion.jpg", "banner1.jpg", "草東沒有派對 - 還願"],
     ["Vast&Hazy-IntheDark.mp3", "Vast&Hazy.artist.jpg", "Vast&Hazy.ep02.jpg", "banner1.jpg", "Vast & Hazy - 無差別傷害"],
